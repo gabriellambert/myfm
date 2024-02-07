@@ -1,16 +1,29 @@
 package com.example.myfm.model
 
-data class Player(
-    val id: Int? = null,
-    val name: String?,
-    val age: Int?,
-    val height: String?,
-    val weight: String?,
-    val positions: String?,
-//    val technicalAttibutes: List<TechnicalAttributes>?,
-//    val goalkeeperAttibutes: List<GoalkeeperAttributes>?,
-//    val mentalAttibutes: List<MentalAttributes>?,
-//    val physicalAttibutes: List<PhysicalAttributes>?,
-) {
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.myfm.repository.room.converter.Converters
+import com.example.myfm.repository.sqlite.COLUMN_ID
+import com.example.myfm.repository.sqlite.TABLE_PLAYER
 
-}
+@Entity(tableName = TABLE_PLAYER)
+data class Player(
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = COLUMN_ID)
+    var id: Long = 0,
+    var name: String = "",
+    var age: Int = 1,
+    var height: String = "",
+    var weight: String = "",
+    var positions: String = "",
+    @TypeConverters(Converters::class)
+    var technicalAttibutes: TechnicalAttributes?,
+    @TypeConverters(Converters::class)
+    var goalkeeperAttibutes: GoalkeeperAttributes?,
+    @TypeConverters(Converters::class)
+    var mentalAttibutes: MentalAttributes?,
+    @TypeConverters(Converters::class)
+    var physicalAttibutes: PhysicalAttributes?,
+)
