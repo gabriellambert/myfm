@@ -7,7 +7,7 @@ interface PlayerRepository {
 
     fun getAll(): List<Player>
 
-    fun playerById(id: Long): List<Player>
+    fun playerById(id: Long): Player
 
     fun save(player: Player)
 

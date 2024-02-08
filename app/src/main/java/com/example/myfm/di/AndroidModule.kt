@@ -1,5 +1,6 @@
 package com.example.myfm.di
 
+import com.example.myfm.PlayerViewModel
 import com.example.myfm.repository.PlayerRepository
 import com.example.myfm.repository.room.PlayerDatabase
 import com.example.myfm.repository.RoomRepository
@@ -14,5 +15,8 @@ val androidModule = module {
     }
     viewModel {
         MainViewModel(repository = get())
+    }
+    viewModel {
+        PlayerViewModel(repository = get())
     }
 }

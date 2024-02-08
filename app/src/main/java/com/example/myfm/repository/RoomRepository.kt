@@ -11,7 +11,7 @@ class RoomRepository(database: PlayerDatabase): PlayerRepository {
         return playerDao.getAll()
     }
 
-    override fun playerById(id: Long): List<Player> {
+    override fun playerById(id: Long): Player {
         return playerDao.playerById(id)
     }
 

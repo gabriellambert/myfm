@@ -1,15 +1,22 @@
 package com.example.myfm.ui
 
 import android.os.Bundle
-import androidx.activity.viewModels
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myfm.PlayerViewModel
+import com.example.myfm.R
 import com.example.myfm.databinding.ActivityPlayerBinding
+import com.example.myfm.model.Player
 
 class PlayerActivity : AppCompatActivity() {
 
+    private val playerId: Long by lazy {
+        intent.getLongExtra(PLAYER_ID, -1)
+    }
+
     private lateinit var binding: ActivityPlayerBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: PlayerViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +24,9 @@ class PlayerActivity : AppCompatActivity() {
         binding = ActivityPlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val playerId = intent.getStringExtra(PLAYER_ID)
+        val player = viewModel.getPlayerById(playerId)
+        setContent(player)
+
 
 //        val navView: BottomNavigationView = binding.navView
 //
@@ -31,6 +40,18 @@ class PlayerActivity : AppCompatActivity() {
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
 //        navView.setupWithNavController(navController)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
+    private fun setContent(player: Player) {
+        binding.playerName.text = player.name
+        binding.playerHeightWeight.text = getString(
+            R.string.player_height_weight,
+            player.height,
+            player.weight)
     }
 
     companion object {

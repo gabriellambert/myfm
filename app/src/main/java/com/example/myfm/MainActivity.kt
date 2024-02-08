@@ -40,7 +40,10 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         with(binding) {
             this.addButton.setOnClickListener {
-//                viewModel.savePlayers()
+                viewModel.savePlayers()
+            }
+            this.deleteButton.setOnClickListener {
+                viewModel.deletePlayers()
             }
         }
     }

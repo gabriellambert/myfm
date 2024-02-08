@@ -16,7 +16,7 @@ interface PlayerDao {
     fun getAll(): List<Player>
 
     @Query("SELECT * FROM $TABLE_PLAYER WHERE $COLUMN_ID = :id")
-    fun playerById(id: Long): List<Player>
+    fun playerById(id: Long): Player
 
 //    @Query("SELECT * FROM user WHERE first_name LIKE :first AND " +
 //            "last_name LIKE :last LIMIT 1")
