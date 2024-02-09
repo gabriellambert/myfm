@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_header_20">20sp</dimen>
+    <dimen name="text_header_16">16sp</dimen>
+    <dimen name="text_header_12">12sp</dimen>
+
+    <dimen name="margin_32">32dp</dimen>
+</resources>
