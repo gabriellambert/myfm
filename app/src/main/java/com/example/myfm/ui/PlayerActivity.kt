@@ -7,6 +7,10 @@ import com.example.myfm.PlayerViewModel
 import com.example.myfm.R
 import com.example.myfm.databinding.ActivityPlayerBinding
 import com.example.myfm.model.Player
+import com.example.myfm.tabs.PlayerTabAdapter
+import com.example.myfm.tabs.PlayerTabType
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class PlayerActivity : AppCompatActivity() {
 
@@ -15,6 +19,7 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityPlayerBinding
+    private lateinit var playerTabAdapter: PlayerTabAdapter
 
     private val viewModel: PlayerViewModel by viewModel()
 
@@ -26,6 +31,7 @@ class PlayerActivity : AppCompatActivity() {
 
         val player = viewModel.getPlayerById(playerId)
         setContent(player)
+        setPlayerTabs()
 
 
 //        val navView: BottomNavigationView = binding.navView
@@ -51,7 +57,31 @@ class PlayerActivity : AppCompatActivity() {
         binding.playerHeightWeight.text = getString(
             R.string.player_height_weight,
             player.height,
-            player.weight)
+            player.weight
+        )
+        binding.playerNationalityAndAge.text = getString(
+            R.string.player_nationality_and_age,
+            player.age.toString()
+        )
+    }
+
+    private fun setPlayerTabs() {
+        val tabs = PlayerTabType.values()
+
+        playerTabAdapter = PlayerTabAdapter(this, tabs.toList())
+
+        configurePlayerTabs()
+    }
+
+    private fun configurePlayerTabs() {
+        with(binding.viewPager) {
+            this.offscreenPageLimit = 3
+            this.adapter = playerTabAdapter
+        }
+
+        TabLayoutMediator(binding.tablayout, binding.viewPager) { tab, position ->
+            tab.text = playerTabAdapter.tabs[position].title
+        }.attach()
     }
 
     companion object {

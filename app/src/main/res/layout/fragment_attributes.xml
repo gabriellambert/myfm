@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_23"
+    tools:context=".ui.ui.attributes.AttributesFragment">
+
+    <TextView
+        android:id="@+id/technical_title"
+        style="@style/PlayerDetails.Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TÉCNICOS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/technical_attributes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/technical_title">
+
+        <LinearLayout
+            android:id="@+id/technical_attributes_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:layout_marginEnd="1dp">
+
+            <LinearLayout
+                android:id="@+id/heading_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cabeceamento"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/heading_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/corners_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cantos"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/corners_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/crossing_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cruzamentos"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/crossing_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tackling_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desarme"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/tackling_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/finishing_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finalização"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/finishing_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dribbling_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finta"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/dribbling_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/longThrows_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lanç. longos"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/longThrows_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/technical_attributes_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:layout_marginEnd="1dp">
+
+            <LinearLayout
+                android:id="@+id/freeKickTacking_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Livres"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/freeKickTacking_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/marking_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marcação"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/marking_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/penaltyTaking_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marc. Pênaltis"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/penaltyTaking_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/passing_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Passe"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/passing_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/firstTouch_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Primeiro toque"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/firstTouch_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/longShots_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remates de longe"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/longShots_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/technique_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Técnica"
+                    android:layout_weight="6"/>
+
+                <TextView
+                    android:id="@+id/technique_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
