@@ -1,4 +1,4 @@
-package com.example.player_center.tabs.ui.dashboard
+package com.example.player_center.tabs.ui.suggestion
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.player_center.databinding.FragmentDashboardBinding
+import com.example.player_center.databinding.FragmentSuggestionBinding
 
-class DashboardFragment : Fragment() {
+class SuggestionFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentSuggestionBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val suggestionViewModel =
+            ViewModelProvider(this).get(SuggestionViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentSuggestionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textNotifications
+        suggestionViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

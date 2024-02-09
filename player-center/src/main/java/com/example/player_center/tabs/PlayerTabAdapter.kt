@@ -3,9 +3,9 @@ package com.example.player_center.tabs
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.player_center.tabs.ui.dashboard.DashboardFragment
+import com.example.player_center.tabs.ui.statistics.StatisticsFragment
 import com.example.player_center.tabs.ui.attributes.AttributesFragment
-import com.example.player_center.tabs.ui.notifications.NotificationsFragment
+import com.example.player_center.tabs.ui.suggestion.SuggestionFragment
 
 internal class PlayerTabAdapter(
     appCompatActivity: AppCompatActivity,
@@ -18,8 +18,8 @@ internal class PlayerTabAdapter(
     override fun createFragment(position: Int): Fragment {
         return when (tabs[position]) {
             PlayerTabType.ATTRIBUTES -> AttributesFragment()
-            PlayerTabType.STATISTICS -> DashboardFragment()
-            PlayerTabType.SUGGESTION -> NotificationsFragment()
+            PlayerTabType.STATISTICS -> StatisticsFragment()
+            PlayerTabType.SUGGESTION -> SuggestionFragment()
         }
     }
 }

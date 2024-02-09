@@ -1,13 +1,13 @@
-package com.example.player_center.tabs.ui.dashboard
+package com.example.player_center.tabs.ui.suggestion
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class SuggestionViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "Em breve você poderá ver sugestões de treinos e evolução deste jogador"
     }
     val text: LiveData<String> = _text
 }
