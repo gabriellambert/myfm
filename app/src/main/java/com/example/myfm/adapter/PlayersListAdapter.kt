@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfm.PlayersListViewHolder
 import com.example.myfm.databinding.PlayerListItemBinding
-import com.example.myfm.model.Player
+import com.example.player_center.model.Player
 
 class PlayersListAdapter(
     private val context: Context,

@@ -2,14 +2,13 @@ package com.example.myfm
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myfm.adapter.PlayersListAdapter
 import com.example.myfm.databinding.ActivityMainBinding
-import com.example.myfm.model.Player
-import com.example.myfm.ui.PlayerActivity
 import com.example.myfm.ui.MainViewModel
+import com.example.player_center.PlayerActivity
+import com.example.player_center.model.Player
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

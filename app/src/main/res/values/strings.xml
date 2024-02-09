@@ -6,8 +6,4 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-
-    <string name="player_height_weight">%s, %s</string>
-    <string name="player_name">Player Name</string>
-    <string name="player_nationality_and_age">Brasileiro\n%s anos</string>
 </resources>

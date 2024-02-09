@@ -1,22 +1,24 @@
 package com.example.myfm.di
 
-import com.example.myfm.PlayerViewModel
-import com.example.myfm.repository.PlayerRepository
-import com.example.myfm.repository.room.PlayerDatabase
-import com.example.myfm.repository.RoomRepository
 import com.example.myfm.ui.MainViewModel
+import com.example.player_center_data.repository.PlayerRepository
+import com.example.player_center_data.repository.room.PlayerDatabase
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val androidModule = module {
     single { this }
     single {
-        RoomRepository(PlayerDatabase.getDatabase(context = get())) as PlayerRepository
+        com.example.player_center_data.repository.RoomRepository(
+            PlayerDatabase.getDatabase(
+                context = get()
+            )
+        ) as PlayerRepository
     }
     viewModel {
         MainViewModel(repository = get())
     }
     viewModel {
-        PlayerViewModel(repository = get())
+        com.example.player_center.PlayerViewModel(repository = get())
     }
 }

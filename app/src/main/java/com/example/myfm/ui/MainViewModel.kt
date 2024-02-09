@@ -1,23 +1,29 @@
 package com.example.myfm.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.myfm.model.GoalkeeperAttributes
-import com.example.myfm.model.MentalAttributes
-import com.example.myfm.model.PhysicalAttributes
-import com.example.myfm.model.Player
-import com.example.myfm.model.TechnicalAttributes
-import com.example.myfm.repository.PlayerRepository
+import com.example.player_center.mappers.PlayerMapper
+import com.example.player_center.model.Player
+import com.example.player_center_data.repository.PlayerRepository
+import com.example.player_center.model.GoalkeeperAttributes
+import com.example.player_center.model.MentalAttributes
+import com.example.player_center.model.PhysicalAttributes
+import com.example.player_center.model.TechnicalAttributes
+import com.example.player_center_data.repository.model.GoalkeeperAttributesData
+import com.example.player_center_data.repository.model.MentalAttributesData
+import com.example.player_center_data.repository.model.PhysicalAttributesData
+import com.example.player_center_data.repository.model.PlayerData
+import com.example.player_center_data.repository.model.TechnicalAttributesData
 
 class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
 
     val players = listOf(
-        Player(
+        PlayerData(
             name = "Augusto Batalla",
             age = 31,
             height = "1.85m",
             weight = "79kg",
             positions = "GR",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -33,7 +39,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -48,7 +54,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -64,7 +70,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -75,13 +81,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Neto Volpi",
             age = 34,
             height = "1.89m",
             weight = "79kg",
             positions = "GR",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -97,7 +103,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -112,7 +118,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -128,7 +134,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -139,13 +145,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Young",
             age = 25,
             height = "2.02m",
             weight = "86kg",
             positions = "GR",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -161,7 +167,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -176,7 +182,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -192,7 +198,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -203,13 +209,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Antônio Carlos",
             age = 20,
             height = "1.96m",
             weight = "84kg",
             positions = "GR",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -225,7 +231,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -240,7 +246,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -256,7 +262,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -267,13 +273,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Joaquín Novillo",
             age = 29,
             height = "1.90m",
             weight = "89kg",
             positions = "D(C)",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -289,7 +295,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -304,7 +310,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -320,7 +326,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -331,13 +337,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Ian Rasso",
             age = 26,
             height = "1.81m",
             weight = "74kg",
             positions = "D(C)",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -353,7 +359,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -368,7 +374,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -384,7 +390,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -395,13 +401,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Mezenga",
             age = 25,
             height = "1.85m",
             weight = "75kg",
             positions = "D(C)",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -417,7 +423,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -432,7 +438,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -448,7 +454,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -459,13 +465,13 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 37
             )
         ),
-        Player(
+        PlayerData(
             name = "Bruno Rodrigues",
             age = 30,
             height = "1.77m",
             weight = "72kg",
             positions = "M(E),MO(DE),PL(C)",
-            technicalAttibutes = TechnicalAttributes(
+            technicalAttibutes = TechnicalAttributesData(
                 1,
                 2,
                 3,
@@ -481,7 +487,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 13,
                 14
             ),
-            goalkeeperAttibutes = GoalkeeperAttributes(
+            goalkeeperAttibutes = GoalkeeperAttributesData(
                 38,
                 39,
                 40,
@@ -496,7 +502,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 49,
                 50
             ),
-            mentalAttibutes = MentalAttributes(
+            mentalAttibutes = MentalAttributesData(
                 15,
                 16,
                 17,
@@ -512,7 +518,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 27,
                 28
             ),
-            physicalAttibutes = PhysicalAttributes(
+            physicalAttibutes = PhysicalAttributesData(
                 30,
                 31,
                 32,
@@ -538,6 +544,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
     }
 
     fun getPlayerList(): List<Player> {
-        return repository.getAll()
+        val players = repository.getAll()
+        return PlayerMapper.mapToPlayerModel(players)
     }
 }
