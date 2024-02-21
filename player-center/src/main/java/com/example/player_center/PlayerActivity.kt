@@ -17,6 +17,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlayerBinding
     private lateinit var playerTabAdapter: PlayerTabAdapter
+    private lateinit var player: Player
 
     private val viewModel: PlayerViewModel by viewModel()
 
@@ -27,6 +28,8 @@ class PlayerActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val player = viewModel.getPlayerById(playerId)
+        this.player = player
+
         setContent(player)
         setPlayerTabs()
 
@@ -65,7 +68,7 @@ class PlayerActivity : AppCompatActivity() {
     private fun setPlayerTabs() {
         val tabs = PlayerTabType.values()
 
-        playerTabAdapter = PlayerTabAdapter(this, tabs.toList())
+        playerTabAdapter = PlayerTabAdapter(this, tabs.toList(), player)
 
         configurePlayerTabs()
     }
