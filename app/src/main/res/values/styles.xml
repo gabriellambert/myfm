@@ -4,7 +4,6 @@
         <item name="android:textSize">@dimen/text_header_24</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_margin">@dimen/margin_32</item>
-        <item name="fontFamily"></item>
     </style>
 
     <style name="PlayerList.Header" parent="" >
@@ -14,18 +13,6 @@
     </style>
 
     <style name="PlayerCard.Text" parent="" >
-        <item name="android:textSize">@dimen/text_header_12</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="PlayerDetails.Name" parent="" >
-        <item name="android:textSize">@dimen/text_header_20</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_margin">@dimen/margin_32</item>
-    </style>
-
-    <style name="PlayerDetails.HeightWeight" parent="" >
         <item name="android:textSize">@dimen/text_header_12</item>
         <item name="android:textColor">@color/white</item>
     </style>

@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_23"
+    tools:context="com.example.player_center.tabs.ui.attributes.AttributesFragment">
+
+    <TextView
+        android:id="@+id/technical_title"
+        style="@style/PlayerDetails.Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/technical_title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/technical_attributes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/technical_title">
+
+        <LinearLayout
+            android:id="@+id/technical_attributes_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/heading_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/heading_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Cabeceamento" />
+
+                <TextView
+                    android:id="@+id/heading_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/corners_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/corners_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Cantos" />
+
+                <TextView
+                    android:id="@+id/corners_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/crossing_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/crossing_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Cruzamentos" />
+
+                <TextView
+                    android:id="@+id/crossing_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tackling_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/tackling_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Desarme" />
+
+                <TextView
+                    android:id="@+id/tackling_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/finishing_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/finishing_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Finalização" />
+
+                <TextView
+                    android:id="@+id/finishing_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dribbling_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/dribbling_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Finta" />
+
+                <TextView
+                    android:id="@+id/dribbling_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/longThrows_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/long_throws_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Lanç. longos" />
+
+                <TextView
+                    android:id="@+id/longThrows_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/technical_attributes_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/freeKickTacking_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/free_kick_tacking_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Livres" />
+
+                <TextView
+                    android:id="@+id/freeKickTacking_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/marking_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/marking_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Marcação" />
+
+                <TextView
+                    android:id="@+id/marking_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/penaltyTaking_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/penalty_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Marc. Pênaltis" />
+
+                <TextView
+                    android:id="@+id/penaltyTaking_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/passing_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/passing_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Passe" />
+
+                <TextView
+                    android:id="@+id/passing_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/firstTouch_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/first_touch_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Primeiro toque" />
+
+                <TextView
+                    android:id="@+id/firstTouch_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/longShots_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/long_shots_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Remates de longe" />
+
+                <TextView
+                    android:id="@+id/longShots_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/technique_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    android:id="@+id/technique_text"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Técnica" />
+
+                <TextView
+                    android:id="@+id/technique_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mental_title"
+        style="@style/PlayerDetails.Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mental_title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/technical_attributes_container" />
+
+    <LinearLayout
+        android:id="@+id/mental_attributes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mental_title">
+
+        <LinearLayout
+            android:id="@+id/mental_attributes_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/aggression_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Agressividade" />
+
+                <TextView
+                    android:id="@+id/aggression_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/anticipation_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Antecipação" />
+
+                <TextView
+                    android:id="@+id/anticipation_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bravery_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Bravura" />
+
+                <TextView
+                    android:id="@+id/bravery_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/composure_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Compostura" />
+
+                <TextView
+                    android:id="@+id/composure_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/concentration_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Concentração" />
+
+                <TextView
+                    android:id="@+id/concentration_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/decisions_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Decisões" />
+
+                <TextView
+                    android:id="@+id/decisions_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/determination_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Determinação" />
+
+                <TextView
+                    android:id="@+id/determination_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mental_attributes_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/flair_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Impresivibilidade" />
+
+                <TextView
+                    android:id="@+id/flair_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/workRate_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_23"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Índice de trabalho" />
+
+                <TextView
+                    android:id="@+id/workRate_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/leadership_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Liderança" />
+
+                <TextView
+                    android:id="@+id/leadership_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/positioning_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Posicionamento" />
+
+                <TextView
+                    android:id="@+id/positioning_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/offTheBall_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Sem bola" />
+
+                <TextView
+                    android:id="@+id/offTheBall_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/teamwork_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Trabalho em equipe" />
+
+                <TextView
+                    android:id="@+id/teamwork_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/vision_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Visão de jogo" />
+
+                <TextView
+                    android:id="@+id/vision_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/physical_title"
+        style="@style/PlayerDetails.Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/physical_title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mental_attributes_container" />
+
+    <LinearLayout
+        android:id="@+id/physical_attributes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/physical_title">
+
+        <LinearLayout
+            android:id="@+id/physical_attributes_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/acceleration_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Aceleração" />
+
+                <TextView
+                    android:id="@+id/acceleration_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/agility_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Agilidade" />
+
+                <TextView
+                    android:id="@+id/agility_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/naturalFitness_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Aptidão física" />
+
+                <TextView
+                    android:id="@+id/naturalFitness_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/balance_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Equilíbrio" />
+
+                <TextView
+                    android:id="@+id/balance_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/physical_attributes_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/strenght_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Força" />
+
+                <TextView
+                    android:id="@+id/strenght_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jumpingReach_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_23"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Impulsão" />
+
+                <TextView
+                    android:id="@+id/jumpingReach_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stamina_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_27"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Resistência" />
+
+                <TextView
+                    android:id="@+id/stamina_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pace_attribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="1dp">
+
+                <TextView
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Velocidade" />
+
+                <TextView
+                    android:id="@+id/pace_value"
+                    style="@style/PlayerDetails.AttributesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

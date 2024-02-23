@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="player_name">Player name</string>
+    <string name="player_height_weight">%s, %s</string>
+    <string name="player_nationality_and_age">Brasileiro\n%s anos</string>
+    <string name="technical_title_text">TÉCNICOS</string>
+    <string name="mental_title_text">MENTAIS</string>
+    <string name="physical_title_text">FÍSICOS</string>
+</resources>

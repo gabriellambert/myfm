@@ -2,6 +2,7 @@
 <resources>
     <dimen name="text_header_24">24dp</dimen>
     <dimen name="text_header_20">20dp</dimen>
+    <dimen name="text_header_16">16dp</dimen>
     <dimen name="text_header_12">12dp</dimen>
 
     <dimen name="margin_32">32dp</dimen>
