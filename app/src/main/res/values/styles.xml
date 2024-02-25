@@ -6,6 +6,25 @@
         <item name="android:layout_margin">@dimen/margin_32</item>
     </style>
 
+    <style name="EmptyState.Header" parent="" >
+        <item name="android:textSize">@dimen/text_header_16</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EmptyState.Description" parent="" >
+        <item name="android:textSize">@dimen/text_header_12</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">@dimen/margin_8</item>
+    </style>
+
+    <style name="EmptyState.Button" parent="" >
+        <item name="android:layout_marginTop">@dimen/margin_32</item>
+        <item name="backgroundTint">@color/primary_yellow</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="PlayerList.Header" parent="" >
         <item name="android:textSize">@dimen/text_header_12</item>
         <item name="android:textColor">@color/light_grey</item>
