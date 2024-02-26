@@ -27,6 +27,21 @@ class AttributesFragment : Fragment() {
             fragment.arguments = bundle
             return fragment
         }
+
+        private const val GOALKEEPER_TITLE = "GOLEIRO"
+        private const val RUSHING_OUT_ATTR = "(Tendência) para saídas da baliza"
+        private const val PUNCHING_ATTR = "(Tendência) para socar"
+        private const val AERIAL_REACH_ATTR = "Alcance Aéreo"
+        private const val COMMAND_OF_AREA_ATTR = "Comando de área"
+        private const val COMMUNICATION_ATTR = "Comunicação"
+        private const val ECCENTRICITY_ATTR = "Excentricidade"
+        private const val HANDLING_ATTR = "Jogo de Mãos"
+        private const val THROWING_ATTR = "Lançamentos"
+        private const val PASSING_ATTR = "Passe"
+        private const val KICKING_ATTR = "Pontapé"
+        private const val FIRST_TOUCH_ATTR = "Primeiro Toque"
+        private const val REFLEXES_ATTR = "Reflexos"
+        private const val ONE_ON_ONES_ATTR = "Um para Um"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -123,40 +138,39 @@ class AttributesFragment : Fragment() {
 
     private fun setPlayerGoalkeeperAttributes(attributes: GoalkeeperAttributes?) {
         with(binding) {
-            this.headingValue.text = attributes?.aerialReach.toString()
-            this.cornersValue.text = attributes?.commandOfArea.toString()
-            this.crossingValue.text = attributes?.communication.toString()
-            this.tacklingValue.text = attributes?.eccentricity.toString()
-            this.finishingValue.text = attributes?.firstTouch.toString()
-            this.dribblingValue.text = attributes?.handling.toString()
-            this.longThrowsValue.text = attributes?.kicking.toString()
-            this.freeKickTackingValue.text = attributes?.oneOnOnes.toString()
+            this.headingValue.text = attributes?.rushingOut.toString()
+            this.cornersValue.text = attributes?.punching.toString()
+            this.crossingValue.text = attributes?.aerialReach.toString()
+            this.tacklingValue.text = attributes?.commandOfArea.toString()
+            this.finishingValue.text = attributes?.communication.toString()
+            this.dribblingValue.text = attributes?.eccentricity.toString()
+            this.longThrowsValue.text = attributes?.handling.toString()
+            this.freeKickTackingValue.text = attributes?.throwing.toString()
             this.markingValue.text = attributes?.passing.toString()
-            this.penaltyTakingValue.text = attributes?.punching.toString()
-            this.passingValue.text = attributes?.reflexes.toString()
-            this.firstTouchValue.text = attributes?.rushingOut.toString()
-            this.longShotsValue.text = attributes?.throwing.toString()
+            this.penaltyTakingValue.text = attributes?.kicking.toString()
+            this.passingValue.text = attributes?.firstTouch.toString()
+            this.firstTouchValue.text = attributes?.reflexes.toString()
+            this.longShotsValue.text = attributes?.oneOnOnes.toString()
             this.techniqueValue.visibility = View.GONE
         }
     }
 
     private fun setGoalkeeperAttributesText() {
-        //TODO ajustar textos corretamente
         with(binding) {
-            this.technicalTitle.text = "GOLEIRO"
-            this.headingText.text = "Alcance aéreo"
-            this.cornersText.text = "Comando de área"
-            this.crossingText.text = "Comunicação"
-            this.tacklingText.text = "Excentricidade"
-            this.finishingText.text = "Primeiro toque"
-            this.dribblingText.text = "Mãos"
-            this.longThrowsText.text = "Chutes"
-            this.freeKickTackingText.text = "Um a um"
-            this.markingText.text = "Passe"
-            this.penaltyText.text = "Socos"
-            this.passingText.text = "Reflexos"
-            this.firstTouchText.text = "Saída"
-            this.longShotsText.text = "Lançamentos"
+            this.technicalTitle.text = GOALKEEPER_TITLE
+            this.headingText.text = RUSHING_OUT_ATTR
+            this.cornersText.text = PUNCHING_ATTR
+            this.crossingText.text = AERIAL_REACH_ATTR
+            this.tacklingText.text = COMMAND_OF_AREA_ATTR
+            this.finishingText.text = COMMUNICATION_ATTR
+            this.dribblingText.text = ECCENTRICITY_ATTR
+            this.longThrowsText.text = HANDLING_ATTR
+            this.freeKickTackingText.text = THROWING_ATTR
+            this.markingText.text = PASSING_ATTR
+            this.penaltyText.text = KICKING_ATTR
+            this.passingText.text = FIRST_TOUCH_ATTR
+            this.firstTouchText.text = REFLEXES_ATTR
+            this.longShotsText.text = ONE_ON_ONES_ATTR
             this.techniqueAttribute.visibility = View.GONE
         }
     }

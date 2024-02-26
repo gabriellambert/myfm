@@ -6,4 +6,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="age_abreviation">IDA</string>
+    <string name="position_abreviation">POS</string>
+    <string name="name_text">NOME</string>
+    <string name="plantel_text">plantel</string>
+    <string name="empty_state_header">Você ainda não possui um plantel</string>
+    <string name="empty_state_description">Para iniciar faça o upload do seu arquivo\n clicando no botão abaixo</string>
+    <string name="upload_button_text">Upload do meu elenco</string>
 </resources>

@@ -2,6 +2,8 @@ package com.example.myfm
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.DocumentsContract
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myfm.adapter.PlayersListAdapter
@@ -22,8 +24,36 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initRecyclerView()
+        shouldShowEmptyState()
         setListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        shouldShowEmptyState()
+    }
+
+    private fun shouldShowEmptyState() {
+        if (viewModel.getPlayerList().isEmpty()) {
+            setEmptyState()
+        } else {
+            setEmptyStateToGone()
+            initRecyclerView()
+        }
+    }
+
+    private fun setEmptyState() {
+        with(binding) {
+            this.empytStateContainer.visibility = View.VISIBLE
+            this.teamListContainer.visibility = View.GONE
+        }
+    }
+
+    private fun setEmptyStateToGone() {
+        with(binding) {
+            this.empytStateContainer.visibility = View.GONE
+            this.teamListContainer.visibility = View.VISIBLE
+        }
     }
 
     private fun initRecyclerView() {
@@ -38,13 +68,34 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         with(binding) {
-            this.addButton.setOnClickListener {
-                viewModel.savePlayers()
-            }
             this.deleteButton.setOnClickListener {
                 viewModel.deletePlayers()
             }
+            this.uploadButton.setOnClickListener {
+                openFile()
+            }
         }
+    }
+
+    private fun openFile() {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "*/*"
+            putExtra(DocumentsContract.EXTRA_INITIAL_URI, "")
+        }
+        startActivityForResult(intent, 100)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            resultData?.data?.also { uri ->
+                viewModel.readTextFromUri(uri, applicationContext)
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, resultData)
     }
 
     private fun onPlayerItemClick(player: Player) {

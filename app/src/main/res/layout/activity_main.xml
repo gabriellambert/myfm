@@ -7,80 +7,114 @@
     android:background="@color/black_23"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/mainHeader"
-        style="@style/MainActivity.Header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="plantel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/team_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/mainHeader"
+            style="@style/MainActivity.Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plantel_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/list_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_32"
+            android:layout_marginTop="@dimen/padding_16"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainHeader">
+
+            <TextView
+                style="@style/PlayerList.Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="@string/name_text" />
+
+            <TextView
+                style="@style/PlayerList.Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:text="@string/position_abreviation"
+                android:textAlignment="center" />
+
+            <TextView
+                style="@style/PlayerList.Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:text="@string/age_abreviation"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_players_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_32"
+            android:layout_marginTop="@dimen/padding_16"
+            android:clipToPadding="false"
+            android:paddingBottom="180dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/list_header_container"/>
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:text="deletar jogadores"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/list_header_container"
+        android:id="@+id/empyt_state_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_32"
-        android:layout_marginTop="@dimen/padding_16"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/padding_16"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainHeader">
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone">
 
         <TextView
-            style="@style/PlayerList.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:text="NOME" />
+            style="@style/EmptyState.Header"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/empty_state_header" />
 
         <TextView
-            style="@style/PlayerList.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.15"
-            android:text="POS"
-            android:textAlignment="center" />
+            style="@style/EmptyState.Description"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/empty_state_description" />
 
-        <TextView
-            style="@style/PlayerList.Header"
+        <Button
+            android:id="@+id/upload_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.15"
-            android:text="IDA"
-            android:textAlignment="center" />
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center_horizontal"
+            style="@style/EmptyState.Button"
+            android:text="@string/upload_button_text" />
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_players_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_32"
-        android:layout_marginTop="@dimen/padding_16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_header_container" />
-
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/delete_button"
-        android:layout_marginBottom="16dp"
-        android:text="adicionar jogadores"/>
-
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        android:layout_marginBottom="16dp"
-        android:text="deletar jogadores"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
