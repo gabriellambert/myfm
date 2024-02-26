@@ -17,7 +17,7 @@
             style="@style/MainActivity.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="plantel"
+            android:text="@string/plantel_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,14 +38,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:text="NOME" />
+                android:text="@string/name_text" />
 
             <TextView
                 style="@style/PlayerList.Header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.15"
-                android:text="POS"
+                android:text="@string/position_abreviation"
                 android:textAlignment="center" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.15"
-                android:text="IDA"
+                android:text="@string/age_abreviation"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -97,15 +97,14 @@
             android:layout_height="wrap_content"
             style="@style/EmptyState.Header"
             android:layout_gravity="center_horizontal"
-            android:text="Você ainda não possui um plantel" />
+            android:text="@string/empty_state_header" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/EmptyState.Description"
             android:layout_gravity="center_horizontal"
-            android:text="Para iniciar faça o upload do seu arquivo\n
-clicando no botão abaixo" />
+            android:text="@string/empty_state_description" />
 
         <Button
             android:id="@+id/upload_button"
@@ -114,7 +113,7 @@ clicando no botão abaixo" />
             android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal"
             style="@style/EmptyState.Button"
-            android:text="Upload do meu elenco" />
+            android:text="@string/upload_button_text" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
