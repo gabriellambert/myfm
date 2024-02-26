@@ -16,6 +16,7 @@
         <activity
             android:name="com.example.player_center.PlayerActivity"
             android:exported="false"
+            android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_player" />
         <activity
             android:name=".MainActivity"

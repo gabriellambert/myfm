@@ -26,6 +26,13 @@ class PlayerActivity : AppCompatActivity() {
 
         binding = ActivityPlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
 
         val player = viewModel.getPlayerById(playerId)
         this.player = player
@@ -49,6 +56,7 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        finish()
         super.onBackPressed()
     }
 
