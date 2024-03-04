@@ -10,15 +10,19 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFM"
-        tools:targetApi="31"
-        android:screenOrientation="portrait">
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.TutorialActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name="com.example.player_center.PlayerActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_player" />
+            android:label="@string/title_activity_player"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

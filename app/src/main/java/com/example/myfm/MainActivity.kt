@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myfm.adapter.PlayersListAdapter
 import com.example.myfm.databinding.ActivityMainBinding
 import com.example.myfm.ui.MainViewModel
+import com.example.myfm.ui.TutorialActivity
 import com.example.player_center.PlayerActivity
 import com.example.player_center.model.Player
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -72,7 +73,8 @@ class MainActivity : AppCompatActivity() {
                 viewModel.deletePlayers()
             }
             this.uploadButton.setOnClickListener {
-                openFile()
+                openTutorial()
+                //                openFile()
             }
         }
     }
@@ -102,6 +104,11 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerActivity::class.java).apply {
             putExtra(PLAYER_ID, player.id)
         }
+        startActivity(intent)
+    }
+
+    private fun openTutorial() {
+        val intent = Intent(this, TutorialActivity::class.java)
         startActivity(intent)
     }
 
