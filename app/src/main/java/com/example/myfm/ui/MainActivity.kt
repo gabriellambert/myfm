@@ -1,6 +1,7 @@
-package com.example.myfm
+package com.example.myfm.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.provider.DocumentsContract
 import android.view.View
@@ -8,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myfm.adapter.PlayersListAdapter
 import com.example.myfm.databinding.ActivityMainBinding
-import com.example.myfm.ui.MainViewModel
 import com.example.player_center.PlayerActivity
 import com.example.player_center.model.Player
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -68,9 +68,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         with(binding) {
-            this.deleteButton.setOnClickListener {
-                viewModel.deletePlayers()
-            }
             this.uploadButton.setOnClickListener {
                 openFile()
             }
@@ -81,7 +78,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
             type = "*/*"
-            putExtra(DocumentsContract.EXTRA_INITIAL_URI, "")
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                putExtra(DocumentsContract.EXTRA_INITIAL_URI, "")
+            }
         }
         startActivityForResult(intent, 100)
     }
