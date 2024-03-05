@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (FROM_TUTORIAL_EXTRAS == intent.action) {
+            openFile()
+        }
+
         shouldShowEmptyState()
         setListeners()
     }
@@ -74,7 +78,6 @@ class MainActivity : AppCompatActivity() {
             }
             this.uploadButton.setOnClickListener {
                 openTutorial()
-                //                openFile()
             }
         }
     }
@@ -114,5 +117,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val PLAYER_ID = "PLAYER_ID"
+        private const val FROM_TUTORIAL_EXTRAS = "FROM_TUTORIAL_EXTRAS"
     }
 }

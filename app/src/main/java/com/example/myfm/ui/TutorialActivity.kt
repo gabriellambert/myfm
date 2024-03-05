@@ -1,14 +1,14 @@
 package com.example.myfm.ui
 
-import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myfm.R
 import com.example.myfm.adapter.ImagePagerAdapter
 import com.example.myfm.databinding.ActivityTutorialBinding
 import com.example.myfm.models.TutorialImage
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class TutorialActivity : AppCompatActivity() {
 
@@ -16,25 +16,29 @@ class TutorialActivity : AppCompatActivity() {
 
     private val images = listOf(
         TutorialImage(
-            "Em seu jogo no computador, acesse a aba de “Plantel”.",
+            this.getString(R.string.tutorial_desc_one),
             R.drawable.tutorial_img_01
         ),
         TutorialImage(
-            "No menu de visualização, baixe o arquivo abaixo e importe-o no jogo...",
+            this.getString(R.string.tutorial_desc_two),
             R.drawable.tutorial_img_02,
-            "https://drive.google.com/file/d/1A_Rs-hkFonH3jqrnux5niK5MgBUIWR88/view?usp=drive_link"
+            VIEW_DOWNLOAD_FILE
         ),
         TutorialImage(
-            "...selecione o arquivo “myfm-filter” e clique em Carregar.",
+            this.getString(R.string.tutorial_desc_three),
             R.drawable.tutorial_img_03
         ),
         TutorialImage(
-            "Clique ao lado esquerdo do nome do primeiro jogador da lista e em seguida o comando “ctrl + a” para selecionar todos do elenco.",
+            this.getString(R.string.tutorial_desc_four),
             R.drawable.tutorial_img_04
         ),
         TutorialImage(
-            "Com todos os jogadores selecionados, aperte “ctrl + p”, escolha “Ficheiro de Texto”, clique em Ok para salvar...",
+            this.getString(R.string.tutorial_desc_five),
             R.drawable.tutorial_img_05
+        ),
+        TutorialImage(
+            this.getString(R.string.tutorial_desc_six),
+            R.drawable.tutorial_img_06
         )
     )
 
@@ -44,21 +48,25 @@ class TutorialActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewPager: ViewPager2 = binding.viewPager
+        val tablayout: TabLayout = binding.tabLayout
         val adapter = ImagePagerAdapter(this, images)
         viewPager.adapter = adapter
+        TabLayoutMediator(tablayout, viewPager) { tab, position ->
+
+        }.attach()
 
         setListeners()
     }
 
     private fun setListeners() {
-        with (binding) {
+        with(binding) {
             this.closeButton.setOnClickListener {
                 finish()
             }
-            this.nextButton.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://drive.google.com/file/d/1A_Rs-hkFonH3jqrnux5niK5MgBUIWR88/view?usp=drive_link"))
-                startActivity(intent)
-            }
         }
+    }
+
+    companion object {
+        private const val VIEW_DOWNLOAD_FILE = "https://drive.google.com/file/d/1A_Rs-hkFonH3jqrnux5niK5MgBUIWR88/view?usp=drive_link"
     }
 }

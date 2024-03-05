@@ -14,4 +14,11 @@
     <string name="empty_state_description">Para iniciar faça o upload do seu arquivo\n clicando no botão abaixo</string>
     <string name="upload_button_text">Upload do meu elenco</string>
     <string name="download_view_button">Baixar visualização</string>
+
+    <string name="tutorial_desc_one">Em seu jogo no computador, acesse a aba de “Plantel”.</string>
+    <string name="tutorial_desc_two">No menu de visualização, baixe o arquivo acima e importe-o no jogo...</string>
+    <string name="tutorial_desc_three">...selecione o arquivo “myfm-filter” e clique em Carregar.</string>
+    <string name="tutorial_desc_four">Clique ao lado esquerdo do nome do primeiro jogador da lista e em seguida o comando “ctrl + a” para selecionar todos do elenco.</string>
+    <string name="tutorial_desc_five">Com todos os jogadores selecionados, aperte “ctrl + p”, escolha “Ficheiro de Texto”, clique em Ok para salvar...</string>
+    <string name="tutorial_desc_six">Agora basta selecionar o arquivo gerado e aguardar seus jogadores serem carregados</string>
 </resources>

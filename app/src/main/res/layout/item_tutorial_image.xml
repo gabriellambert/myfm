@@ -16,25 +16,25 @@
 
     <TextView
         android:id="@+id/text_description"
+        style="@style/TutorialImage.Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_32"
         android:layout_marginHorizontal="@dimen/margin_32"
-        style="@style/TutorialImage.Description"
-        app:layout_constraintBottom_toTopOf="@id/upload_button"
+        android:layout_marginBottom="@dimen/margin_96"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/upload_button"
+        style="@style/EmptyState.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_32"
         android:text="@string/download_view_button"
-        android:layout_marginBottom="80dp"
-        style="@style/EmptyState.Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/text_description"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

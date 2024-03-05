@@ -1,22 +1,17 @@
 package com.example.myfm.adapter
 
-import android.app.ActionBar.LayoutParams
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.marginBottom
-import androidx.core.view.setMargins
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myfm.MainActivity
 import com.example.myfm.R
 import com.example.myfm.databinding.ItemTutorialImageBinding
 import com.example.myfm.models.TutorialImage
-import kotlinx.coroutines.withContext
 
 class ImagePagerAdapter(private val context: Context, private val images: List<TutorialImage>) :
     RecyclerView.Adapter<ImagePagerAdapter.ImageViewHolder>() {
@@ -52,9 +47,27 @@ class ImagePagerAdapter(private val context: Context, private val images: List<T
             }
         }
 
+        if (position == MAX_ITEMS_VIEWPAGER) {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.setAction(FROM_TUTORIAL_EXTRAS)
+
+            val uploadButton = holder.binding.uploadButton
+            uploadButton.text = context.getString(R.string.upload_button_text)
+            uploadButton.visibility = View.VISIBLE
+
+            uploadButton.setOnClickListener {
+                context.startActivity(intent)
+            }
+        }
+
     }
 
     override fun getItemCount(): Int {
         return images.size
+    }
+
+    companion object {
+        private const val FROM_TUTORIAL_EXTRAS = "FROM_TUTORIAL_EXTRAS"
+        private const val MAX_ITEMS_VIEWPAGER = 5
     }
 }
