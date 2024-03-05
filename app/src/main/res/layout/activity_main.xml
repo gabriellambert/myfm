@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_23"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/team_list_container"
@@ -37,14 +37,14 @@
                 style="@style/PlayerList.Header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.6"
                 android:text="@string/name_text" />
 
             <TextView
                 style="@style/PlayerList.Header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
+                android:layout_weight="0.2"
                 android:text="@string/position_abreviation"
                 android:textAlignment="center" />
 
@@ -52,7 +52,7 @@
                 style="@style/PlayerList.Header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
+                android:layout_weight="0.2"
                 android:text="@string/age_abreviation"
                 android:textAlignment="center" />
         </LinearLayout>
@@ -67,17 +67,7 @@
             android:paddingBottom="180dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/list_header_container"/>
-
-        <Button
-            android:id="@+id/delete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:text="deletar jogadores"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/list_header_container" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -86,33 +76,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            style="@style/EmptyState.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/EmptyState.Header"
             android:layout_gravity="center_horizontal"
             android:text="@string/empty_state_header" />
 
         <TextView
+            style="@style/EmptyState.Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/EmptyState.Description"
             android:layout_gravity="center_horizontal"
             android:text="@string/empty_state_description" />
 
         <Button
             android:id="@+id/upload_button"
+            style="@style/EmptyState.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal"
-            style="@style/EmptyState.Button"
+            android:layout_marginBottom="16dp"
             android:text="@string/upload_button_text" />
     </LinearLayout>
 
@@ -120,6 +110,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 

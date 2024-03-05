@@ -13,4 +13,7 @@
     <string name="empty_state_header">Você ainda não possui um plantel</string>
     <string name="empty_state_description">Para iniciar faça o upload do seu arquivo\n clicando no botão abaixo</string>
     <string name="upload_button_text">Upload do meu elenco</string>
+    <string name="player_list_name">nome</string>
+    <string name="player_list_position">posição</string>
+    <string name="player_list_age">idade</string>
 </resources>
