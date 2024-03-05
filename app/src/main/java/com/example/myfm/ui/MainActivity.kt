@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.progressIndicator.hide()
+
         shouldShowEmptyState()
         setListeners()
     }
@@ -101,6 +103,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerActivity::class.java).apply {
             putExtra(PLAYER_ID, player.id)
         }
+        binding.progressIndicator.show()
         startActivity(intent)
     }
 
