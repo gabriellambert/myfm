@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myfm.adapter.PlayersListAdapter
 import com.example.myfm.databinding.ActivityMainBinding
+import com.example.myfm.ui.MainViewModel
+import com.example.myfm.ui.TutorialActivity
 import com.example.player_center.PlayerActivity
 import com.example.player_center.model.Player
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.progressIndicator.hide()
+
+        if (FROM_TUTORIAL_EXTRAS == intent.action) {
+            openFile()
+        }
 
         shouldShowEmptyState()
         setListeners()
@@ -69,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         with(binding) {
             this.uploadButton.setOnClickListener {
-                openFile()
+                openTutorial()
             }
         }
     }
@@ -101,10 +109,17 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerActivity::class.java).apply {
             putExtra(PLAYER_ID, player.id)
         }
+        binding.progressIndicator.show()
+        startActivity(intent)
+    }
+
+    private fun openTutorial() {
+        val intent = Intent(this, TutorialActivity::class.java)
         startActivity(intent)
     }
 
     companion object {
         private const val PLAYER_ID = "PLAYER_ID"
+        private const val FROM_TUTORIAL_EXTRAS = "FROM_TUTORIAL_EXTRAS"
     }
 }
