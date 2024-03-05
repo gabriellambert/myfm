@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myfm.MainActivity
 import com.example.myfm.R
 import com.example.myfm.databinding.ItemTutorialImageBinding
 import com.example.myfm.models.TutorialImage
-import com.example.myfm.ui.MainActivity
 
 class ImagePagerAdapter(private val context: Context, private val images: List<TutorialImage>) :
     RecyclerView.Adapter<ImagePagerAdapter.ImageViewHolder>() {

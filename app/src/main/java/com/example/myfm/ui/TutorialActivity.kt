@@ -67,7 +67,6 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val VIEW_DOWNLOAD_FILE =
-            "https://drive.google.com/file/d/1A_Rs-hkFonH3jqrnux5niK5MgBUIWR88/view?usp=drive_link"
+        private const val VIEW_DOWNLOAD_FILE = "https://drive.google.com/file/d/1A_Rs-hkFonH3jqrnux5niK5MgBUIWR88/view?usp=drive_link"
     }
 }
