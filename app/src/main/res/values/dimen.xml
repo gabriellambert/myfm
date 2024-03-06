@@ -5,6 +5,7 @@
     <dimen name="text_header_16">16dp</dimen>
     <dimen name="text_header_12">12dp</dimen>
 
+    <dimen name="margin_96">96dp</dimen>
     <dimen name="margin_32">32dp</dimen>
     <dimen name="padding_16">16dp</dimen>
 </resources>

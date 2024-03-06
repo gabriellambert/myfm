@@ -24,7 +24,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.progressIndicator.hide()
+        hideProgressIndicator()
+
+        if (FROM_TUTORIAL_EXTRAS == intent.action) {
+            openFile()
+        }
 
         shouldShowEmptyState()
         setListeners()
@@ -71,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         with(binding) {
             this.uploadButton.setOnClickListener {
-                openFile()
+                openTutorial()
             }
         }
     }
@@ -103,11 +107,25 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerActivity::class.java).apply {
             putExtra(PLAYER_ID, player.id)
         }
-        binding.progressIndicator.show()
+        showProgressIndicator()
         startActivity(intent)
+    }
+
+    private fun openTutorial() {
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun showProgressIndicator() {
+        binding.progressIndicator.show()
+    }
+
+    private fun hideProgressIndicator() {
+        binding.progressIndicator.hide()
     }
 
     companion object {
         private const val PLAYER_ID = "PLAYER_ID"
+        private const val FROM_TUTORIAL_EXTRAS = "FROM_TUTORIAL_EXTRAS"
     }
 }
