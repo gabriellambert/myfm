@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myfm.adapter.PlayersListAdapter
 import com.example.myfm.databinding.ActivityMainBinding
-import com.example.myfm.ui.MainViewModel
-import com.example.myfm.ui.TutorialActivity
 import com.example.player_center.PlayerActivity
 import com.example.player_center.model.Player
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.progressIndicator.hide()
+        hideProgressIndicator()
 
         if (FROM_TUTORIAL_EXTRAS == intent.action) {
             openFile()
@@ -109,13 +107,21 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerActivity::class.java).apply {
             putExtra(PLAYER_ID, player.id)
         }
-        binding.progressIndicator.show()
+        showProgressIndicator()
         startActivity(intent)
     }
 
     private fun openTutorial() {
         val intent = Intent(this, TutorialActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun showProgressIndicator() {
+        binding.progressIndicator.show()
+    }
+
+    private fun hideProgressIndicator() {
+        binding.progressIndicator.hide()
     }
 
     companion object {
