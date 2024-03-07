@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.myfm'
+    namespace 'com.gapps.myfm'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.myfm"
+        applicationId "com.gapps.myfm"
         minSdk 24
         targetSdk 34
         versionCode 1

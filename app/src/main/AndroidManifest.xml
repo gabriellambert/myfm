@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".MyFMApp"
+        android:name="com.gapps.myfm.MyFMApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,16 +15,16 @@
         android:theme="@style/Theme.MyFM"
         tools:targetApi="31">
         <activity
-            android:name=".ui.TutorialActivity"
+            android:name="com.gapps.myfm.ui.TutorialActivity"
             android:exported="false"
-            android:parentActivityName="ui.MainActivity" />
+            android:parentActivityName="com.gapps.myfm.ui.MainActivity" />
         <activity
-            android:name="com.example.player_center.PlayerActivity"
+            android:name="com.gapps.player_center.PlayerActivity"
             android:exported="false"
-            android:parentActivityName=".ui.MainActivity"
+            android:parentActivityName="com.gapps.myfm.ui.MainActivity"
             android:label="@string/title_activity_player" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.gapps.myfm.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
