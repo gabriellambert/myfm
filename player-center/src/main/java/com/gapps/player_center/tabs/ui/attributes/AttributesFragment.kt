@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
+import com.example.player_center.R
 import com.example.player_center.databinding.FragmentAttributesBinding
 import com.gapps.player_center.model.GoalkeeperAttributes
 import com.gapps.player_center.model.MentalAttributes
 import com.gapps.player_center.model.PhysicalAttributes
 import com.gapps.player_center.model.Player
+import com.gapps.player_center.model.Positions
 import com.gapps.player_center.model.TechnicalAttributes
 
 class AttributesFragment : Fragment() {
@@ -72,6 +76,9 @@ class AttributesFragment : Fragment() {
 //        homeViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
 //        }
+
+        setMenuAdapter()
+
         return root
     }
 
@@ -80,9 +87,25 @@ class AttributesFragment : Fragment() {
         _binding = null
     }
 
+    private fun setMenuAdapter() {
+        val positionMenuAdapter = ArrayAdapter(requireContext(), R.layout.list_item, getPositions())
+        val dutyMenuAdapter = ArrayAdapter(requireContext(), R.layout.list_item, getDuties())
+        binding.completeTextViewPosition.setAdapter(positionMenuAdapter)
+        binding.completeTextViewDuty.setAdapter(dutyMenuAdapter)
+    }
+
     private fun isGoalkeeper(): Boolean {
         //TODO melhorar este método para ser mais preciso e pegar tb goleiros líberos
         return this.player.positions == "GR"
+    }
+
+    private fun getPositions(): List<String> {
+        val positions = Positions.values().forEach {  }
+        return listOf("goleiro", "goleiro líbero", "zagueiro", "lateral")
+    }
+
+    private fun getDuties(): List<String> {
+        return listOf("defender", "cobrir", "apoiar", "atacar", "automático")
     }
 
     private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {

@@ -5,7 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_23"
-    tools:context="com.example.player_center.com.gapps.player_center.tabs.ui.attributes.AttributesFragment">
+    tools:context="com.gapps.player_center.tabs.ui.attributes.AttributesFragment">
+
+    <LinearLayout
+        android:id="@+id/menu_filter_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:weightSum="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:baselineAligned="false">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu_position"
+            style="@style/Widget.App.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:layout_weight="0.5"
+            android:hint="@string/hint_position">
+
+            <AutoCompleteTextView
+                android:id="@+id/complete_text_view_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu_duty"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_weight="0.5"
+            android:hint="@string/hint_duty">
+
+            <AutoCompleteTextView
+                android:id="@+id/complete_text_view_duty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/technical_title"
@@ -14,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="@string/technical_title_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/menu_filter_container" />
 
     <LinearLayout
         android:id="@+id/technical_attributes_container"
@@ -26,7 +75,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/technical_title">
+        app:layout_constraintTop_toBottomOf="@id/technical_title"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/technical_attributes_first"
@@ -51,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Cabeceamento" />
+                    android:text="@string/attribute_heading_text" />
 
                 <TextView
                     android:id="@+id/heading_value"
@@ -59,8 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
-                    android:textAlignment="textEnd" />
+                    android:text="@string/attribute_default_value" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Cantos" />
+                    android:text="@string/attribute_corners_text" />
 
                 <TextView
                     android:id="@+id/corners_value"
@@ -85,8 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
-                    android:textAlignment="textEnd" />
+                    android:text="@string/attribute_default_value" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Cruzamentos" />
+                    android:text="@string/attribute_crossing_text" />
 
                 <TextView
                     android:id="@+id/crossing_value"
@@ -112,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -130,7 +178,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Desarme" />
+                    android:text="@string/attribute_tackling_text" />
 
                 <TextView
                     android:id="@+id/tackling_value"
@@ -138,7 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -157,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Finalização" />
+                    android:text="@string/attribute_finishing_text" />
 
                 <TextView
                     android:id="@+id/finishing_value"
@@ -165,7 +213,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -183,7 +231,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Finta" />
+                    android:text="@string/attribute_dribbling_text" />
 
                 <TextView
                     android:id="@+id/dribbling_value"
@@ -191,7 +239,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -210,7 +258,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Lanç. longos" />
+                    android:text="@string/attribute_long_throws_text" />
 
                 <TextView
                     android:id="@+id/longThrows_value"
@@ -218,7 +266,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -228,10 +276,10 @@
             android:id="@+id/technical_attributes_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
             android:layout_marginEnd="1dp"
             android:layout_weight="0.5"
-            android:orientation="vertical"
-            android:layout_gravity="top">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/freeKickTacking_attribute"
@@ -248,7 +296,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Livres" />
+                    android:text="@string/attribute_free_kick_tacking_text" />
 
                 <TextView
                     android:id="@+id/freeKickTacking_value"
@@ -256,7 +304,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -274,7 +322,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Marcação" />
+                    android:text="@string/attribute_marking_text" />
 
                 <TextView
                     android:id="@+id/marking_value"
@@ -282,7 +330,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -301,7 +349,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Marc. Pênaltis" />
+                    android:text="@string/attribute_penalty_text" />
 
                 <TextView
                     android:id="@+id/penaltyTaking_value"
@@ -309,7 +357,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -327,7 +375,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Passe" />
+                    android:text="@string/attribute_passing_text" />
 
                 <TextView
                     android:id="@+id/passing_value"
@@ -335,7 +383,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -354,7 +402,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Primeiro toque" />
+                    android:text="@string/attribute_first_touch_text" />
 
                 <TextView
                     android:id="@+id/firstTouch_value"
@@ -362,7 +410,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -380,7 +428,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Remates de longe" />
+                    android:text="@string/attribute_long_shots_text" />
 
                 <TextView
                     android:id="@+id/longShots_value"
@@ -388,7 +436,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -407,7 +455,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Técnica" />
+                    android:text="@string/attribute_technique_text" />
 
                 <TextView
                     android:id="@+id/technique_value"
@@ -415,7 +463,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -441,7 +489,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mental_title">
+        app:layout_constraintTop_toBottomOf="@id/mental_title"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/mental_attributes_first"
@@ -465,7 +514,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Agressividade" />
+                    android:text="@string/attribute_aggression_text" />
 
                 <TextView
                     android:id="@+id/aggression_value"
@@ -473,7 +522,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -490,7 +539,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Antecipação" />
+                    android:text="@string/attribute_anticipation_text" />
 
                 <TextView
                     android:id="@+id/anticipation_value"
@@ -498,7 +547,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -516,7 +565,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Bravura" />
+                    android:text="@string/attribute_bravery_text" />
 
                 <TextView
                     android:id="@+id/bravery_value"
@@ -524,7 +573,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -541,7 +590,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Compostura" />
+                    android:text="@string/attribute_composure_text" />
 
                 <TextView
                     android:id="@+id/composure_value"
@@ -549,7 +598,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -567,7 +616,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Concentração" />
+                    android:text="@string/attribute_concentration_text" />
 
                 <TextView
                     android:id="@+id/concentration_value"
@@ -575,7 +624,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -592,7 +641,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Decisões" />
+                    android:text="@string/attribute_decisions_text" />
 
                 <TextView
                     android:id="@+id/decisions_value"
@@ -600,7 +649,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -618,7 +667,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Determinação" />
+                    android:text="@string/attribute_determination_text" />
 
                 <TextView
                     android:id="@+id/determination_value"
@@ -626,7 +675,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -654,7 +703,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Impresivibilidade" />
+                    android:text="@string/attribute_flair_text" />
 
                 <TextView
                     android:id="@+id/flair_value"
@@ -662,12 +711,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/workRate_attribute"
+                android:id="@+id/work_rate_attribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black_23"
@@ -680,15 +729,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Índice de trabalho" />
+                    android:text="@string/attribute_work_rate_text" />
 
                 <TextView
-                    android:id="@+id/workRate_value"
+                    android:id="@+id/work_rate_value"
                     style="@style/PlayerDetails.AttributesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -706,7 +755,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Liderança" />
+                    android:text="@string/attribute_leadership_text" />
 
                 <TextView
                     android:id="@+id/leadership_value"
@@ -714,7 +763,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -731,7 +780,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Posicionamento" />
+                    android:text="@string/attribute_positioning_text" />
 
                 <TextView
                     android:id="@+id/positioning_value"
@@ -739,12 +788,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/offTheBall_attribute"
+                android:id="@+id/off_the_ball_attribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black_27"
@@ -757,15 +806,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Sem bola" />
+                    android:text="@string/attribute_off_the_ball_text" />
 
                 <TextView
-                    android:id="@+id/offTheBall_value"
+                    android:id="@+id/off_the_ball_value"
                     style="@style/PlayerDetails.AttributesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -782,7 +831,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Trabalho em equipe" />
+                    android:text="@string/attribute_teamwork_text" />
 
                 <TextView
                     android:id="@+id/teamwork_value"
@@ -790,7 +839,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -808,7 +857,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Visão de jogo" />
+                    android:text="@string/attribute_vision_text" />
 
                 <TextView
                     android:id="@+id/vision_value"
@@ -816,7 +865,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -842,7 +891,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/physical_title">
+        app:layout_constraintTop_toBottomOf="@id/physical_title"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/physical_attributes_first"
@@ -866,7 +916,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Aceleração" />
+                    android:text="@string/attribute_acceleration_text" />
 
                 <TextView
                     android:id="@+id/acceleration_value"
@@ -874,7 +924,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -891,7 +941,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Agilidade" />
+                    android:text="@string/attribute_agility_text" />
 
                 <TextView
                     android:id="@+id/agility_value"
@@ -899,12 +949,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/naturalFitness_attribute"
+                android:id="@+id/natural_fitness_attribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black_27"
@@ -917,15 +967,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Aptidão física" />
+                    android:text="@string/attribute_natural_fitness_text" />
 
                 <TextView
-                    android:id="@+id/naturalFitness_value"
+                    android:id="@+id/natural_fitness_value"
                     style="@style/PlayerDetails.AttributesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -942,7 +992,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Equilíbrio" />
+                    android:text="@string/attribute_balance_text" />
 
                 <TextView
                     android:id="@+id/balance_value"
@@ -950,7 +1000,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -978,7 +1028,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Força" />
+                    android:text="@string/attribute_strenght_text" />
 
                 <TextView
                     android:id="@+id/strenght_value"
@@ -986,12 +1036,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/jumpingReach_attribute"
+                android:id="@+id/jumping_reach_attribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black_23"
@@ -1004,15 +1054,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Impulsão" />
+                    android:text="@string/attribute_jumping_reach_text" />
 
                 <TextView
-                    android:id="@+id/jumpingReach_value"
+                    android:id="@+id/jumping_reach_value"
                     style="@style/PlayerDetails.AttributesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -1030,7 +1080,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Resistência" />
+                    android:text="@string/attribute_stamina_text" />
 
                 <TextView
                     android:id="@+id/stamina_value"
@@ -1038,7 +1088,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
@@ -1055,7 +1105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Velocidade" />
+                    android:text="@string/attribute_pace_text" />
 
                 <TextView
                     android:id="@+id/pace_value"
@@ -1063,7 +1113,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7"
+                    android:text="@string/attribute_default_value"
                     android:textAlignment="textEnd" />
             </LinearLayout>
         </LinearLayout>
