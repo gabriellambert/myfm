@@ -23,7 +23,7 @@ enum class Positions(
         null
     ),
     CENTRAL_DEFENDER(
-        "?",
+        "defesa central",
         "",
         listOf(Function.DEFEND, Function.SUPPORT, Function.COVER),
         listOf(
@@ -38,28 +38,28 @@ enum class Positions(
         )
     ),
     WIDE_CENTER_BACK(
-        "?",
+        "central descaído",
         "",
         listOf(Function.DEFEND, Function.SUPPORT, Function.ATTACK),
         null,
         null
     ),
     NO_NONSENSE_CENTRE_BACK(
-        "?",
+        "defesa central eficiente",
         "",
         listOf(Function.DEFEND, Function.SUPPORT, Function.COVER),
         null,
         null
     ),
     BALL_PLAYING_DEFENDER(
-        "?",
+        "defesa com bola",
         "",
         listOf(Function.DEFEND, Function.SUPPORT, Function.COVER),
         null,
         null
     ),
     LIBERO(
-        "?",
+        "líbero avançado",
         "",
         listOf(Function.DEFEND, Function.SUPPORT),
         null,

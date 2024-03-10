@@ -100,8 +100,9 @@ class AttributesFragment : Fragment() {
     }
 
     private fun getPositions(): List<String> {
-        val positions = Positions.values().forEach {  }
-        return listOf("goleiro", "goleiro líbero", "zagueiro", "lateral")
+        val listPositions = mutableListOf<String>()
+        Positions.entries.forEach { listPositions.add(it.value) }
+        return listPositions
     }
 
     private fun getDuties(): List<String> {
@@ -109,92 +110,126 @@ class AttributesFragment : Fragment() {
     }
 
     private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {
-        with(binding) {
-            this.headingValue.text = attributes?.heading.toString()
-            this.cornersValue.text = attributes?.corners.toString()
-            this.crossingValue.text = attributes?.crossing.toString()
-            this.tacklingValue.text = attributes?.tackling.toString()
-            this.finishingValue.text = attributes?.finishing.toString()
-            this.dribblingValue.text = attributes?.dribbling.toString()
-            this.longThrowsValue.text = attributes?.longThrows.toString()
-            this.freeKickTackingValue.text = attributes?.freeKickTacking.toString()
-            this.markingValue.text = attributes?.marking.toString()
-            this.penaltyTakingValue.text = attributes?.penaltyTaking.toString()
-            this.passingValue.text = attributes?.passing.toString()
-            this.firstTouchValue.text = attributes?.firstTouch.toString()
-            this.longShotsValue.text = attributes?.longShots.toString()
-            this.techniqueValue.text = attributes?.technique.toString()
+        with(binding.technicalAttributesContainer) {
+            this.attributesTitle.text = context?.getString(R.string.technical_title_text)
+            this.attributeOneValue.text = attributes?.heading.toString()
+            this.attributeTwoValue.text = attributes?.corners.toString()
+            this.attributeThreeValue.text = attributes?.crossing.toString()
+            this.attributeFourValue.text = attributes?.tackling.toString()
+            this.attributeFiveValue.text = attributes?.finishing.toString()
+            this.attributeSixValue.text = attributes?.dribbling.toString()
+            this.attributeSevenValue.text = attributes?.longThrows.toString()
+            this.attributeEightValue.text = attributes?.freeKickTacking.toString()
+            this.attributeNineValue.text = attributes?.marking.toString()
+            this.attributeTenValue.text = attributes?.penaltyTaking.toString()
+            this.attributeElevenValue.text = attributes?.passing.toString()
+            this.attributeTwelveValue.text = attributes?.firstTouch.toString()
+            this.attributeThirteenValue.text = attributes?.longShots.toString()
+            this.attributeFourteenValue.text = attributes?.technique.toString()
         }
     }
 
     private fun setPlayerMentalAttributes(attributes: MentalAttributes?) {
-        with(binding) {
-            this.aggressionValue.text = attributes?.aggression.toString()
-            this.anticipationValue.text = attributes?.anticipation.toString()
-            this.braveryValue.text = attributes?.bravery.toString()
-            this.composureValue.text = attributes?.composure.toString()
-            this.concentrationValue.text = attributes?.concentration.toString()
-            this.decisionsValue.text = attributes?.decisions.toString()
-            this.determinationValue.text = attributes?.determination.toString()
-            this.flairValue.text = attributes?.flair.toString()
-            this.leadershipValue.text = attributes?.leadership.toString()
-            this.offTheBallValue.text = attributes?.offTheBall.toString()
-            this.positioningValue.text = attributes?.positioning.toString()
-            this.teamworkValue.text = attributes?.teamwork.toString()
-            this.visionValue.text = attributes?.vision.toString()
-            this.workRateValue.text = attributes?.workRate.toString()
+        setPlayerMentalAttributesText()
+        with(binding.mentalAttributesContainer) {
+            this.attributesTitle.text = context?.getString(R.string.mental_title_text)
+            this.attributeOneValue.text = attributes?.aggression.toString()
+            this.attributeTwoValue.text = attributes?.anticipation.toString()
+            this.attributeThreeValue.text = attributes?.bravery.toString()
+            this.attributeFourValue.text = attributes?.composure.toString()
+            this.attributeFiveValue.text = attributes?.concentration.toString()
+            this.attributeSixValue.text = attributes?.decisions.toString()
+            this.attributeSevenValue.text = attributes?.determination.toString()
+            this.attributeEightValue.text = attributes?.flair.toString()
+            this.attributeNineValue.text = attributes?.workRate.toString()
+            this.attributeTenValue.text = attributes?.leadership.toString()
+            this.attributeElevenValue.text = attributes?.positioning.toString()
+            this.attributeTwelveValue.text = attributes?.offTheBall.toString()
+            this.attributeThirteenValue.text = attributes?.teamwork.toString()
+            this.attributeFourteenValue.text = attributes?.vision.toString()
+        }
+    }
+
+    private fun setPlayerMentalAttributesText() {
+        with (binding.mentalAttributesContainer) {
+            this.attributeOneText.text = context?.getString(R.string.attribute_aggression_text)
+            this.attributeTwoText.text = context?.getString(R.string.attribute_anticipation_text)
+            this.attributeThreeText.text = context?.getString(R.string.attribute_bravery_text)
+            this.attributeFourText.text = context?.getString(R.string.attribute_composure_text)
+            this.attributeFiveText.text = context?.getString(R.string.attribute_concentration_text)
+            this.attributeSixText.text = context?.getString(R.string.attribute_decisions_text)
+            this.attributeSevenText.text = context?.getString(R.string.attribute_determination_text)
+            this.attributeEightText.text = context?.getString(R.string.attribute_flair_text)
+            this.attributeNineText.text = context?.getString(R.string.attribute_work_rate_text)
+            this.attributeTenText.text = context?.getString(R.string.attribute_leadership_text)
+            this.attributeElevenText.text = context?.getString(R.string.attribute_positioning_text)
+            this.attributeTwelveText.text = context?.getString(R.string.attribute_off_the_ball_text)
+            this.attributeThirteenText.text = context?.getString(R.string.attribute_teamwork_text)
+            this.attributeFourteenText.text = context?.getString(R.string.attribute_vision_text)
         }
     }
 
     private fun setPlayerPhysicalAttributes(attributes: PhysicalAttributes?) {
-        with(binding) {
-            this.accelerationValue.text = attributes?.acceleration.toString()
-            this.agilityValue.text = attributes?.agility.toString()
-            this.balanceValue.text = attributes?.balance.toString()
-            this.jumpingReachValue.text = attributes?.jumpingReach.toString()
-            this.naturalFitnessValue.text = attributes?.naturalFitness.toString()
-            this.paceValue.text = attributes?.pace.toString()
-            this.staminaValue.text = attributes?.stamina.toString()
-            this.strenghtValue.text = attributes?.strenght.toString()
+        hideUnusedAttributes()
+        with(binding.physicalAttributesContainer) {
+            this.attributesTitle.text = context?.getString(R.string.physical_title_text)
+            this.attributeOneValue.text = attributes?.acceleration.toString()
+            this.attributeTwoValue.text = attributes?.agility.toString()
+            this.attributeThreeValue.text = attributes?.balance.toString()
+            this.attributeFourValue.text = attributes?.jumpingReach.toString()
+            this.attributeEightValue.text = attributes?.naturalFitness.toString()
+            this.attributeNineValue.text = attributes?.pace.toString()
+            this.attributeTenValue.text = attributes?.stamina.toString()
+            this.attributeElevenValue.text = attributes?.strenght.toString()
+        }
+    }
+
+    private fun hideUnusedAttributes() {
+        with(binding.physicalAttributesContainer) {
+            this.attributeFive.visibility = View.GONE
+            this.attributeSix.visibility = View.GONE
+            this.attributeSeven.visibility = View.GONE
+            this.attributeTwelve.visibility = View.GONE
+            this.attributeThirteen.visibility = View.GONE
+            this.attributeFourteen.visibility = View.GONE
         }
     }
 
     private fun setPlayerGoalkeeperAttributes(attributes: GoalkeeperAttributes?) {
-        with(binding) {
-            this.headingValue.text = attributes?.rushingOut.toString()
-            this.cornersValue.text = attributes?.punching.toString()
-            this.crossingValue.text = attributes?.aerialReach.toString()
-            this.tacklingValue.text = attributes?.commandOfArea.toString()
-            this.finishingValue.text = attributes?.communication.toString()
-            this.dribblingValue.text = attributes?.eccentricity.toString()
-            this.longThrowsValue.text = attributes?.handling.toString()
-            this.freeKickTackingValue.text = attributes?.throwing.toString()
-            this.markingValue.text = attributes?.passing.toString()
-            this.penaltyTakingValue.text = attributes?.kicking.toString()
-            this.passingValue.text = attributes?.firstTouch.toString()
-            this.firstTouchValue.text = attributes?.reflexes.toString()
-            this.longShotsValue.text = attributes?.oneOnOnes.toString()
-            this.techniqueValue.visibility = View.GONE
+        with(binding.technicalAttributesContainer) {
+            this.attributeOneValue.text = attributes?.rushingOut.toString()
+            this.attributeTwoValue.text = attributes?.punching.toString()
+            this.attributeThreeValue.text = attributes?.aerialReach.toString()
+            this.attributeFourValue.text = attributes?.commandOfArea.toString()
+            this.attributeFiveValue.text = attributes?.communication.toString()
+            this.attributeSixValue.text = attributes?.eccentricity.toString()
+            this.attributeSevenValue.text = attributes?.handling.toString()
+            this.attributeEightValue.text = attributes?.throwing.toString()
+            this.attributeNineValue.text = attributes?.passing.toString()
+            this.attributeTenValue.text = attributes?.kicking.toString()
+            this.attributeElevenValue.text = attributes?.firstTouch.toString()
+            this.attributeTwelveValue.text = attributes?.reflexes.toString()
+            this.attributeThirteenValue.text = attributes?.oneOnOnes.toString()
         }
     }
 
     private fun setGoalkeeperAttributesText() {
-        with(binding) {
-            this.technicalTitle.text = GOALKEEPER_TITLE
-            this.headingText.text = RUSHING_OUT_ATTR
-            this.cornersText.text = PUNCHING_ATTR
-            this.crossingText.text = AERIAL_REACH_ATTR
-            this.tacklingText.text = COMMAND_OF_AREA_ATTR
-            this.finishingText.text = COMMUNICATION_ATTR
-            this.dribblingText.text = ECCENTRICITY_ATTR
-            this.longThrowsText.text = HANDLING_ATTR
-            this.freeKickTackingText.text = THROWING_ATTR
-            this.markingText.text = PASSING_ATTR
-            this.penaltyText.text = KICKING_ATTR
-            this.passingText.text = FIRST_TOUCH_ATTR
-            this.firstTouchText.text = REFLEXES_ATTR
-            this.longShotsText.text = ONE_ON_ONES_ATTR
-            this.techniqueAttribute.visibility = View.GONE
+        with(binding.technicalAttributesContainer) {
+            this.attributesTitle.text = GOALKEEPER_TITLE
+            this.attributeOneText.text = RUSHING_OUT_ATTR
+            this.attributeTwoText.text = PUNCHING_ATTR
+            this.attributeThreeText.text = AERIAL_REACH_ATTR
+            this.attributeFourText.text = COMMAND_OF_AREA_ATTR
+            this.attributeFiveText.text = COMMUNICATION_ATTR
+            this.attributeSixText.text = ECCENTRICITY_ATTR
+            this.attributeSevenText.text = HANDLING_ATTR
+            this.attributeEightText.text = THROWING_ATTR
+            this.attributeNineText.text = PASSING_ATTR
+            this.attributeTenText.text = KICKING_ATTR
+            this.attributeElevenText.text = FIRST_TOUCH_ATTR
+            this.attributeTwelveText.text = REFLEXES_ATTR
+            this.attributeThirteenText.text = ONE_ON_ONES_ATTR
+            this.attributeFourteen.visibility = View.GONE
         }
     }
 }
