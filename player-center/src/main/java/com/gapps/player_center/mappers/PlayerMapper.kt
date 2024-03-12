@@ -1,10 +1,14 @@
 package com.gapps.player_center.mappers
 
-import com.gapps.player_center.model.GoalkeeperAttributes
-import com.gapps.player_center.model.MentalAttributes
-import com.gapps.player_center.model.PhysicalAttributes
+import com.gapps.player_center.model.attributes.GoalkeeperAttributes
+import com.gapps.player_center.model.attributes.MentalAttributes
+import com.gapps.player_center.model.attributes.PhysicalAttributes
 import com.gapps.player_center.model.Player
-import com.gapps.player_center.model.TechnicalAttributes
+import com.gapps.player_center.model.positions.OldPosition
+import com.gapps.player_center.model.positions.OldPositions
+import com.gapps.player_center.model.attributes.TechnicalAttributes
+import com.gapps.player_center.model.positions.Position
+import com.gapps.player_center.model.positions.Positions
 import com.gapps.player_center_data.repository.model.GoalkeeperAttributesData
 import com.gapps.player_center_data.repository.model.MentalAttributesData
 import com.gapps.player_center_data.repository.model.PhysicalAttributesData
@@ -20,7 +24,7 @@ object PlayerMapper {
             age = playerData.age,
             height = playerData.height,
             weight = playerData.weight,
-            positions = playerData.positions,
+            positions = mapPositions(playerData.positions),
             technicalAttibutes = mapTechnicalAttributes(playerData.technicalAttibutes),
             goalkeeperAttibutes = mapGoalkeeperAttributes(playerData.goalkeeperAttibutes),
             mentalAttibutes = mapMentalAttributes(playerData.mentalAttibutes),
@@ -38,7 +42,7 @@ object PlayerMapper {
                 age = it.age,
                 height = it.height,
                 weight = it.weight,
-                positions = it.positions,
+                positions = mapPositions(it.positions),
                 technicalAttibutes = mapTechnicalAttributes(it.technicalAttibutes),
                 goalkeeperAttibutes = mapGoalkeeperAttributes(it.goalkeeperAttibutes),
                 mentalAttibutes = mapMentalAttributes(it.mentalAttibutes),
@@ -49,6 +53,27 @@ object PlayerMapper {
         }
 
         return mappedPlayers
+    }
+
+    private fun mapPositions(positions: String): List<Position> {
+        val listPositions = mutableListOf<Position>()
+        val mappedPositions = positions.split(", ")
+
+        mappedPositions.forEach { mappedAbrev ->
+            Positions.entries.find {
+                it.portugueseAbrev.lowercase() == mappedAbrev.lowercase()
+            }?.apply {
+                listPositions.add(
+                    Position(
+                        portugueseAbrev = mappedAbrev,
+                        value = this.value,
+                        roles = this.roles,
+                    )
+                )
+            }
+        }
+
+        return listPositions
     }
 
     private fun mapTechnicalAttributes(technicalAttibutesData: TechnicalAttributesData?): TechnicalAttributes {

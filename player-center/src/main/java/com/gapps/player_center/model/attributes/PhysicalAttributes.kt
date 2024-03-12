@@ -1,4 +1,4 @@
-package com.gapps.player_center.model
+package com.gapps.player_center.model.attributes
 
 data class PhysicalAttributes(
     val acceleration: Int?,

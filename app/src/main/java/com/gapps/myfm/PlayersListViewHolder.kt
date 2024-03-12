@@ -10,7 +10,7 @@ class PlayersListViewHolder(
 
     fun bind(player: Player, position: Int) {
         binding.nameText.text = player.name
-        binding.positionText.text = getFirstPosition(player.positions)
+        binding.positionText.text = "player.positions.first().toString()"
         binding.ageText.text = player.age.toString()
         if (position % 2 != 0) {
             binding.root.setBackgroundResource(R.drawable.ripple)

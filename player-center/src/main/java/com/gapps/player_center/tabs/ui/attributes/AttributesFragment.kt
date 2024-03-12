@@ -12,11 +12,11 @@ import androidx.annotation.MenuRes
 import androidx.fragment.app.Fragment
 import com.example.player_center.R
 import com.example.player_center.databinding.FragmentAttributesBinding
-import com.gapps.player_center.model.GoalkeeperAttributes
-import com.gapps.player_center.model.MentalAttributes
-import com.gapps.player_center.model.PhysicalAttributes
+import com.gapps.player_center.model.attributes.GoalkeeperAttributes
+import com.gapps.player_center.model.attributes.MentalAttributes
+import com.gapps.player_center.model.attributes.PhysicalAttributes
 import com.gapps.player_center.model.Player
-import com.gapps.player_center.model.TechnicalAttributes
+import com.gapps.player_center.model.attributes.TechnicalAttributes
 
 class AttributesFragment : Fragment() {
 
@@ -64,13 +64,7 @@ class AttributesFragment : Fragment() {
         _binding = FragmentAttributesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setPlayerTechnicalAttributes(player.technicalAttibutes)
-        setPlayerMentalAttributes(player.mentalAttibutes)
-        setPlayerPhysicalAttributes(player.physicalAttibutes)
-        if (isGoalkeeper()) {
-            setGoalkeeperAttributesText()
-            setPlayerGoalkeeperAttributes(player.goalkeeperAttibutes)
-        }
+        setContent()
 
         this.positionFilterButton = binding.filterPositionButton
         setListeners()
@@ -81,6 +75,17 @@ class AttributesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setContent() {
+//        binding.textTest.text = player.positions.first().portugueseAbrev
+        setPlayerTechnicalAttributes(player.technicalAttibutes)
+        setPlayerMentalAttributes(player.mentalAttibutes)
+        setPlayerPhysicalAttributes(player.physicalAttibutes)
+        if (isGoalkeeper()) {
+            setGoalkeeperAttributesText()
+            setPlayerGoalkeeperAttributes(player.goalkeeperAttibutes)
+        }
     }
 
     private fun setListeners() {
@@ -111,7 +116,8 @@ class AttributesFragment : Fragment() {
 
     private fun isGoalkeeper(): Boolean {
         //TODO melhorar este método para ser mais preciso e pegar tb goleiros líberos
-        return this.player.positions == "GR"
+        return false
+//        return this.player.positions == "GR"
     }
 
 //    private fun getPositions(): List<String> {

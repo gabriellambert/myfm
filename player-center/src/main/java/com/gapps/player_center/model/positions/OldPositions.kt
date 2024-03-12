@@ -1,31 +1,29 @@
-package com.gapps.player_center.model
+package com.gapps.player_center.model.positions
 
-import com.gapps.player_center_data.repository.model.TechnicalAttributesData
-
-enum class Positions(
+enum class OldPositions(
     val value: String,
     val abbreviation: String,
-    val functions: List<Function>,
+    val duties: List<Duty>,
     val primaryAttributes: List<String>?, //ajustar
     val secondaryAttributes: List<String>? //ajustar
 ) {
     GOALKEEPER(
         "guarda-redes",
         "GR",
-        listOf(Function.DEFEND),
+        listOf(Duty.DEFEND),
         null,
         null),
     SWEEPER_KEEPER(
         "guarda-redes-líbero",
         "",
-        listOf(Function.DEFEND, Function.SUPPORT, Function.ATTACK),
+        listOf(Duty.DEFEND, Duty.SUPPORT, Duty.ATTACK),
         null,
         null
     ),
     CENTRAL_DEFENDER(
         "defesa central",
-        "",
-        listOf(Function.DEFEND, Function.SUPPORT, Function.COVER),
+        "D (C)",
+        listOf(Duty.DEFEND, Duty.SUPPORT, Duty.COVER),
         listOf(
             "marking", "tackling",
             "anticipation", "concentration", "decisions", "positioning",
@@ -40,28 +38,28 @@ enum class Positions(
     WIDE_CENTER_BACK(
         "central descaído",
         "",
-        listOf(Function.DEFEND, Function.SUPPORT, Function.ATTACK),
+        listOf(Duty.DEFEND, Duty.SUPPORT, Duty.ATTACK),
         null,
         null
     ),
     NO_NONSENSE_CENTRE_BACK(
         "defesa central eficiente",
         "",
-        listOf(Function.DEFEND, Function.SUPPORT, Function.COVER),
+        listOf(Duty.DEFEND, Duty.SUPPORT, Duty.COVER),
         null,
         null
     ),
     BALL_PLAYING_DEFENDER(
         "defesa com bola",
         "",
-        listOf(Function.DEFEND, Function.SUPPORT, Function.COVER),
+        listOf(Duty.DEFEND, Duty.SUPPORT, Duty.COVER),
         null,
         null
     ),
     LIBERO(
         "líbero avançado",
         "",
-        listOf(Function.DEFEND, Function.SUPPORT),
+        listOf(Duty.DEFEND, Duty.SUPPORT),
         null,
         null
     ),

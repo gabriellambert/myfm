@@ -1,4 +1,4 @@
-package com.gapps.player_center.model
+package com.gapps.player_center.model.attributes
 
 data class GoalkeeperAttributes(
     val aerialReach: Int?,

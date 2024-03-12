@@ -1,6 +1,6 @@
-package com.gapps.player_center.model
+package com.gapps.player_center.model.positions
 
-enum class Function(val abbreviation: String, val value: String) {
+enum class Duty(val abbreviation: String, val value: String) {
     DEFEND("De",  "defender"),
     COVER("Co", "cobrir"),
     SUPPORT("St", "apoiar"),
