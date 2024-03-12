@@ -6,7 +6,7 @@
     <string name="technical_title_text">TÉCNICOS</string>
     <string name="mental_title_text">MENTAIS</string>
     <string name="physical_title_text">FÍSICOS</string>
-    <string name="hint_position">Posição</string>
+    <string name="text_button_position">Posição</string>
     <string name="hint_duty">Tarefa</string>
     <string name="attribute_default_value">7</string>
     <string name="attribute_heading_text">Cabeceamento</string>

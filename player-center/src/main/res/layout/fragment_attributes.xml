@@ -7,52 +7,48 @@
     android:background="@color/black_23"
     tools:context="com.gapps.player_center.tabs.ui.attributes.AttributesFragment">
 
-    <LinearLayout
-        android:id="@+id/menu_filter_container"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/filterPositionButton"
+        style="@style/PositionFilter.Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="@dimen/margin_16"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:weightSum="1"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/margin_32"
+        android:text="@string/text_button_position"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:baselineAligned="false">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/menu_position"
-            style="@style/Widget.App.ExposedDropdownMenu"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_32"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/filterPositionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/filterPositionButton">
+
+        <TextView
+            android:id="@+id/playerPositionsTextView"
+            style="@style/PlayerDetails.AttributesText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_8"
-            android:layout_weight="0.5"
-            android:hint="@string/hint_position">
+            android:layout_gravity="end"
+            android:text="MD | MC | MOC" />
 
-            <AutoCompleteTextView
-                android:id="@+id/complete_text_view_position"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/menu_duty"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/selectedPositionTextView"
+            style="@style/PlayerDetails.AttributesText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_8"
-            android:layout_weight="0.5"
-            android:hint="@string/hint_duty">
+            android:layout_gravity="end"
+            android:text="Médio Recuperador de Bola" />
 
-            <AutoCompleteTextView
-                android:id="@+id/complete_text_view_duty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/selectedDutyTextView"
+            style="@style/PlayerDetails.AttributesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="(Automático)" />
 
     </LinearLayout>
 
@@ -62,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_filter_container"/>
+        app:layout_constraintTop_toBottomOf="@id/filterPositionButton" />
 
     <include
         android:id="@+id/mental_attributes_container"
@@ -70,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/technical_attributes_container"/>
+        app:layout_constraintTop_toBottomOf="@id/technical_attributes_container" />
 
     <include
         android:id="@+id/physical_attributes_container"
@@ -78,6 +74,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mental_attributes_container"/>
+        app:layout_constraintTop_toBottomOf="@id/mental_attributes_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

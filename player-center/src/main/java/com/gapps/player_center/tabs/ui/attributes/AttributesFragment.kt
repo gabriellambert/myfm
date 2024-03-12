@@ -2,10 +2,13 @@ package com.gapps.player_center.tabs.ui.attributes
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.PopupMenu
+import androidx.annotation.MenuRes
 import androidx.fragment.app.Fragment
 import com.example.player_center.R
 import com.example.player_center.databinding.FragmentAttributesBinding
@@ -13,7 +16,6 @@ import com.gapps.player_center.model.GoalkeeperAttributes
 import com.gapps.player_center.model.MentalAttributes
 import com.gapps.player_center.model.PhysicalAttributes
 import com.gapps.player_center.model.Player
-import com.gapps.player_center.model.Positions
 import com.gapps.player_center.model.TechnicalAttributes
 
 class AttributesFragment : Fragment() {
@@ -22,6 +24,7 @@ class AttributesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var player: Player
+    private lateinit var positionFilterButton: Button
 
     companion object {
         fun newInstance(player: Player): AttributesFragment {
@@ -58,9 +61,6 @@ class AttributesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val playerViewModel =
-//            ViewModelProvider(this).get(com.example.player_center.PlayerViewModel::class.java)
-
         _binding = FragmentAttributesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -72,12 +72,8 @@ class AttributesFragment : Fragment() {
             setPlayerGoalkeeperAttributes(player.goalkeeperAttibutes)
         }
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
-
-        setMenuAdapter()
+        this.positionFilterButton = binding.filterPositionButton
+        setListeners()
 
         return root
     }
@@ -87,11 +83,30 @@ class AttributesFragment : Fragment() {
         _binding = null
     }
 
-    private fun setMenuAdapter() {
-        val positionMenuAdapter = ArrayAdapter(requireContext(), R.layout.list_item, getPositions())
-        val dutyMenuAdapter = ArrayAdapter(requireContext(), R.layout.list_item, getDuties())
-        binding.completeTextViewPosition.setAdapter(positionMenuAdapter)
-        binding.completeTextViewDuty.setAdapter(dutyMenuAdapter)
+    private fun setListeners() {
+        positionFilterButton.setOnClickListener { v: View ->
+            showMenu(v, R.menu.position_options_menu)
+        }
+    }
+
+    private fun showMenu(v: View, @MenuRes menuRes: Int) {
+        val popup = PopupMenu(requireContext(), v)
+        popup.menuInflater.inflate(menuRes, popup.menu)
+
+        popup.menu.add(Menu.NONE, 5, Menu.NONE, "Novo item")
+
+        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+            when (menuItem.itemId) {
+                1 -> true
+                2 -> true
+                else -> true
+            }
+        }
+        popup.setOnDismissListener {
+            // Respond to popup being dismissed.
+        }
+        // Show the popup menu.
+        popup.show()
     }
 
     private fun isGoalkeeper(): Boolean {
@@ -99,15 +114,15 @@ class AttributesFragment : Fragment() {
         return this.player.positions == "GR"
     }
 
-    private fun getPositions(): List<String> {
-        val listPositions = mutableListOf<String>()
-        Positions.entries.forEach { listPositions.add(it.value) }
-        return listPositions
-    }
+//    private fun getPositions(): List<String> {
+//        val listPositions = mutableListOf<String>()
+//        Positions.entries.forEach { listPositions.add(it.value) }
+//        return listPositions
+//    }
 
-    private fun getDuties(): List<String> {
-        return listOf("defender", "cobrir", "apoiar", "atacar", "automático")
-    }
+//    private fun getDuties(): List<String> {
+//        return listOf("defender", "cobrir", "apoiar", "atacar", "automático")
+//    }
 
     private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {
         with(binding.technicalAttributesContainer) {
@@ -151,7 +166,7 @@ class AttributesFragment : Fragment() {
     }
 
     private fun setPlayerMentalAttributesText() {
-        with (binding.mentalAttributesContainer) {
+        with(binding.mentalAttributesContainer) {
             this.attributeOneText.text = context?.getString(R.string.attribute_aggression_text)
             this.attributeTwoText.text = context?.getString(R.string.attribute_anticipation_text)
             this.attributeThreeText.text = context?.getString(R.string.attribute_bravery_text)

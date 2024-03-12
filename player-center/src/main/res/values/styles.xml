@@ -30,27 +30,10 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Widget.App.ExposedDropdownMenu" parent="Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.ExposedDropdownMenu</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
-        <item name="hintTextColor">?attr/colorOnSurface</item>
-        <item name="endIconTint">?attr/colorOnSurface</item>
-    </style>
-
-    <style name="ThemeOverlay.App.ExposedDropdownMenu" parent="">
-        <item name="colorPrimary">@color/primary_yellow</item>
-        <item name="colorOnSurface">@color/light_grey</item>
-        <item name="textAppearanceSubtitle1">@style/FilterMenu.Title</item>
-        <item name="textAppearanceCaption">@style/FilterMenu.Title</item>
-    </style>
-
-    <style name="FilterMenu.Title" parent="">
-        <item name="android:textSize">@dimen/text_header_12</item>
-        <item name="android:textColor">@color/primary_yellow</item>
-    </style>
-
-    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">40dp</item>
+    <style name="PositionFilter.Button" parent="Widget.Material3.Button.TextButton" >
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="icon">@drawable/ic_search</item>
+        <item name="iconTint">#90EB9A2C</item>
+        <item name="rippleColor">@color/light_grey</item>
     </style>
 </resources>
