@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         if (FROM_TUTORIAL_EXTRAS == intent.action) {
             openFile()
-            showDialog()
         }
 
         shouldShowEmptyState()
@@ -98,14 +97,18 @@ class MainActivity : AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-
-        if (requestCode == 100 && resultCode == RESULT_OK) {
-            resultData?.data?.also { uri ->
-                viewModel.readTextFromUri(uri, applicationContext)
+        try {
+            if (requestCode == 100 && resultCode == RESULT_OK) {
+                resultData?.data?.also { uri ->
+                    viewModel.readTextFromUri(uri, applicationContext)
+                }
             }
-        }
 
-        super.onActivityResult(requestCode, resultCode, resultData)
+            super.onActivityResult(requestCode, resultCode, resultData)
+            showDialog(null)
+        } catch (e: Exception) {
+            showDialog(e.message)
+        }
     }
 
     private fun onPlayerItemClick(player: Player) {
@@ -129,22 +132,39 @@ class MainActivity : AppCompatActivity() {
         binding.progressIndicator.hide()
     }
 
-    private fun showDialog() {
-        MaterialAlertDialogBuilder(this)
-            .setTitle(resources.getString(R.string.dialog_title_success))
-            .setMessage(resources.getString(R.string.dialog_body_success))
-            .setPositiveButton(resources.getString(R.string.dialog_button_success)) { dialog, which ->
-                dialog.dismiss()
-            }
-            .setBackground(
-                ResourcesCompat.getDrawable(
-                    resources,
-                    R.drawable.dialog_background,
-                    null
+    private fun showDialog(errorMessage: String?) {
+        //ajustar isso aqui
+        if (errorMessage.isNullOrBlank()) {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(resources.getString(R.string.dialog_title_success))
+                .setMessage(resources.getString(R.string.dialog_body_success))
+                .setPositiveButton(resources.getString(R.string.dialog_button_success)) { dialog, which ->
+                    dialog.dismiss()
+                }
+                .setBackground(
+                    ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.dialog_background,
+                        null
+                    )
                 )
-            )
-            .setIcon(R.drawable.ic_success)
-            .show()
+                .setIcon(R.drawable.ic_success)
+                .show()
+        } else {
+            MaterialAlertDialogBuilder(this)
+                .setMessage(errorMessage)
+                .setPositiveButton(resources.getString(R.string.dialog_button_success)) { dialog, which ->
+                    dialog.dismiss()
+                }
+                .setBackground(
+                    ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.dialog_background,
+                        null
+                    )
+                )
+                .show()
+        }
     }
 
     companion object {

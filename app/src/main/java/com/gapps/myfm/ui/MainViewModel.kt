@@ -43,7 +43,8 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
     private fun convertFileToPlayers(tableText: String) {
 
         val rows = tableText.split("\n").map { it.trim() }
-        val headers = rows[0].split("|").filter { it.isNotBlank() }.map { it.trim() }
+        var headers = rows[0].split("|").filter { it.isNotBlank() }.map { it.trim() }
+        headers = changeFirstImpFromHeaders(headers.toMutableList())
 
         for (i in 2 until rows.size step 2) {
             val values = rows[i].split("|").filter { it.isNotBlank() }.map { it.trim() }
@@ -94,7 +95,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     concentration = playerMap["Cnc"]?.toIntOrNull() ?: 0,
                     decisions = playerMap["Decis"]?.toIntOrNull() ?: 0,
                     determination = playerMap["Det"]?.toIntOrNull() ?: 0,
-                    flair = playerMap["Imp"]?.toIntOrNull() ?: 0,
+                    flair = playerMap["Impr"]?.toIntOrNull() ?: 0,
                     leadership = playerMap["Lid"]?.toIntOrNull() ?: 0,
                     offTheBall = playerMap["SB"]?.toIntOrNull() ?: 0,
                     positioning = playerMap["Pos"]?.toIntOrNull() ?: 0,
@@ -118,6 +119,18 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
         }
 
         savePlayers()
+    }
+
+    private fun changeFirstImpFromHeaders(headers: MutableList<String>):List<String> {
+        //encontra o primeiro "Imp" e altera para "Impr" para que os atributos não fiquem duplicados"
+        var found = false
+        for (i in headers.indices) {
+            if (headers[i] == "Imp" && !found) {
+                headers[i] = "Impr"
+                found = true
+            }
+        }
+        return headers
     }
 
     private fun savePlayers() {
