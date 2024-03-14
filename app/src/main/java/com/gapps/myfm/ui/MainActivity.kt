@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.provider.DocumentsContract
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gapps.myfm.R
 import com.gapps.myfm.adapter.PlayersListAdapter
 import com.gapps.myfm.databinding.ActivityMainBinding
 import com.gapps.player_center.PlayerActivity
 import com.gapps.player_center.model.Player
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         if (FROM_TUTORIAL_EXTRAS == intent.action) {
             openFile()
+            showDialog()
         }
 
         shouldShowEmptyState()
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        hideProgressIndicator()
         shouldShowEmptyState()
     }
 
@@ -122,6 +127,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideProgressIndicator() {
         binding.progressIndicator.hide()
+    }
+
+    private fun showDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(resources.getString(R.string.dialog_title_success))
+            .setMessage(resources.getString(R.string.dialog_body_success))
+            .setPositiveButton(resources.getString(R.string.dialog_button_success)) { dialog, which ->
+                dialog.dismiss()
+            }
+            .setBackground(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.dialog_background,
+                    null
+                )
+            )
+            .setIcon(R.drawable.ic_success)
+            .show()
     }
 
     companion object {
