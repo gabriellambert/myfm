@@ -59,6 +59,8 @@ object PlayerMapper {
         val listPositions = mutableListOf<Position>()
         val mappedPositions = positions.split(", ")
 
+        convertToPosition()
+
         mappedPositions.forEach { mappedAbrev ->
             Positions.entries.find {
                 it.portugueseAbrev.lowercase() == mappedAbrev.lowercase()
@@ -74,6 +76,11 @@ object PlayerMapper {
         }
 
         return listPositions
+    }
+
+    private fun convertToPosition(positions: String) {
+        val positionsSplitted = positions.split(", ")
+
     }
 
     private fun mapTechnicalAttributes(technicalAttibutesData: TechnicalAttributesData?): TechnicalAttributes {
