@@ -18,6 +18,8 @@ data class PlayerData(
     var height: String = "",
     var weight: String = "",
     var positions: String = "",
+    var secondaryPositions: String = "",
+    var nationality: String = "",
     @TypeConverters(Converters::class)
     var technicalAttibutes: TechnicalAttributesData?,
     @TypeConverters(Converters::class)

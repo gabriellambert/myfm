@@ -56,6 +56,8 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 height = playerMap["Altura"] ?: "",
                 weight = playerMap["Peso"] ?: "",
                 positions = playerMap["Posição"] ?: "",
+                secondaryPositions = playerMap["Posição Sec."] ?: "",
+                nationality = playerMap["Nac"] ?: "",
                 technicalAttibutes = TechnicalAttributesData(
                     corners = playerMap["Cnt"]?.toIntOrNull() ?: 0,
                     crossing = playerMap["Cruz"]?.toIntOrNull() ?: 0,
