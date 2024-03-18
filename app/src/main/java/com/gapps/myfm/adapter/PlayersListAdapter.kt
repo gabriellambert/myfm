@@ -27,7 +27,7 @@ class PlayersListAdapter(
     }
 
     override fun onBindViewHolder(holder: PlayersListViewHolder, position: Int) {
-        holder.bind(playersList[position], position)
+        holder.bind(playersList[position])
     }
 
     override fun getItemCount(): Int {
