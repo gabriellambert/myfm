@@ -7,6 +7,7 @@ import android.provider.DocumentsContract
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gapps.myfm.R
 import com.gapps.myfm.adapter.PlayersListAdapter
@@ -14,6 +15,7 @@ import com.gapps.myfm.databinding.ActivityMainBinding
 import com.gapps.player_center.PlayerActivity
 import com.gapps.player_center.model.Player
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.divider.MaterialDividerItemDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val viewModel: MainViewModel by viewModel()
+
+    private var itemDecorator: MaterialDividerItemDecoration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +78,18 @@ class MainActivity : AppCompatActivity() {
         }
         binding.recyclerViewPlayersList.adapter =
             PlayersListAdapter(this, viewModel.getPlayerList(), this::onPlayerItemClick)
+
+        itemDecorator = MaterialDividerItemDecoration(
+            this,
+            DividerItemDecoration.VERTICAL
+        ).apply {
+            dividerInsetEnd = 48
+            dividerInsetStart = 48
+        }
+
+        itemDecorator?.let {
+            binding.recyclerViewPlayersList.addItemDecoration(it)
+        }
     }
 
     private fun setListeners() {
