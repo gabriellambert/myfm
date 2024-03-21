@@ -44,7 +44,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
 
         val rows = tableText.split("\n").map { it.trim() }
         var headers = rows[0].split("|").filter { it.isNotBlank() }.map { it.trim() }
-        headers = changeFirstImpFromHeaders(headers.toMutableList())
+        headers = renameDuplicateImpAttribute(headers.toMutableList())
 
         for (i in 2 until rows.size step 2) {
             val values = rows[i].split("|").filter { it.isNotBlank() }.map { it.trim() }
@@ -109,7 +109,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     acceleration = playerMap["Acl"]?.toIntOrNull() ?: 0,
                     agility = playerMap["Agi"]?.toIntOrNull() ?: 0,
                     balance = playerMap["Eql"]?.toIntOrNull() ?: 0,
-                    jumpingReach = playerMap["Imp"]?.toIntOrNull() ?: 0, //ajustar pois tem dois Imp
+                    jumpingReach = playerMap["Imp"]?.toIntOrNull() ?: 0,
                     naturalFitness = playerMap["AF"]?.toIntOrNull() ?: 0,
                     pace = playerMap["Vel"]?.toIntOrNull() ?: 0,
                     stamina = playerMap["Res"]?.toIntOrNull() ?: 0,
@@ -123,15 +123,16 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
         savePlayers()
     }
 
-    private fun changeFirstImpFromHeaders(headers: MutableList<String>):List<String> {
+    private fun renameDuplicateImpAttribute(headers: MutableList<String>):List<String> {
         //encontra o primeiro "Imp" e altera para "Impr" para que os atributos não fiquem duplicados"
         var found = false
-        for (i in headers.indices) {
-            if (headers[i] == "Imp" && !found) {
-                headers[i] = "Impr"
+        headers.forEachIndexed { index, header ->
+            if (header == "Imp" && !found) {
+                headers[index] = "Impr"
                 found = true
             }
         }
+
         return headers
     }
 
