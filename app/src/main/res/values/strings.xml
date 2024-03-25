@@ -17,6 +17,9 @@
     <string name="player_list_position">posição</string>
     <string name="player_list_age">idade</string>
     <string name="download_view_button">Baixar visualização</string>
+    <string name="dialog_title_success">Upload realizado com sucesso!</string>
+    <string name="dialog_body_success">Agora você já pode acessar cada jogador do seu plantel, verificar suas informações e atributos e ter um apoio ao planejar e/ou reformular seu time.</string>
+    <string name="dialog_button_success">começar</string>
 
     <string name="tutorial_desc_one">Em seu jogo no computador, acesse a aba de “Plantel”.</string>
     <string name="tutorial_desc_two">No menu de visualização, baixe o arquivo acima e importe-o no jogo...</string>
