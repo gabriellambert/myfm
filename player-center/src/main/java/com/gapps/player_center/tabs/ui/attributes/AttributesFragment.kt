@@ -90,11 +90,11 @@ class AttributesFragment : Fragment() {
 
     private fun setListeners() {
         positionFilterButton.setOnClickListener { v: View ->
-            showMenu(v, R.menu.position_options_menu)
+            showPositionFilterMenu(v, R.menu.position_options_menu)
         }
     }
 
-    private fun showMenu(v: View, @MenuRes menuRes: Int) {
+    private fun showPositionFilterMenu(v: View, @MenuRes menuRes: Int) {
         val popup = PopupMenu(requireContext(), v)
         popup.menuInflater.inflate(menuRes, popup.menu)
 

@@ -59,7 +59,7 @@ object PlayerMapper {
         val listPositions = mutableListOf<Position>()
         val mappedPositions = positions.split(", ")
 
-        convertToPosition()
+//        convertToPosition()
 
         mappedPositions.forEach { mappedAbrev ->
             Positions.entries.find {
@@ -79,8 +79,34 @@ object PlayerMapper {
     }
 
     private fun convertToPosition(positions: String) {
+        //esse método deve verificar se a posição tem mais de um lado e caso tenha criar as
+        //posicoes separadas. D (CE) -> D (C) e D (E)
         val positionsSplitted = positions.split(", ")
 
+    }
+
+    fun test() {
+        val originalString = "D (CE), M (C), MO (DEC)"
+
+        val newStrings = mutableListOf<String>()
+
+        originalString.split(",").forEach { string ->
+            println("string -> $string")
+            string.split("(").let { parts ->
+                val positionAbbrev = parts[0].trim()
+                var positions = parts[1].dropLast(1).split("")
+                println("positions -> $positions")
+
+                positions.forEach { position ->
+                    println("position -> $position")
+                    newStrings.add("$positionAbbrev ($position)")
+                }
+            }
+        }
+
+        val result = newStrings.joinToString(", ")
+
+        println(result)
     }
 
     private fun mapTechnicalAttributes(technicalAttibutesData: TechnicalAttributesData?): TechnicalAttributes {
