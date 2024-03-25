@@ -149,7 +149,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog(errorMessage: String?) {
-        //ajustar isso aqui
         if (errorMessage.isNullOrBlank()) {
             MaterialAlertDialogBuilder(this)
                 .setTitle(resources.getString(R.string.dialog_title_success))
