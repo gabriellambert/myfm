@@ -8,13 +8,9 @@ class PlayersListViewHolder(
     private val binding: PlayerListItemBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(player: Player, position: Int) {
+    fun bind(player: Player) {
         binding.nameText.text = player.name
-        binding.positionText.text = "player.positions.first().toString()"
-        binding.ageText.text = player.age.toString()
-        if (position % 2 != 0) {
-            binding.root.setBackgroundResource(R.drawable.ripple)
-        }
+        binding.positionText.text = getFirstPosition(player.positions)
     }
 
     private fun getFirstPosition(positions: String?): String {
