@@ -70,6 +70,6 @@ class TutorialActivity : AppCompatActivity() {
 
     companion object {
         private const val VIEW_DOWNLOAD_FILE =
-            "https://drive.google.com/file/d/1A_Rs-hkFonH3jqrnux5niK5MgBUIWR88/view?usp=drive_link"
+            "https://drive.google.com/file/d/1fRv3ynT5OtUea4EjgNI0kqGID0maDGLH/view?usp=sharing"
     }
 }

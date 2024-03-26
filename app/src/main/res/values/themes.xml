@@ -4,5 +4,6 @@
 
     <style name="Theme.MyFM" parent="Base.Theme.MyFM">
         <item name="android:statusBarColor">@color/black_27</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
 </resources>

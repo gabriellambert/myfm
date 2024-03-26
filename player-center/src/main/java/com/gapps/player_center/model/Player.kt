@@ -15,6 +15,8 @@ data class Player(
     var height: String = "",
     var weight: String = "",
     var positions: List<Position>,
+    var secondaryPositions: String = "",
+    var nationality: String = "",
     var technicalAttibutes: TechnicalAttributes?,
     var goalkeeperAttibutes: GoalkeeperAttributes?,
     var mentalAttibutes: MentalAttributes?,

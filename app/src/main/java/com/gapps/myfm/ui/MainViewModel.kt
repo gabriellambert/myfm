@@ -43,7 +43,8 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
     private fun convertFileToPlayers(tableText: String) {
 
         val rows = tableText.split("\n").map { it.trim() }
-        val headers = rows[0].split("|").filter { it.isNotBlank() }.map { it.trim() }
+        var headers = rows[0].split("|").filter { it.isNotBlank() }.map { it.trim() }
+        headers = renameDuplicateImpAttribute(headers.toMutableList())
 
         for (i in 2 until rows.size step 2) {
             val values = rows[i].split("|").filter { it.isNotBlank() }.map { it.trim() }
@@ -55,6 +56,8 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 height = playerMap["Altura"] ?: "",
                 weight = playerMap["Peso"] ?: "",
                 positions = playerMap["Posição"] ?: "",
+                secondaryPositions = playerMap["Posição Sec."] ?: "",
+                nationality = playerMap["Nac"] ?: "",
                 technicalAttibutes = TechnicalAttributesData(
                     corners = playerMap["Cnt"]?.toIntOrNull() ?: 0,
                     crossing = playerMap["Cruz"]?.toIntOrNull() ?: 0,
@@ -94,7 +97,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     concentration = playerMap["Cnc"]?.toIntOrNull() ?: 0,
                     decisions = playerMap["Decis"]?.toIntOrNull() ?: 0,
                     determination = playerMap["Det"]?.toIntOrNull() ?: 0,
-                    flair = playerMap["Imp"]?.toIntOrNull() ?: 0,
+                    flair = playerMap["Impr"]?.toIntOrNull() ?: 0,
                     leadership = playerMap["Lid"]?.toIntOrNull() ?: 0,
                     offTheBall = playerMap["SB"]?.toIntOrNull() ?: 0,
                     positioning = playerMap["Pos"]?.toIntOrNull() ?: 0,
@@ -106,7 +109,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     acceleration = playerMap["Acl"]?.toIntOrNull() ?: 0,
                     agility = playerMap["Agi"]?.toIntOrNull() ?: 0,
                     balance = playerMap["Eql"]?.toIntOrNull() ?: 0,
-                    jumpingReach = playerMap["Imp"]?.toIntOrNull() ?: 0, //ajustar pois tem dois Imp
+                    jumpingReach = playerMap["Imp"]?.toIntOrNull() ?: 0,
                     naturalFitness = playerMap["AF"]?.toIntOrNull() ?: 0,
                     pace = playerMap["Vel"]?.toIntOrNull() ?: 0,
                     stamina = playerMap["Res"]?.toIntOrNull() ?: 0,
@@ -118,6 +121,19 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
         }
 
         savePlayers()
+    }
+
+    private fun renameDuplicateImpAttribute(headers: MutableList<String>):List<String> {
+        //encontra o primeiro "Imp" e altera para "Impr" para que os atributos não fiquem duplicados"
+        var found = false
+        headers.forEachIndexed { index, header ->
+            if (header == "Imp" && !found) {
+                headers[index] = "Impr"
+                found = true
+            }
+        }
+
+        return headers
     }
 
     private fun savePlayers() {

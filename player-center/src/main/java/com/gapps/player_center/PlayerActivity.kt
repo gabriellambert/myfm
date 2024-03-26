@@ -56,6 +56,7 @@ class PlayerActivity : AppCompatActivity() {
 //        navView.setupWithNavController(navController)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         finish()
         super.onBackPressed()
@@ -70,12 +71,13 @@ class PlayerActivity : AppCompatActivity() {
         )
         binding.playerNationalityAndAge.text = getString(
             R.string.player_nationality_and_age,
+            player.nationality,
             player.age.toString()
         )
     }
 
     private fun setPlayerTabs() {
-        val tabs = PlayerTabType.values()
+        val tabs = PlayerTabType.entries.toTypedArray()
 
         playerTabAdapter = PlayerTabAdapter(this, tabs.toList(), player)
 
