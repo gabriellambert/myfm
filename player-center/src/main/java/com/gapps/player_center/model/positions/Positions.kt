@@ -32,7 +32,7 @@ enum class Positions(
         )
     ),
     DR(
-        "defesa (direito)", "DD", listOf(
+        "defesa (direito)", "D (D)", listOf(
             NewRoles(
                 value = "Defesa Ala Invertido", duties = listOf(
                     NewDuties(
@@ -106,7 +106,7 @@ enum class Positions(
         )
     ),
     DC(
-        "defesa (centro)", "DC", listOf(
+        "defesa (centro)", "D (C)", listOf(
             NewRoles(
                 value = "Defesa Central", duties = listOf(
                     NewDuties(
@@ -214,7 +214,7 @@ enum class Positions(
         )
     ),
     DL(
-        "defesa (esquerdo)", "DE", listOf(
+        "defesa (esquerdo)", "D (E)", listOf(
             NewRoles(
                 value = "Defesa Ala Invertido", duties = listOf(
                     NewDuties(
@@ -288,7 +288,7 @@ enum class Positions(
         )
     ),
     WBR(
-        "ala (direito)", "DAD", listOf(
+        "ala (direito)", "DA (D)", listOf(
             NewRoles(
                 value = "Ala", duties = listOf(
                     NewDuties(
@@ -407,7 +407,7 @@ enum class Positions(
         )
     ),
     WBL(
-        "ala (esquerdo)", "DAE", listOf(
+        "ala (esquerdo)", "DA (E)", listOf(
             NewRoles(
                 value = "Ala", duties = listOf(
                     NewDuties(
@@ -453,7 +453,7 @@ enum class Positions(
         )
     ),
     MR(
-        "médio (direito)", "MD", listOf(
+        "médio (direito)", "M (D)", listOf(
             NewRoles(
                 value = "Médio Ala", duties = listOf(
                     NewDuties(
@@ -504,7 +504,7 @@ enum class Positions(
         )
     ),
     MC(
-        "médio (centro)", "MC", listOf(
+        "médio (centro)", "M (C)", listOf(
             NewRoles(
                 value = "Médio Centro", duties = listOf(
                     NewDuties(
@@ -575,7 +575,7 @@ enum class Positions(
         )
     ),
     ML(
-        "médio (esquerdo)", "ME", listOf(
+        "médio (esquerdo)", "M (E)", listOf(
             NewRoles(
                 value = "Médio Ala", duties = listOf(
                     NewDuties(
@@ -626,7 +626,7 @@ enum class Positions(
         )
     ),
     AMR(
-        "médio ofensivo (direito)", "MOD", listOf(
+        "médio ofensivo (direito)", "MO (D)", listOf(
             NewRoles(
                 value = "Extremo", duties = listOf(
                     NewDuties(value = "apoiar", abrev = "ap", primaryAttr = "", secondaryAttr = ""),
@@ -670,7 +670,7 @@ enum class Positions(
         )
     ),
     AMC(
-        "médio ofensivo (centro)", "MOC", listOf(
+        "médio ofensivo (centro)", "MO (C)", listOf(
             NewRoles(
                 value = "Médio Ofensivo", duties = listOf(
                     NewDuties(value = "apoiar", abrev = "ap", primaryAttr = "", secondaryAttr = ""),
@@ -701,7 +701,7 @@ enum class Positions(
         )
     ),
     AML(
-        "médio ofensivo (esquerdo)", "MOE", listOf(
+        "médio ofensivo (esquerdo)", "MO (E)", listOf(
             NewRoles(
                 value = "Extremo", duties = listOf(
                     NewDuties(value = "apoiar", abrev = "ap", primaryAttr = "", secondaryAttr = ""),
@@ -745,7 +745,7 @@ enum class Positions(
         )
     ),
     STC(
-        "ponta-de-lança (centro)", "PLC", listOf(
+        "ponta-de-lança (centro)", "PL (C)", listOf(
             NewRoles(
                 value = "Avançado Recuado", duties = listOf(
                     NewDuties(value = "apoiar", abrev = "ap", primaryAttr = "", secondaryAttr = ""),

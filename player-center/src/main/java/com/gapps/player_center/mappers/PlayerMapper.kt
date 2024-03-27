@@ -1,11 +1,9 @@
 package com.gapps.player_center.mappers
 
+import com.gapps.player_center.model.Player
 import com.gapps.player_center.model.attributes.GoalkeeperAttributes
 import com.gapps.player_center.model.attributes.MentalAttributes
 import com.gapps.player_center.model.attributes.PhysicalAttributes
-import com.gapps.player_center.model.Player
-import com.gapps.player_center.model.positions.OldPosition
-import com.gapps.player_center.model.positions.OldPositions
 import com.gapps.player_center.model.attributes.TechnicalAttributes
 import com.gapps.player_center.model.positions.Position
 import com.gapps.player_center.model.positions.Positions
@@ -61,9 +59,8 @@ object PlayerMapper {
 
     private fun mapPositions(positions: String): List<Position> {
         val listPositions = mutableListOf<Position>()
-        val mappedPositions = positions.split(", ")
 
-//        convertToPosition()
+        val mappedPositions = convertToPositionBySide(positions)
 
         mappedPositions.forEach { mappedAbrev ->
             Positions.entries.find {
@@ -82,35 +79,30 @@ object PlayerMapper {
         return listPositions
     }
 
-    private fun convertToPosition(positions: String) {
+    private fun convertToPositionBySide(positions: String): List<String> {
         //esse método deve verificar se a posição tem mais de um lado e caso tenha criar as
         //posicoes separadas. D (CE) -> D (C) e D (E)
-        val positionsSplitted = positions.split(", ")
+        val result = mutableListOf<String>()
 
-    }
-
-    fun test() {
-        val originalString = "D (CE), M (C), MO (DEC)"
-
-        val newStrings = mutableListOf<String>()
-
-        originalString.split(",").forEach { string ->
-            println("string -> $string")
+        positions.split(",").forEach { string ->
             string.split("(").let { parts ->
-                val positionAbbrev = parts[0].trim()
-                var positions = parts[1].dropLast(1).split("")
-                println("positions -> $positions")
+                val positionAbbrev = parts[0].trim().split("/")
+                positionAbbrev.forEach {
+                    if (parts.size > 1 && parts[1].isNotEmpty()) {
+                        val newPositions = parts[1].dropLast(1).split("").toMutableList()
+                        newPositions.removeAt(0)
+                        newPositions.removeLast()
+                        newPositions.forEach { position ->
+                            result.add("$it ($position)")
+                        }
 
-                positions.forEach { position ->
-                    println("position -> $position")
-                    newStrings.add("$positionAbbrev ($position)")
+                    } else {
+                        result.add(it)
+                    }
                 }
             }
         }
-
-        val result = newStrings.joinToString(", ")
-
-        println(result)
+        return result
     }
 
     private fun mapTechnicalAttributes(technicalAttibutesData: TechnicalAttributesData?): TechnicalAttributes {

@@ -3,6 +3,7 @@ package com.gapps.myfm
 import androidx.recyclerview.widget.RecyclerView
 import com.gapps.myfm.databinding.PlayerListItemBinding
 import com.gapps.player_center.model.Player
+import com.gapps.player_center.model.positions.Position
 
 class PlayersListViewHolder(
     private val binding: PlayerListItemBinding
@@ -10,10 +11,14 @@ class PlayersListViewHolder(
 
     fun bind(player: Player) {
         binding.nameText.text = player.name
-        binding.positionText.text = getFirstPosition(player.positions)
+        binding.positionText.text = getPositions(player.positions)
     }
 
-    private fun getFirstPosition(positions: String?): String {
-        return positions?.split(",")?.get(0) ?: "-"
+    private fun getPositions(positions: List<Position>?): String {
+        val newStrings = mutableListOf<String>()
+        positions?.forEach {
+            newStrings.add(it.portugueseAbrev)
+        }
+        return newStrings.joinToString()
     }
 }

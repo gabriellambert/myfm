@@ -2,7 +2,6 @@ package com.gapps.player_center.tabs.ui.attributes
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +11,10 @@ import androidx.annotation.MenuRes
 import androidx.fragment.app.Fragment
 import com.example.player_center.R
 import com.example.player_center.databinding.FragmentAttributesBinding
+import com.gapps.player_center.model.Player
 import com.gapps.player_center.model.attributes.GoalkeeperAttributes
 import com.gapps.player_center.model.attributes.MentalAttributes
 import com.gapps.player_center.model.attributes.PhysicalAttributes
-import com.gapps.player_center.model.Player
 import com.gapps.player_center.model.attributes.TechnicalAttributes
 
 class AttributesFragment : Fragment() {
@@ -78,7 +77,7 @@ class AttributesFragment : Fragment() {
     }
 
     private fun setContent() {
-//        binding.textTest.text = player.positions.first().portugueseAbrev
+        binding.textPosition.text = player.positions.first().portugueseAbrev
         setPlayerTechnicalAttributes(player.technicalAttibutes)
         setPlayerMentalAttributes(player.mentalAttibutes)
         setPlayerPhysicalAttributes(player.physicalAttibutes)
@@ -98,7 +97,13 @@ class AttributesFragment : Fragment() {
         val popup = PopupMenu(requireContext(), v)
         popup.menuInflater.inflate(menuRes, popup.menu)
 
-        popup.menu.add(Menu.NONE, 5, Menu.NONE, "Novo item")
+        this.player.positions.forEachIndexed { index, it ->
+            popup.menu.addSubMenu(it.portugueseAbrev).apply {
+                it.roles.forEach {
+                    this.add(0, index, 0, it.value)
+                }
+            }
+        }
 
         popup.setOnMenuItemClickListener { menuItem: MenuItem ->
             when (menuItem.itemId) {
@@ -114,21 +119,10 @@ class AttributesFragment : Fragment() {
         popup.show()
     }
 
-    private fun isGoalkeeper(): Boolean {
-        //TODO melhorar este método para ser mais preciso e pegar tb goleiros líberos
-        return false
-//        return this.player.positions == "GR"
-    }
-
-//    private fun getPositions(): List<String> {
-//        val listPositions = mutableListOf<String>()
-//        Positions.entries.forEach { listPositions.add(it.value) }
-//        return listPositions
-//    }
-
-//    private fun getDuties(): List<String> {
-//        return listOf("defender", "cobrir", "apoiar", "atacar", "automático")
-//    }
+    private fun isGoalkeeper() =
+        this.player.positions.any {
+            it.portugueseAbrev == "GR"
+        }
 
     private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {
         with(binding.technicalAttributesContainer) {

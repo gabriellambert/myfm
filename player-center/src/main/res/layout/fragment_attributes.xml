@@ -18,48 +18,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textTest"
+        android:id="@+id/textPosition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/margin_32"
-        android:textColor="@color/white"
-        android:text="MC | MD | VOL" />
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="@dimen/margin_32"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/filterPositionButton"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@id/filterPositionButton">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/playerPositionsTextView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:text="MD | MC | MOC" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/selectedPositionTextView"-->
-<!--            style="@style/PlayerDetails.AttributesText"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:text="Médio Recuperador de Bola" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/selectedDutyTextView"-->
-<!--            style="@style/PlayerDetails.AttributesText"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:text="(Automático)" />-->
-
-<!--    </LinearLayout>-->
+        android:textColor="@color/white" />
 
     <include
         android:id="@+id/technical_attributes_container"
