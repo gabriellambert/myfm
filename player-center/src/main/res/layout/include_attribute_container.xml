@@ -9,7 +9,6 @@
         style="@style/PlayerDetails.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ATTRIBUTES TITLE"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +56,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/attribute_default_value" />
+                    android:text="@string/attribute_default_value"
+                    android:textAlignment="textEnd" />
             </LinearLayout>
 
             <LinearLayout
@@ -82,7 +82,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/attribute_default_value" />
+                    android:text="@string/attribute_default_value"
+                    android:textAlignment="textEnd" />
             </LinearLayout>
 
             <LinearLayout
