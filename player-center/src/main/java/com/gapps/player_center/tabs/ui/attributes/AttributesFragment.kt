@@ -94,7 +94,7 @@ class AttributesFragment : Fragment() {
     }
 
     private fun showPositionFilterMenu(v: View, @MenuRes menuRes: Int) {
-        val popup = PopupMenu(requireContext(), v)
+        val popup = PopupMenu(requireContext(), v, 0, 0, R.style.PositionFilter_Menu)
         popup.menuInflater.inflate(menuRes, popup.menu)
 
         this.player.positions.forEachIndexed { index, it ->
