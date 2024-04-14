@@ -152,8 +152,7 @@ class MainActivity : AppCompatActivity() {
         if (errorMessage.isNullOrBlank()) {
             MaterialAlertDialogBuilder(this)
                 .setTitle(resources.getString(R.string.dialog_title_success))
-                .setMessage(resources.getString(R.string.dialog_body_success))
-                .setPositiveButton(resources.getString(R.string.dialog_button_success)) { dialog, which ->
+                .setPositiveButton(resources.getString(R.string.dialog_button_success)) { dialog, _ ->
                     dialog.dismiss()
                 }
                 .setBackground(

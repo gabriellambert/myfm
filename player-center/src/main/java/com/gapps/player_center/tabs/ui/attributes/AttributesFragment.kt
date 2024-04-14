@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.PopupMenu
 import androidx.annotation.MenuRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.player_center.R
 import com.example.player_center.databinding.FragmentAttributesBinding
 import com.gapps.player_center.model.Player
@@ -16,20 +18,24 @@ import com.gapps.player_center.model.attributes.GoalkeeperAttributes
 import com.gapps.player_center.model.attributes.MentalAttributes
 import com.gapps.player_center.model.attributes.PhysicalAttributes
 import com.gapps.player_center.model.attributes.TechnicalAttributes
+import com.gapps.player_center.model.positions.Positions
 
 class AttributesFragment : Fragment() {
 
     private var _binding: FragmentAttributesBinding? = null
     private val binding get() = _binding!!
 
+    private var filteredPosition: Positions? = null
+
     private lateinit var player: Player
     private lateinit var positionFilterButton: Button
+    private lateinit var attributesViewModel: AttributesViewModel
 
     companion object {
         fun newInstance(player: Player): AttributesFragment {
             val fragment = AttributesFragment()
             val bundle = Bundle()
-            bundle.putSerializable("player", player)
+            bundle.putSerializable(KEY_PLAYER, player)
             fragment.arguments = bundle
             return fragment
         }
@@ -48,11 +54,13 @@ class AttributesFragment : Fragment() {
         private const val FIRST_TOUCH_ATTR = "Primeiro Toque"
         private const val REFLEXES_ATTR = "Reflexos"
         private const val ONE_ON_ONES_ATTR = "Um para Um"
+
+        private const val KEY_PLAYER = "player"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.player = arguments?.getSerializable("player") as Player
+        this.player = arguments?.getSerializable(KEY_PLAYER) as Player
     }
 
     override fun onCreateView(
@@ -63,9 +71,12 @@ class AttributesFragment : Fragment() {
         _binding = FragmentAttributesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setContent()
+        attributesViewModel = ViewModelProvider(this).get(AttributesViewModel::class.java)
 
         this.positionFilterButton = binding.filterPositionButton
+
+        setObservers()
+        setContent()
         setListeners()
 
         return root
@@ -76,8 +87,14 @@ class AttributesFragment : Fragment() {
         _binding = null
     }
 
+    private fun setObservers() {
+        attributesViewModel.filteredPosition.observe(viewLifecycleOwner) {
+            filteredPosition = it
+        }
+    }
+
     private fun setContent() {
-        binding.textPosition.text = player.positions.first().portugueseAbrev
+        binding.textDuties.text = player.positions.first().portugueseAbrev
         setPlayerTechnicalAttributes(player.technicalAttibutes)
         setPlayerMentalAttributes(player.mentalAttibutes)
         setPlayerPhysicalAttributes(player.physicalAttibutes)
@@ -100,23 +117,37 @@ class AttributesFragment : Fragment() {
         this.player.positions.forEachIndexed { index, it ->
             popup.menu.addSubMenu(it.portugueseAbrev).apply {
                 it.roles.forEach {
-                    this.add(0, index, 0, it.value)
+                    this.add(0, index + 1, 0, it.value)
                 }
             }
         }
 
         popup.setOnMenuItemClickListener { menuItem: MenuItem ->
-            when (menuItem.itemId) {
-                1 -> true
-                2 -> true
-                else -> true
-            }
+            if (menuItem.itemId > 0) {
+                setFilteredPositionRole(menuItem.title.toString())
+                true
+            } else true
         }
         popup.setOnDismissListener {
             // Respond to popup being dismissed.
         }
         // Show the popup menu.
         popup.show()
+    }
+
+    private fun setFilteredPositionRole(roleTitle: String) {
+        binding.filterPositionButton.text = roleTitle
+        attributesViewModel.setFilteredPosition(roleTitle)
+        changeAttributesBackgroundColors(filteredPosition)
+    }
+
+    private fun changeAttributesBackgroundColors(position: Positions?) {
+        binding.technicalAttributesContainer.attributeOneValue.setTextColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.primary_yellow
+            )
+        )
     }
 
     private fun isGoalkeeper() =
