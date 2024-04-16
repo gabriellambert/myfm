@@ -14,7 +14,7 @@ enum class Positions(
             NewRoles(
                 value = "Guarda-Redes", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(
                             GoalkeeperAttributesKeys.AERIAL_REACH.value,
@@ -39,7 +39,7 @@ enum class Positions(
             NewRoles(
                 value = "Guarda-Redes Líbero", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(
                             GoalkeeperAttributesKeys.COMMAND_OF_AREA.value,
@@ -66,7 +66,7 @@ enum class Positions(
                         )
                     ),
                     NewDuties(
-                        value = "apoiar", abrev = "ap", primaryAttr = listOf(
+                        value = "Apoiar", abrev = "ap", primaryAttr = listOf(
                             GoalkeeperAttributesKeys.PUNCHING.value,
                             GoalkeeperAttributesKeys.COMMAND_OF_AREA.value,
                             GoalkeeperAttributesKeys.KICKING.value,
@@ -91,7 +91,7 @@ enum class Positions(
                         )
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(
                             GoalkeeperAttributesKeys.PUNCHING.value,
@@ -127,25 +127,25 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Ala Invertido", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -155,13 +155,13 @@ enum class Positions(
             NewRoles(
                 value = "Ala Completo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -171,25 +171,25 @@ enum class Positions(
             NewRoles(
                 value = "Ala", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -199,25 +199,25 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Lateral", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -227,7 +227,7 @@ enum class Positions(
             NewRoles(
                 value = "Lateral Descomplicado", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -241,19 +241,19 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Central", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "bloqueador",
+                        value = "Bloqueador",
                         abrev = "bl",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "cobrir",
+                        value = "Cobrir",
                         abrev = "co",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -263,13 +263,13 @@ enum class Positions(
             NewRoles(
                 value = "Líbero Avançado", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -279,19 +279,19 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Com Bola", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "bloqueador",
+                        value = "Bloqueador",
                         abrev = "bl",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "cobrir",
+                        value = "Cobrir",
                         abrev = "co",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -301,19 +301,19 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Central Eficiente", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "bloqueador",
+                        value = "Bloqueador",
                         abrev = "bl",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "cobrir",
+                        value = "Cobrir",
                         abrev = "co",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -323,19 +323,19 @@ enum class Positions(
             NewRoles(
                 value = "Central Descaído", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -349,25 +349,25 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Ala Invertido", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -377,13 +377,13 @@ enum class Positions(
             NewRoles(
                 value = "Ala Completo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -393,25 +393,25 @@ enum class Positions(
             NewRoles(
                 value = "Ala", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -421,25 +421,25 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Lateral", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -449,7 +449,7 @@ enum class Positions(
             NewRoles(
                 value = "Lateral Descomplicado", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -463,25 +463,25 @@ enum class Positions(
             NewRoles(
                 value = "Ala", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -491,13 +491,13 @@ enum class Positions(
             NewRoles(
                 value = "Ala Completo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -507,25 +507,25 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Ala Invertido", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -539,13 +539,13 @@ enum class Positions(
             NewRoles(
                 value = "Médio Defensivo", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -555,13 +555,13 @@ enum class Positions(
             NewRoles(
                 value = "Construtor de Jogo Recuado", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -571,13 +571,13 @@ enum class Positions(
             NewRoles(
                 value = "Médio Recuperador de Bolas", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -587,7 +587,7 @@ enum class Positions(
             NewRoles(
                 value = "Trinco", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -597,7 +597,7 @@ enum class Positions(
             NewRoles(
                 value = "Pivô Defensivo", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -607,7 +607,7 @@ enum class Positions(
             NewRoles(
                 value = "Médio Criativo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -617,7 +617,7 @@ enum class Positions(
             NewRoles(
                 value = "Organizador Móvel", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -627,13 +627,13 @@ enum class Positions(
             NewRoles(
                 value = "Segundo Volante", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -647,25 +647,25 @@ enum class Positions(
             NewRoles(
                 value = "Ala", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -675,13 +675,13 @@ enum class Positions(
             NewRoles(
                 value = "Ala Completo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -691,25 +691,25 @@ enum class Positions(
             NewRoles(
                 value = "Defesa Ala Invertido", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -723,25 +723,25 @@ enum class Positions(
             NewRoles(
                 value = "Médio Ala", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -751,13 +751,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -767,13 +767,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo Defensivo", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -783,13 +783,13 @@ enum class Positions(
             NewRoles(
                 value = "Organizador Aberto", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -799,13 +799,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo Invertido", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -819,25 +819,25 @@ enum class Positions(
             NewRoles(
                 value = "Médio Centro", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -847,13 +847,13 @@ enum class Positions(
             NewRoles(
                 value = "Construtor de Jogo Recuado", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -863,7 +863,7 @@ enum class Positions(
             NewRoles(
                 value = "Médio Área-a-Área", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -873,13 +873,13 @@ enum class Positions(
             NewRoles(
                 value = "Construtor de Jogo Avançado", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -889,13 +889,13 @@ enum class Positions(
             NewRoles(
                 value = "Médio Recuperador de Bolas", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -905,7 +905,7 @@ enum class Positions(
             NewRoles(
                 value = "Organizador Móvel", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -915,13 +915,13 @@ enum class Positions(
             NewRoles(
                 value = "Mezzala", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -931,7 +931,7 @@ enum class Positions(
             NewRoles(
                 value = "Carrilero", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -945,25 +945,25 @@ enum class Positions(
             NewRoles(
                 value = "Médio Ala", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "automático",
+                        value = "Automático",
                         abrev = "au",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -973,13 +973,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -989,13 +989,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo Defensivo", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1005,13 +1005,13 @@ enum class Positions(
             NewRoles(
                 value = "Organizador Aberto", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1021,13 +1021,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo Invertido", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1041,13 +1041,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1057,13 +1057,13 @@ enum class Positions(
             NewRoles(
                 value = "Construtor de Jogo Avançado", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1073,13 +1073,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado Interior", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1089,7 +1089,7 @@ enum class Positions(
             NewRoles(
                 value = "Número 10", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1099,13 +1099,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado de referência aberto", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1115,7 +1115,7 @@ enum class Positions(
             NewRoles(
                 value = "Ponta de Lança Aberto", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1125,13 +1125,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo Invertido", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1145,13 +1145,13 @@ enum class Positions(
             NewRoles(
                 value = "Médio Ofensivo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1161,13 +1161,13 @@ enum class Positions(
             NewRoles(
                 value = "Construtor de Jogo Avançado", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1177,7 +1177,7 @@ enum class Positions(
             NewRoles(
                 value = "Número 10", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1187,7 +1187,7 @@ enum class Positions(
             NewRoles(
                 value = "Pivô Ofensivo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1197,7 +1197,7 @@ enum class Positions(
             NewRoles(
                 value = "Avançado Sombra", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1211,13 +1211,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1227,13 +1227,13 @@ enum class Positions(
             NewRoles(
                 value = "Construtor de Jogo Avançado", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1243,13 +1243,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado Interior", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1259,7 +1259,7 @@ enum class Positions(
             NewRoles(
                 value = "Número 10", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1269,13 +1269,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado de referência aberto", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1285,7 +1285,7 @@ enum class Positions(
             NewRoles(
                 value = "Ponta de Lança Aberto", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1295,13 +1295,13 @@ enum class Positions(
             NewRoles(
                 value = "Extremo Invertido", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1315,13 +1315,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado Recuado", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1331,7 +1331,7 @@ enum class Positions(
             NewRoles(
                 value = "Ponta-de-Lança", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1341,13 +1341,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado de referência", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1357,7 +1357,7 @@ enum class Positions(
             NewRoles(
                 value = "Ponta-de-Lança Fixo", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1367,13 +1367,13 @@ enum class Positions(
             NewRoles(
                 value = "Avançado Completo", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1383,19 +1383,19 @@ enum class Positions(
             NewRoles(
                 value = "Avançado Trabalhador", duties = listOf(
                     NewDuties(
-                        value = "defender",
+                        value = "Defender",
                         abrev = "de",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
                     ),
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1405,7 +1405,7 @@ enum class Positions(
             NewRoles(
                 value = "Número 10", duties = listOf(
                     NewDuties(
-                        value = "atacar",
+                        value = "Atacar",
                         abrev = "at",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()
@@ -1415,7 +1415,7 @@ enum class Positions(
             NewRoles(
                 value = "Falso Nove", duties = listOf(
                     NewDuties(
-                        value = "apoiar",
+                        value = "Apoiar",
                         abrev = "ap",
                         primaryAttr = listOf(),
                         secondaryAttr = listOf()

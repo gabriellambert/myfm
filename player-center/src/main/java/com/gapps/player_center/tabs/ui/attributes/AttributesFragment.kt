@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.annotation.MenuRes
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.player_center.R
@@ -20,7 +19,7 @@ import com.gapps.player_center.model.attributes.MentalAttributes
 import com.gapps.player_center.model.attributes.PhysicalAttributes
 import com.gapps.player_center.model.attributes.TechnicalAttributes
 import com.gapps.player_center.model.positions.Position
-import com.gapps.player_center.model.positions.Positions
+import com.gapps.player_center.utils.GoalkeeperAttributesKeys
 
 class AttributesFragment : Fragment() {
 
@@ -29,6 +28,10 @@ class AttributesFragment : Fragment() {
 
     private var filteredPosition: Position? = null
     private var filteredRole = ""
+    private var filteredDuty = ""
+    private var filteredPositionDuties: List<String> = listOf()
+
+    private val filteredPositionAttributes: HashMap<String, TextView> = hashMapOf()
 
     private lateinit var player: Player
     private lateinit var positionFilterButton: Button
@@ -45,20 +48,6 @@ class AttributesFragment : Fragment() {
         }
 
         private const val GOALKEEPER_TITLE = "GOLEIRO"
-        private const val RUSHING_OUT_ATTR = "(Tendência) para saídas da baliza"
-        private const val PUNCHING_ATTR = "(Tendência) para socar"
-        private const val AERIAL_REACH_ATTR = "Alcance Aéreo"
-        private const val COMMAND_OF_AREA_ATTR = "Comando de área"
-        private const val COMMUNICATION_ATTR = "Comunicação"
-        private const val ECCENTRICITY_ATTR = "Excentricidade"
-        private const val HANDLING_ATTR = "Jogo de Mãos"
-        private const val THROWING_ATTR = "Lançamentos"
-        private const val PASSING_ATTR = "Passe"
-        private const val KICKING_ATTR = "Pontapé"
-        private const val FIRST_TOUCH_ATTR = "Primeiro Toque"
-        private const val REFLEXES_ATTR = "Reflexos"
-        private const val ONE_ON_ONES_ATTR = "Um para Um"
-
         private const val KEY_PLAYER = "player"
     }
 
@@ -117,6 +106,7 @@ class AttributesFragment : Fragment() {
         }
     }
 
+
     private fun showPositionFilterMenu(v: View, @MenuRes menuRes: Int) {
         val popup = PopupMenu(requireContext(), v, 0, 0, R.style.PositionFilter_Menu)
         popup.menuInflater.inflate(menuRes, popup.menu)
@@ -134,37 +124,39 @@ class AttributesFragment : Fragment() {
                 filteredPosition = this.player.positions.elementAt(menuItem.groupId)
                 filteredRole = menuItem.title.toString()
                 setFilteredPositionRole(filteredPosition, filteredRole)
-                setDutiesFilterMenu(menuItem.title.toString())
+                setDutiesFilterMenu()
                 true
             } else true
         }
-        popup.setOnDismissListener {
-            // Respond to popup being dismissed.
-        }
-        // Show the popup menu.
+        popup.setOnDismissListener {}
         popup.show()
     }
 
-    private fun setDutiesFilterMenu(toString: String) {
-        binding.filterDutyButton.visibility = View.VISIBLE
-//        changeAttributesBackgroundColors(filteredPosition)
+    private fun setDutiesFilterMenu() {
+        filteredPositionDuties = attributesViewModel.getDutiesFromPositionFiltered(filteredPosition, filteredRole)
+        with (binding.filterDutyButton) {
+            this.visibility = View.VISIBLE
+        }
+        changeDutyFilterButtonText(filteredPositionDuties.first())
     }
 
     private fun showDutiesFilterMenu(v: View, @MenuRes menuRes: Int) {
         val popup = PopupMenu(requireContext(), v, 0, 0, R.style.PositionFilter_Menu)
         popup.menuInflater.inflate(menuRes, popup.menu)
 
-        filteredPosition?.roles?.forEach { role ->
-            role.duties.forEach { duty ->
-                popup.menu.addSubMenu(duty.value)
-            }
+        filteredPositionDuties.forEach { duty ->
+                popup.menu.add(duty)
         }
 
-        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
-//            filteredPosition?.roles.forEach {  role ->
-//                role.duties.forEach { duty ->
-//                    teste[duty.primaryAttr].apply {
-//                        this?.setBackgroundColor(context.getColor(R.color.primary_yellow))
+        popup.setOnMenuItemClickListener {
+            filteredDuty = it.title.toString()
+            changeDutyFilterButtonText(filteredDuty)
+//            filteredPosition?.roles?.forEach {  role ->
+//                role.duties.forEach { duties ->
+//                    duties.primaryAttr.forEach { attribute ->
+//                        filteredPositionAttributes[attribute].apply {
+//                            this?.setBackgroundColor(context.getColor(R.color.primary_yellow))
+//                        }
 //                    }
 //                }
 //            }
@@ -174,31 +166,24 @@ class AttributesFragment : Fragment() {
         popup.show()
     }
 
-    private fun setFilteredPositionRole(position: Position?, roleTitle: String) {
-        binding.filterPositionButton.text = roleTitle
-        attributesViewModel.setFilteredPosition(position, roleTitle)
+    private fun changeDutyFilterButtonText(dutyTitle: String) {
+        binding.filterDutyButton.text = dutyTitle
     }
 
-//    private fun changeAttributesBackgroundColors(position: Positions?) {
-//        binding.technicalAttributesContainer.attributeOneValue.setTextColor(
-//            ContextCompat.getColor(
-//                requireContext(),
-//                R.color.primary_yellow
-//            )
-//        )
-//    }
+    private fun setFilteredPositionRole(position: Position?, roleTitle: String) {
+        binding.filterPositionButton.text = roleTitle
+//        attributesViewModel.setFilteredPosition(position, roleTitle)
+    }
 
     private fun isGoalkeeper() =
         this.player.positions.any {
             it.portugueseAbrev == "GR"
         }
 
-    val teste: HashMap<String, TextView> = hashMapOf()
     private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {
         with(binding.technicalAttributesContainer) {
             this.attributesTitle.text = context?.getString(R.string.technical_title_text)
             this.attributeOneValue.text = attributes?.heading.toString()
-            teste.put(attributes?.heading.toString(), this.attributeOneValue)
             this.attributeTwoValue.text = attributes?.corners.toString()
             this.attributeThreeValue.text = attributes?.crossing.toString()
             this.attributeFourValue.text = attributes?.tackling.toString()
@@ -284,6 +269,7 @@ class AttributesFragment : Fragment() {
     private fun setPlayerGoalkeeperAttributes(attributes: GoalkeeperAttributes?) {
         with(binding.technicalAttributesContainer) {
             this.attributeOneValue.text = attributes?.rushingOut.toString()
+            filteredPositionAttributes[attributes?.rushingOut.toString()] = this.attributeOneValue
             this.attributeTwoValue.text = attributes?.punching.toString()
             this.attributeThreeValue.text = attributes?.aerialReach.toString()
             this.attributeFourValue.text = attributes?.commandOfArea.toString()
@@ -302,19 +288,19 @@ class AttributesFragment : Fragment() {
     private fun setGoalkeeperAttributesText() {
         with(binding.technicalAttributesContainer) {
             this.attributesTitle.text = GOALKEEPER_TITLE
-            this.attributeOneText.text = RUSHING_OUT_ATTR
-            this.attributeTwoText.text = PUNCHING_ATTR
-            this.attributeThreeText.text = AERIAL_REACH_ATTR
-            this.attributeFourText.text = COMMAND_OF_AREA_ATTR
-            this.attributeFiveText.text = COMMUNICATION_ATTR
-            this.attributeSixText.text = ECCENTRICITY_ATTR
-            this.attributeSevenText.text = HANDLING_ATTR
-            this.attributeEightText.text = THROWING_ATTR
-            this.attributeNineText.text = PASSING_ATTR
-            this.attributeTenText.text = KICKING_ATTR
-            this.attributeElevenText.text = FIRST_TOUCH_ATTR
-            this.attributeTwelveText.text = REFLEXES_ATTR
-            this.attributeThirteenText.text = ONE_ON_ONES_ATTR
+            this.attributeOneText.text = GoalkeeperAttributesKeys.RUSHING_OUT.value
+            this.attributeTwoText.text = GoalkeeperAttributesKeys.PUNCHING.value
+            this.attributeThreeText.text = GoalkeeperAttributesKeys.AERIAL_REACH.value
+            this.attributeFourText.text = GoalkeeperAttributesKeys.COMMAND_OF_AREA.value
+            this.attributeFiveText.text = GoalkeeperAttributesKeys.COMMUNICATION.value
+            this.attributeSixText.text = GoalkeeperAttributesKeys.ECCENTRICITY.value
+            this.attributeSevenText.text = GoalkeeperAttributesKeys.HANDLING.value
+            this.attributeEightText.text = GoalkeeperAttributesKeys.THROWING.value
+            this.attributeNineText.text = GoalkeeperAttributesKeys.PASSING.value
+            this.attributeTenText.text = GoalkeeperAttributesKeys.KICKING.value
+            this.attributeElevenText.text = GoalkeeperAttributesKeys.FIRST_TOUCH.value
+            this.attributeTwelveText.text = GoalkeeperAttributesKeys.REFLEXES.value
+            this.attributeThirteenText.text = GoalkeeperAttributesKeys.ONE_ON_ONES.value
             this.attributeFourteen.visibility = View.GONE
         }
     }

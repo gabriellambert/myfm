@@ -12,20 +12,33 @@ class AttributesViewModel : ViewModel() {
     val filteredPosition: LiveData<Position>
         get() = _filteredPosition
 
-    fun setFilteredPosition(position: Position?, roleTitle: String) {
-        Positions.entries.forEach {
-            for (role in it.roles) {
-                if (role.value == roleTitle) {
-                    _filteredPosition.value =
-                        position?.value?.let { positionTitle ->
-                            Position(
-                                positionTitle,
-                                roleTitle,
-                                listOf()
-                            )
-                        }
+    fun getDutiesFromPositionFiltered(position: Position?, roleTitle: String): List<String> {
+        val roles: MutableList<String> = mutableListOf()
+        Positions.entries.find { it.value == position?.value}.apply {
+            this?.roles?.find { it.value == roleTitle }.apply {
+                this?.duties?.forEach {
+                    roles.add(it.value)
                 }
             }
         }
+        return roles
     }
+
+//    fun setFilteredPosition(position: Position?, roleTitle: String) {
+//        Positions.entries.find { it.value == position?.value}.apply {
+//        Positions.entries.forEach {
+//            for (role in it.roles) {
+//                if (role.value == roleTitle) {
+//                    _filteredPosition.value =
+//                        position?.value?.let { positionTitle ->
+//                            Position(
+//                                positionTitle,
+//                                roleTitle,
+//                                listOf()
+//                            )
+//                        }
+//                }
+//            }
+//        }
+//    }
 }
