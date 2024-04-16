@@ -223,7 +223,7 @@ enum class Positions(
                         primaryAttr = "",
                         secondaryAttr = ""
                     ),
-                    NewDuties(value = "apoiar", abrev = "ap", primaryAttr = "", secondaryAttr = ""),
+                    NewDuties(value = "apoiar", abrev = "ap", primaryAttr = "cabeceamento", secondaryAttr = ""),
                     NewDuties(value = "atacar", abrev = "at", primaryAttr = "", secondaryAttr = ""),
                     NewDuties(
                         value = "automático",

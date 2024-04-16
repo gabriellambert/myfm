@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.PopupMenu
+import android.widget.TextView
 import androidx.annotation.MenuRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -18,6 +19,7 @@ import com.gapps.player_center.model.attributes.GoalkeeperAttributes
 import com.gapps.player_center.model.attributes.MentalAttributes
 import com.gapps.player_center.model.attributes.PhysicalAttributes
 import com.gapps.player_center.model.attributes.TechnicalAttributes
+import com.gapps.player_center.model.positions.Position
 import com.gapps.player_center.model.positions.Positions
 
 class AttributesFragment : Fragment() {
@@ -25,10 +27,12 @@ class AttributesFragment : Fragment() {
     private var _binding: FragmentAttributesBinding? = null
     private val binding get() = _binding!!
 
-    private var filteredPosition: Positions? = null
+    private var filteredPosition: Position? = null
+    private var filteredRole = ""
 
     private lateinit var player: Player
     private lateinit var positionFilterButton: Button
+    private lateinit var dutiesFilterButton: Button
     private lateinit var attributesViewModel: AttributesViewModel
 
     companion object {
@@ -71,9 +75,10 @@ class AttributesFragment : Fragment() {
         _binding = FragmentAttributesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        attributesViewModel = ViewModelProvider(this).get(AttributesViewModel::class.java)
+        attributesViewModel = ViewModelProvider(this)[AttributesViewModel::class.java]
 
         this.positionFilterButton = binding.filterPositionButton
+        this.dutiesFilterButton = binding.filterDutyButton
 
         setObservers()
         setContent()
@@ -94,7 +99,6 @@ class AttributesFragment : Fragment() {
     }
 
     private fun setContent() {
-        binding.textDuties.text = player.positions.first().portugueseAbrev
         setPlayerTechnicalAttributes(player.technicalAttibutes)
         setPlayerMentalAttributes(player.mentalAttibutes)
         setPlayerPhysicalAttributes(player.physicalAttibutes)
@@ -108,23 +112,29 @@ class AttributesFragment : Fragment() {
         positionFilterButton.setOnClickListener { v: View ->
             showPositionFilterMenu(v, R.menu.position_options_menu)
         }
+        dutiesFilterButton.setOnClickListener { v: View ->
+            showDutiesFilterMenu(v, R.menu.duty_options_menu)
+        }
     }
 
     private fun showPositionFilterMenu(v: View, @MenuRes menuRes: Int) {
         val popup = PopupMenu(requireContext(), v, 0, 0, R.style.PositionFilter_Menu)
         popup.menuInflater.inflate(menuRes, popup.menu)
 
-        this.player.positions.forEachIndexed { index, it ->
-            popup.menu.addSubMenu(it.portugueseAbrev).apply {
-                it.roles.forEach {
-                    this.add(0, index + 1, 0, it.value)
+        this.player.positions.forEachIndexed { index, position ->
+            popup.menu.addSubMenu(position.portugueseAbrev).apply {
+                position.roles.forEach {
+                    this.add(index, index + 1, 0, it.value)
                 }
             }
         }
 
         popup.setOnMenuItemClickListener { menuItem: MenuItem ->
             if (menuItem.itemId > 0) {
-                setFilteredPositionRole(menuItem.title.toString())
+                filteredPosition = this.player.positions.elementAt(menuItem.groupId)
+                filteredRole = menuItem.title.toString()
+                setFilteredPositionRole(filteredPosition, filteredRole)
+                setDutiesFilterMenu(menuItem.title.toString())
                 true
             } else true
         }
@@ -135,30 +145,60 @@ class AttributesFragment : Fragment() {
         popup.show()
     }
 
-    private fun setFilteredPositionRole(roleTitle: String) {
-        binding.filterPositionButton.text = roleTitle
-        attributesViewModel.setFilteredPosition(roleTitle)
-        changeAttributesBackgroundColors(filteredPosition)
+    private fun setDutiesFilterMenu(toString: String) {
+        binding.filterDutyButton.visibility = View.VISIBLE
+//        changeAttributesBackgroundColors(filteredPosition)
     }
 
-    private fun changeAttributesBackgroundColors(position: Positions?) {
-        binding.technicalAttributesContainer.attributeOneValue.setTextColor(
-            ContextCompat.getColor(
-                requireContext(),
-                R.color.primary_yellow
-            )
-        )
+    private fun showDutiesFilterMenu(v: View, @MenuRes menuRes: Int) {
+        val popup = PopupMenu(requireContext(), v, 0, 0, R.style.PositionFilter_Menu)
+        popup.menuInflater.inflate(menuRes, popup.menu)
+
+        filteredPosition?.roles?.forEach { role ->
+            role.duties.forEach { duty ->
+                popup.menu.addSubMenu(duty.value)
+            }
+        }
+
+        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+//            filteredPosition?.roles.forEach {  role ->
+//                role.duties.forEach { duty ->
+//                    teste[duty.primaryAttr].apply {
+//                        this?.setBackgroundColor(context.getColor(R.color.primary_yellow))
+//                    }
+//                }
+//            }
+            true
+        }
+        popup.setOnDismissListener {}
+        popup.show()
     }
+
+    private fun setFilteredPositionRole(position: Position?, roleTitle: String) {
+        binding.filterPositionButton.text = roleTitle
+        attributesViewModel.setFilteredPosition(position, roleTitle)
+    }
+
+//    private fun changeAttributesBackgroundColors(position: Positions?) {
+//        binding.technicalAttributesContainer.attributeOneValue.setTextColor(
+//            ContextCompat.getColor(
+//                requireContext(),
+//                R.color.primary_yellow
+//            )
+//        )
+//    }
 
     private fun isGoalkeeper() =
         this.player.positions.any {
             it.portugueseAbrev == "GR"
         }
 
+    val teste: HashMap<String, TextView> = hashMapOf()
     private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {
         with(binding.technicalAttributesContainer) {
             this.attributesTitle.text = context?.getString(R.string.technical_title_text)
             this.attributeOneValue.text = attributes?.heading.toString()
+            teste.put(attributes?.heading.toString(), this.attributeOneValue)
             this.attributeTwoValue.text = attributes?.corners.toString()
             this.attributeThreeValue.text = attributes?.crossing.toString()
             this.attributeFourValue.text = attributes?.tackling.toString()

@@ -17,16 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textDuties"
+    <Button
+        android:id="@+id/filterDutyButton"
+        style="@style/PositionFilter.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/filterPositionButton"
-        app:layout_constraintBottom_toBottomOf="@id/filterPositionButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Text"
         android:layout_margin="@dimen/margin_32"
-        android:textColor="@color/white" />
+        android:text="Apoiar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/technical_attributes_container"
