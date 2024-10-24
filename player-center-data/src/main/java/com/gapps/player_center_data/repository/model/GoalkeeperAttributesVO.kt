@@ -1,6 +1,6 @@
-package com.gapps.player_center.model
+package com.gapps.player_center_data.repository.model
 
-data class GoalkeeperAttributes(
+data class GoalkeeperAttributesVO(
     val aerialReach: Int?,
     val commandOfArea: Int?,
     val communication: Int?,

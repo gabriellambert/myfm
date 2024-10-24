@@ -4,100 +4,36 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.provider.DocumentsContract
-import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.gapps.myfm.R
-import com.gapps.myfm.adapter.PlayersListAdapter
 import com.gapps.myfm.databinding.ActivityMainBinding
-import com.gapps.player_center.PlayerActivity
-import com.gapps.player_center.model.Player
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.divider.MaterialDividerItemDecoration
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val viewModel: MainViewModel by viewModel()
-
-    private var itemDecorator: MaterialDividerItemDecoration? = null
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        hideProgressIndicator()
+        setBottomNav()
 
         if (FROM_TUTORIAL_EXTRAS == intent.action) {
             openFile()
         }
-
-        shouldShowEmptyState()
-        setListeners()
     }
 
-    override fun onResume() {
-        super.onResume()
-        hideProgressIndicator()
-        shouldShowEmptyState()
-    }
-
-    private fun shouldShowEmptyState() {
-        if (viewModel.getPlayerList().isEmpty()) {
-            setEmptyState()
-        } else {
-            setEmptyStateToGone()
-            initRecyclerView()
-        }
-    }
-
-    private fun setEmptyState() {
-        with(binding) {
-            this.empytStateContainer.visibility = View.VISIBLE
-            this.teamListContainer.visibility = View.GONE
-        }
-    }
-
-    private fun setEmptyStateToGone() {
-        with(binding) {
-            this.empytStateContainer.visibility = View.GONE
-            this.teamListContainer.visibility = View.VISIBLE
-        }
-    }
-
-    private fun initRecyclerView() {
-        with(binding.recyclerViewPlayersList) {
-            this.setHasFixedSize(true)
-            this.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        }
-        binding.recyclerViewPlayersList.adapter =
-            PlayersListAdapter(this, viewModel.getPlayerList(), this::onPlayerItemClick)
-
-        itemDecorator = MaterialDividerItemDecoration(
-            this,
-            DividerItemDecoration.VERTICAL
-        ).apply {
-            dividerInsetEnd = 48
-            dividerInsetStart = 48
-        }
-
-        itemDecorator?.let {
-            binding.recyclerViewPlayersList.addItemDecoration(it)
-        }
-    }
-
-    private fun setListeners() {
-        with(binding) {
-            this.uploadButton.setOnClickListener {
-                openTutorial()
-            }
-        }
+    private fun setBottomNav() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_home)
+        binding.navView.setupWithNavController(navController)
     }
 
     private fun openFile() {
@@ -125,27 +61,6 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             showDialog(e.message)
         }
-    }
-
-    private fun onPlayerItemClick(player: Player) {
-        val intent = Intent(this, PlayerActivity::class.java).apply {
-            putExtra(PLAYER_ID, player.id)
-        }
-        showProgressIndicator()
-        startActivity(intent)
-    }
-
-    private fun openTutorial() {
-        val intent = Intent(this, TutorialActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun showProgressIndicator() {
-        binding.progressIndicator.show()
-    }
-
-    private fun hideProgressIndicator() {
-        binding.progressIndicator.hide()
     }
 
     private fun showDialog(errorMessage: String?) {
@@ -183,7 +98,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val PLAYER_ID = "PLAYER_ID"
         private const val FROM_TUTORIAL_EXTRAS = "FROM_TUTORIAL_EXTRAS"
     }
 }

@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.player_center.R
 import com.example.player_center.databinding.ActivityPlayerBinding
-import com.gapps.player_center.model.Player
 import com.gapps.player_center.tabs.PlayerTabAdapter
 import com.gapps.player_center.tabs.PlayerTabType
+import com.gapps.player_center_data.repository.model.PlayerVO
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,7 +18,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlayerBinding
     private lateinit var playerTabAdapter: PlayerTabAdapter
-    private lateinit var player: Player
+    private lateinit var player: PlayerVO
 
     private val viewModel: PlayerViewModel by viewModel()
 
@@ -62,7 +62,7 @@ class PlayerActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
-    private fun setContent(player: Player) {
+    private fun setContent(player: PlayerVO) {
         binding.playerName.text = player.name
         binding.playerHeightWeight.text = getString(
             R.string.player_height_weight,

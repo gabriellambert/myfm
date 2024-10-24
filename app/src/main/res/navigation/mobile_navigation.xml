@@ -2,24 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/mobile_navigation2"
     app:startDestination="@+id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.player_center.ui.attributes.AttributesFragment"
+        android:name="com.gapps.myfm.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_attributes" />
+        tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.player_center.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_statistics" />
+        android:id="@+id/navigation_tactics"
+        android:name="com.example.tactics_center.ui.TacticsFragment"
+        android:label="@string/title_tactics"
+        tools:layout="@layout/fragment_tactics" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.player_center.ui.notifications.NotificationsFragment"
+        android:name="com.gapps.player_center.ui.TeamPlayersFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_suggestion" />
+        tools:layout="@layout/fragment_team_players" />
 </navigation>

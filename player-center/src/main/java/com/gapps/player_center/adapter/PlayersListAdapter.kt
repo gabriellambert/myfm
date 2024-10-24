@@ -1,17 +1,17 @@
-package com.gapps.myfm.adapter
+package com.gapps.player_center.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gapps.myfm.PlayersListViewHolder
-import com.gapps.myfm.databinding.PlayerListItemBinding
-import com.gapps.player_center.model.Player
+import com.example.player_center.databinding.PlayerListItemBinding
+import com.gapps.player_center.PlayersListViewHolder
+import com.gapps.player_center_data.repository.model.PlayerVO
 
 class PlayersListAdapter(
     private val context: Context,
-    private val playersList: List<Player>,
-    private val callback: (Player) -> Unit
+    private val playersList: List<PlayerVO>,
+    private val callback: (PlayerVO) -> Unit
 ) : RecyclerView.Adapter<PlayersListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayersListViewHolder {

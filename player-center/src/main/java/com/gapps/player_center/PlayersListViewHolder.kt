@@ -1,14 +1,14 @@
-package com.gapps.myfm
+package com.gapps.player_center
 
 import androidx.recyclerview.widget.RecyclerView
-import com.gapps.myfm.databinding.PlayerListItemBinding
-import com.gapps.player_center.model.Player
+import com.example.player_center.databinding.PlayerListItemBinding
+import com.gapps.player_center_data.repository.model.PlayerVO
 
 class PlayersListViewHolder(
     private val binding: PlayerListItemBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(player: Player) {
+    fun bind(player: PlayerVO) {
         binding.nameText.text = player.name
         binding.positionText.text = getFirstPosition(player.positions)
     }

@@ -1,6 +1,6 @@
-package com.gapps.player_center.model
+package com.gapps.player_center_data.repository.model
 
-data class PhysicalAttributes(
+data class PhysicalAttributesVO(
     val acceleration: Int?,
     val agility: Int?,
     val balance: Int?,
