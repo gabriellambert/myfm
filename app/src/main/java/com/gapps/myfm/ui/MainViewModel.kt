@@ -138,14 +138,14 @@ class MainViewModel(
 
     private fun savePlayers() {
         players.forEach {
-//            playerUseCase.save(it)
+            playerUseCase.save(it)
         }
     }
 
     fun deletePlayers() {
         //ajustar para remover todos os players
         players.forEach {
-//            playerUseCase.delete(it)
+            playerUseCase.delete(it)
         }
     }
 

@@ -26,11 +26,7 @@ class TacticsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(TacticsViewModel::class.java)
-
         _binding = FragmentTacticsBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
