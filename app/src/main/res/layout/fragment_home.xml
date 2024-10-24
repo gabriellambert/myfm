@@ -9,7 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/team_list_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_16">
 
         <TextView
             android:id="@+id/mainHeader"
@@ -24,7 +25,6 @@
             android:id="@+id/recycler_view_players_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_32"
             android:layout_marginTop="@dimen/padding_16"
             android:clipToPadding="false"
             android:paddingBottom="180dp"

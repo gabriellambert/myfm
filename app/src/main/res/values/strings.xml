@@ -4,8 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_player">PlayerActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_tactics">Tactics</string>
+    <string name="title_settings">Configurações</string>
+    <string name="title_tactics">Central tática</string>
     <string name="age_abreviation">IDA</string>
     <string name="position_abreviation">POS</string>
     <string name="name_text">NOME</string>

@@ -7,7 +7,7 @@
     </style>
 
     <style name="PlayerList.Header" parent="" >
-        <item name="android:textSize">@dimen/text_header_12</item>
+        <item name="android:textSize">@dimen/text_header_24</item>
         <item name="android:textColor">@color/light_grey</item>
         <item name="android:textStyle">bold</item>
     </style>
