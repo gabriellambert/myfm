@@ -3,6 +3,9 @@
 
     <application>
         <activity
+            android:name=".ui.TacticActivity"
+            android:exported="false" />
+        <activity
             android:name=".TacticsActivity"
             android:exported="false" />
     </application>
