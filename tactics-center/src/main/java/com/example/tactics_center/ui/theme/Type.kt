@@ -21,5 +21,12 @@ val Typography = Typography(
         fontSize = 10.sp,
         color = Color.White,
         textAlign = TextAlign.Center
+    ),
+    labelSmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 12.sp,
+        color = Color.Black,
+        textAlign = TextAlign.Center
     )
 )
