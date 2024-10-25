@@ -193,6 +193,7 @@ fun PlayerButton(
                             text = player.name,
                             modifier = Modifier
                                 .fillMaxWidth()
+                                .padding(8.dp)
                                 .clickable {
                                     scope
                                         .launch { sheetState.hide() }
@@ -203,7 +204,6 @@ fun PlayerButton(
                                             }
                                         }
                                 }
-                                .padding(8.dp)
                         )
                     }
                 }
