@@ -1,6 +1,6 @@
-package com.gapps.player_center.model
+package com.gapps.player_center_data.repository.model
 
-data class TechnicalAttributes(
+data class TechnicalAttributesVO(
     val corners: Int?,
     val crossing: Int?,
     val dribbling: Int?,

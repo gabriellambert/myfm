@@ -1,26 +1,37 @@
 package com.gapps.myfm.di
 
+import com.example.tactics_center.ui.TacticsViewModel
 import com.gapps.myfm.ui.MainViewModel
-import com.gapps.player_center_data.repository.PlayerRepository
-import com.gapps.player_center_data.repository.room.PlayerDatabase
+import com.gapps.myfm.ui.home.HomeViewModel
 import com.gapps.player_center.PlayerViewModel
-import com.gapps.player_center_data.repository.RoomRepository
+import com.gapps.player_center_data.repository.domain.repository.PlayerRepository
+import com.gapps.player_center_data.repository.domain.repository.PlayerRepositoryImpl
+import com.gapps.player_center_data.repository.domain.usecase.PlayerUseCase
+import com.gapps.player_center_data.repository.domain.usecase.PlayerUseCaseImpl
+import com.gapps.player_center_data.repository.room.PlayerDatabase
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val androidModule = module {
     single { this }
     single {
-        RoomRepository(
+        PlayerRepositoryImpl(
             PlayerDatabase.getDatabase(
                 context = get()
             )
         ) as PlayerRepository
     }
+    single<PlayerUseCase> { PlayerUseCaseImpl(get()) }
     viewModel {
-        MainViewModel(repository = get())
+        MainViewModel(playerUseCase = get())
     }
     viewModel {
-        PlayerViewModel(repository = get())
+        PlayerViewModel(playerUseCase = get())
+    }
+    viewModel {
+        HomeViewModel(playerUseCase = get())
+    }
+    viewModel {
+        TacticsViewModel(playerUseCase = get())
     }
 }

@@ -1,6 +1,6 @@
-package com.gapps.player_center.model
+package com.gapps.player_center_data.repository.model
 
-data class MentalAttributes(
+data class MentalAttributesVO(
     val aggression: Int?,
     val anticipation: Int?,
     val bravery: Int?,

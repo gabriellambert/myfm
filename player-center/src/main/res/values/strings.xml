@@ -6,4 +6,16 @@
     <string name="technical_title_text">TÉCNICOS</string>
     <string name="mental_title_text">MENTAIS</string>
     <string name="physical_title_text">FÍSICOS</string>
+
+    <string name="player_list_name">nome</string>
+    <string name="player_list_position">posição</string>
+    <string name="player_list_age">idade</string>
+
+    <string name="plantel_text">plantel</string>
+    <string name="empty_state_header">Você ainda não possui um plantel</string>
+    <string name="empty_state_description">Para iniciar faça o upload do seu arquivo\n clicando no botão abaixo</string>
+    <string name="upload_button_text">Upload do meu elenco</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_tactics">Tactics</string>
 </resources>

@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.player_center.databinding.FragmentAttributesBinding
-import com.gapps.player_center.model.GoalkeeperAttributes
-import com.gapps.player_center.model.MentalAttributes
-import com.gapps.player_center.model.PhysicalAttributes
-import com.gapps.player_center.model.Player
-import com.gapps.player_center.model.TechnicalAttributes
+import com.gapps.player_center_data.repository.model.GoalkeeperAttributesVO
+import com.gapps.player_center_data.repository.model.MentalAttributesVO
+import com.gapps.player_center_data.repository.model.PhysicalAttributesVO
+import com.gapps.player_center_data.repository.model.PlayerVO
+import com.gapps.player_center_data.repository.model.TechnicalAttributesVO
 
 class AttributesFragment : Fragment() {
 
     private var _binding: FragmentAttributesBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var player: Player
+    private lateinit var player: PlayerVO
 
     companion object {
-        fun newInstance(player: Player): AttributesFragment {
+        fun newInstance(player: PlayerVO): AttributesFragment {
             val fragment = AttributesFragment()
             val bundle = Bundle()
             bundle.putSerializable("player", player)
@@ -46,7 +46,7 @@ class AttributesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.player = arguments?.getSerializable("player") as Player
+        this.player = arguments?.getSerializable("player") as PlayerVO
     }
 
     override fun onCreateView(
@@ -85,7 +85,7 @@ class AttributesFragment : Fragment() {
         return this.player.positions == "GR"
     }
 
-    private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributes?) {
+    private fun setPlayerTechnicalAttributes(attributes: TechnicalAttributesVO?) {
         with(binding) {
             this.headingValue.text = attributes?.heading.toString()
             this.cornersValue.text = attributes?.corners.toString()
@@ -104,7 +104,7 @@ class AttributesFragment : Fragment() {
         }
     }
 
-    private fun setPlayerMentalAttributes(attributes: MentalAttributes?) {
+    private fun setPlayerMentalAttributes(attributes: MentalAttributesVO?) {
         with(binding) {
             this.aggressionValue.text = attributes?.aggression.toString()
             this.anticipationValue.text = attributes?.anticipation.toString()
@@ -123,7 +123,7 @@ class AttributesFragment : Fragment() {
         }
     }
 
-    private fun setPlayerPhysicalAttributes(attributes: PhysicalAttributes?) {
+    private fun setPlayerPhysicalAttributes(attributes: PhysicalAttributesVO?) {
         with(binding) {
             this.accelerationValue.text = attributes?.acceleration.toString()
             this.agilityValue.text = attributes?.agility.toString()
@@ -136,7 +136,7 @@ class AttributesFragment : Fragment() {
         }
     }
 
-    private fun setPlayerGoalkeeperAttributes(attributes: GoalkeeperAttributes?) {
+    private fun setPlayerGoalkeeperAttributes(attributes: GoalkeeperAttributesVO?) {
         with(binding) {
             this.headingValue.text = attributes?.rushingOut.toString()
             this.cornersValue.text = attributes?.punching.toString()
