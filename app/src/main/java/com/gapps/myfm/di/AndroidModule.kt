@@ -1,5 +1,6 @@
 package com.gapps.myfm.di
 
+import com.example.tactics_center.ui.TacticsViewModel
 import com.gapps.myfm.ui.MainViewModel
 import com.gapps.myfm.ui.home.HomeViewModel
 import com.gapps.player_center.PlayerViewModel
@@ -29,5 +30,8 @@ val androidModule = module {
     }
     viewModel {
         HomeViewModel(playerUseCase = get())
+    }
+    viewModel {
+        TacticsViewModel(playerUseCase = get())
     }
 }
