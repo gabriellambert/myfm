@@ -15,21 +15,20 @@
         android:theme="@style/Theme.MyFM"
         tools:targetApi="31">
         <activity
-            android:name=".ui.HomeActivity"
-            android:exported="false"
-            android:label="@string/title_activity_home" />
-        <activity
             android:name=".ui.TutorialActivity"
             android:exported="false"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.gapps.player_center.PlayerActivity"
             android:exported="false"
             android:label="@string/title_activity_player"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

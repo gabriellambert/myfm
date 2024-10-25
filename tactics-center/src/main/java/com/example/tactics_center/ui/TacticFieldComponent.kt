@@ -4,6 +4,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.indication
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -120,7 +122,11 @@ fun PlayerButton(
                     offsetY += dragAmount.y
                 }
             }
-            .clickable(enabled = true, onClick = { showPlayerOptions = true })
+            .clickable(
+                enabled = true,
+                onClick = { showPlayerOptions = true },
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
