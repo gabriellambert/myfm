@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation2"
+    android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
     <fragment
@@ -16,6 +16,12 @@
         android:name="com.example.tactics_center.ui.TacticsFragment"
         android:label="@string/title_tactics"
         tools:layout="@layout/fragment_tactics" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.gapps.myfm.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_notifications"
