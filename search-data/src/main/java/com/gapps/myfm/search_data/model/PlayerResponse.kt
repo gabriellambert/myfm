@@ -18,49 +18,49 @@ data class PlayerResponse(
     @field:SerializedName("personality") val personality: String,
     @field:SerializedName("searchString") val searchString: String,
     @field:SerializedName("reputation") val reputation: Int,
-    @field:SerializedName("attributes") val attributes: List<AttributeResponse>,
+    @field:SerializedName("attributes") val attributes: AttributeResponse,
 )
 
 data class AttributeResponse(
-    @field:SerializedName("technicals") val technicals: List<TechnicalAttributeResponse>,
-    @field:SerializedName("mentals") val mentals: List<MentalAttributeResponse>,
-    @field:SerializedName("physicals") val physicals: List<PhysicalAttributeResponse>,
-    @field:SerializedName("goalkeeping") val goalkeeping: List<GoalkeepingAttributeResponse>,
-    @field:SerializedName("hidden") val hidden: List<HiddenAttributeResponse>,
+    @field:SerializedName("technicals") val technicals: TechnicalAttributeResponse,
+    @field:SerializedName("mentals") val mentals: MentalAttributeResponse,
+    @field:SerializedName("physicals") val physicals: PhysicalAttributeResponse,
+    @field:SerializedName("goalkeeping") val goalkeeping: GoalkeepingAttributeResponse,
+    @field:SerializedName("hidden") val hidden: HiddenAttributeResponse,
 )
 
 data class TechnicalAttributeResponse(
-    val corners: Int?,
     val crossing: Int?,
-    val dribbling: Int?,
-    val finishing: Int?,
+    val corners: Int?,
     val firstTouch: Int?,
-    val freeKickTacking: Int?,
+    val finishing: Int?,
+    val dribbling: Int?,
     val heading: Int?,
-    val longShots: Int?,
-    val longThrows: Int?,
+    val freekicks: Int?,
     val marking: Int?,
+    val longThrow: Int?,
+    val longshots: Int?,
     val passing: Int?,
-    val penaltyTaking: Int?,
+    val penalties: Int?,
     val tackling: Int?,
     val technique: Int?
 )
 
 data class MentalAttributeResponse(
-    val aggression: Int?,
-    val anticipation: Int?,
-    val bravery: Int?,
-    val composure: Int?,
-    val concentration: Int?,
-    val decisions: Int?,
-    val determination: Int?,
-    val flair: Int?,
-    val leadership: Int?,
-    val offTheBall: Int?,
-    val positioning: Int?,
-    val teamwork: Int?,
+    val workrate: Int?,
     val vision: Int?,
-    val workRate: Int?,
+    val teamwork: Int?,
+    val positioning: Int?,
+    val offTheBall: Int?,
+    val leadership: Int?,
+    val flair: Int?,
+    val determination: Int?,
+    val decisions: Int?,
+    val concentration: Int?,
+    val composure: Int?,
+    val bravery: Int?,
+    val anticipation: Int?,
+    val aggression: Int?
 )
 
 data class PhysicalAttributeResponse(
@@ -70,20 +70,18 @@ data class PhysicalAttributeResponse(
     val jumpingReach: Int?,
     val naturalFitness: Int?,
     val pace: Int?,
-    val stamina: Int?,
-    val strenght: Int?,
+    val strength: Int?,
+    val stamina: Int?
 )
 
 data class GoalkeepingAttributeResponse(
     val aerialReach: Int?,
-    val commandOfArea: Int?,
     val communication: Int?,
+    val commandOfArea: Int?,
     val eccentricity: Int?,
-    val firstTouch: Int?,
     val handling: Int?,
     val kicking: Int?,
-    val oneOnOnes: Int?,
-    val passing: Int?,
+    val oneVSOne: Int?,
     val punching: Int?,
     val reflexes: Int?,
     val rushingOut: Int?,
