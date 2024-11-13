@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tactics_center.R
-import com.example.tactics_center.ui.theme.LightGrey
+import com.example.tactics_center.ui.theme.BackgroundGrey
 import com.example.tactics_center.ui.theme.MyFmTacticsTheme
 
 class TacticActivity : ComponentActivity() {
@@ -33,13 +33,14 @@ class TacticActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(LightGrey),
+                        .background(BackgroundGrey),
                     topBar = {},
                     content = { innerPadding ->
-                        Surface(modifier = Modifier.padding(innerPadding)) {
+                        Surface(modifier = Modifier.padding(innerPadding), color = BackgroundGrey) {
                             TacticFieldComponent()
                         }
-                    }
+                    },
+                    containerColor = BackgroundGrey
                 )
             }
         }

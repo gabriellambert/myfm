@@ -2,9 +2,9 @@ package com.example.tactics_center.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -49,6 +49,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.example.tactics_center.R
+import com.example.tactics_center.ui.theme.BackgroundGrey
 import com.example.tactics_center.ui.theme.LightGrey
 import com.example.tactics_center.ui.theme.Typography
 import kotlinx.coroutines.launch
@@ -62,6 +63,7 @@ fun TacticFieldComponent() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
+            .background(BackgroundGrey)
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Text(
@@ -126,7 +128,8 @@ fun PlayerButton(
                 enabled = true,
                 onClick = { showPlayerOptions = true },
                 interactionSource = remember { MutableInteractionSource() },
-                indication = null)
+                indication = null
+            )
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -163,7 +166,9 @@ fun PlayerButton(
                 onDismissRequest = {
                     showPlayerOptions = false
                 },
-                sheetState = sheetState
+                sheetState = sheetState,
+                containerColor = BackgroundGrey,
+                contentColor = BackgroundGrey
             ) {
                 var text by remember { mutableStateOf("") }
                 val focusManager = LocalFocusManager.current
