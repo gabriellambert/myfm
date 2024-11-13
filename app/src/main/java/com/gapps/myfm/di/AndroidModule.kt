@@ -17,9 +17,9 @@ import com.gapps.player_center_data.repository.domain.usecase.PlayerUseCaseImpl
 import com.gapps.player_center_data.repository.room.PlayerDatabase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor.Level
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -41,6 +41,7 @@ val androidModule = module {
             .build()
 
         Retrofit.Builder()
+//            .baseUrl("https://football-manager-api.p.rapidapi.com/")
             .baseUrl("https://gabriellambert.github.io/")
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())

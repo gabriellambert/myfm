@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel(private val searchUseCase: SearchUseCase) : ViewModel() {
     fun getAllPlayers() {
         viewModelScope.launch {
-            val players = searchUseCase.getAllPlayers()
+            val players = searchUseCase.getAllPlayersMock()
             Log.d("players loaded", players.toString())
         }
     }

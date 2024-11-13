@@ -6,7 +6,11 @@ import com.gapps.myfm.search_data.model.PlayerResponse
 class SearchUseCaseImpl(
     private val searchRepository: SearchRepository
 ) : SearchUseCase {
-    override suspend fun getAllPlayers(): List<PlayerResponse> {
-        return searchRepository.getAllPlayers()
+    override suspend fun getPlayerByName(): List<PlayerResponse> {
+        return searchRepository.getPlayerByName()
+    }
+
+    override suspend fun getAllPlayersMock(): List<PlayerResponse> {
+        return searchRepository.getAllPlayersMock()
     }
 }
