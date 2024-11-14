@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "598368761167",
+    "firebase_url": "https://myfm-40937-default-rtdb.firebaseio.com",
+    "project_id": "myfm-40937",
+    "storage_bucket": "myfm-40937.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598368761167:android:70e9bcb94bc9388edb013a",
+        "android_client_info": {
+          "package_name": "com.gapps.myfm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMRVGOyufF6jA7fvVeAfy7mNKI58qrxXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
