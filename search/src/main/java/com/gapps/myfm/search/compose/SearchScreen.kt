@@ -19,6 +19,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -171,10 +172,19 @@ fun SearchPlayersTab() {
 //    }
 
     val searchResult by viewModel.searchResult.collectAsState()
+    val loadingResult by viewModel.loading.collectAsState()
 
-    LazyColumn(modifier = Modifier.padding(top = 16.dp, bottom = 48.dp)) {
-        items(searchResult) { player ->
-            SearchPlayerItem(player)
+    if (loadingResult) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            CircularProgressIndicator(
+                color = PrimaryYellow
+            )
+        }
+    } else {
+        LazyColumn(modifier = Modifier.padding(top = 16.dp, bottom = 48.dp)) {
+            items(searchResult) { player ->
+                SearchPlayerItem(player)
+            }
         }
     }
 }
@@ -196,11 +206,11 @@ fun SearchPlayerItem(player: PlayerDBResponse) {
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(
-                    text = player.name ?: "",
+                    text = player.name,
                     style = Typography.bodySmall
                 )
                 Text(
-                    text = "${player.age} - ${player.club}",
+                    text = "${player.age}",
                     style = Typography.labelSmall
                 )
             }

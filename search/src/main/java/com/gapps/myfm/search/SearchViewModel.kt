@@ -17,23 +17,27 @@ class SearchViewModel(private val searchUseCase: SearchUseCase) : ViewModel() {
     private val _searchResult = MutableStateFlow<MutableList<PlayerDBResponse>>(mutableListOf())
     val searchResult: StateFlow<MutableList<PlayerDBResponse>> = _searchResult.asStateFlow()
 
+    private val _loading = MutableStateFlow<Boolean>(false)
+    val loading: StateFlow<Boolean> = _loading.asStateFlow()
+
     fun getPlayersByName(name: String) {
         viewModelScope.launch {
             val database = FirebaseDatabase.getInstance()
-            val myRef = database.getReference()
+            val myRef = database.getReference("players")
 
             val foundedPlayers: MutableList<PlayerDBResponse> = mutableListOf()
-
+            _loading.value = true
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for (postSnapshot in dataSnapshot.children) {
                         val player = postSnapshot.getValue(PlayerDBResponse::class.java)
 
-                        if (player?.searchString?.contains(name) == true) {
+                        if (player?.name?.contains(name) == true) {
                             foundedPlayers.add(player)
                         }
                     }
                     _searchResult.value = foundedPlayers
+                    _loading.value = false
                 }
 
                 override fun onCancelled(error: DatabaseError) {
