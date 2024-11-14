@@ -2,7 +2,6 @@ package com.gapps.myfm.search.compose
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +31,7 @@ import androidx.compose.material3.TabRowDefaults.SecondaryIndicator
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -40,22 +40,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gapps.myfm.search.SearchViewModel
 import com.gapps.myfm.search.theme.BackgroundGray
 import com.gapps.myfm.search.theme.LightGray
 import com.gapps.myfm.search.theme.MyFmSearchTheme
 import com.gapps.myfm.search.theme.PrimaryYellow
 import com.gapps.myfm.search.theme.Typography
-import org.koin.androidx.compose.getViewModel
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.platform.LocalContext
-import com.gapps.myfm.search_data.model.PlayerResponse
+import com.gapps.myfm.search_data.model.PlayerDBResponse
 import com.gapps.player_center.PlayerActivity
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun SearchScreen() {
@@ -173,9 +171,8 @@ fun SearchPlayersTab() {
 //    }
 
     val searchResult by viewModel.searchResult.collectAsState()
-    Log.d("searched name", searchResult.toString())
 
-    LazyColumn(modifier = Modifier.padding(top = 16.dp)) {
+    LazyColumn(modifier = Modifier.padding(top = 16.dp, bottom = 48.dp)) {
         items(searchResult) { player ->
             SearchPlayerItem(player)
         }
@@ -183,7 +180,7 @@ fun SearchPlayersTab() {
 }
 
 @Composable
-fun SearchPlayerItem(player: PlayerResponse) {
+fun SearchPlayerItem(player: PlayerDBResponse) {
     val context = LocalContext.current
     Box(
         modifier = Modifier
@@ -199,7 +196,7 @@ fun SearchPlayerItem(player: PlayerResponse) {
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(
-                    text = player.name,
+                    text = player.name ?: "",
                     style = Typography.bodySmall
                 )
                 Text(
