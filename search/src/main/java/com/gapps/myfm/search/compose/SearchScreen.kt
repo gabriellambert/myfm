@@ -52,7 +52,7 @@ import com.gapps.myfm.search.theme.LightGray
 import com.gapps.myfm.search.theme.MyFmSearchTheme
 import com.gapps.myfm.search.theme.PrimaryYellow
 import com.gapps.myfm.search.theme.Typography
-import com.gapps.myfm.search_data.model.PlayerDBResponse
+import com.gapps.myfm.search_data.model.PlayerResponse
 import com.gapps.player_center.PlayerActivity
 import org.koin.androidx.compose.getViewModel
 
@@ -78,7 +78,11 @@ fun SearchScreen() {
 
 @Composable
 fun SearchFieldComponent() {
-    Column(modifier = Modifier.padding(32.dp)) {
+    Column(
+        modifier = Modifier
+            .padding(32.dp)
+            .fillMaxSize()
+    ) {
         SearchTabsComponent()
     }
 }
@@ -160,17 +164,6 @@ fun SearchPlayersTab() {
         )
     )
 
-//    // Adicione um botão para enviar a pesquisa
-//    Button(
-//        onClick = {
-//            // Realize a pesquisa com o texto 'searchText'
-//            println("Pesquisa: $searchText")
-//        },
-//        modifier = Modifier.padding(16.dp)
-//    ) {
-//        Text("Pesquisar")
-//    }
-
     val searchResult by viewModel.searchResult.collectAsState()
     val loadingResult by viewModel.loading.collectAsState()
 
@@ -190,7 +183,7 @@ fun SearchPlayersTab() {
 }
 
 @Composable
-fun SearchPlayerItem(player: PlayerDBResponse) {
+fun SearchPlayerItem(player: PlayerResponse) {
     val context = LocalContext.current
     Box(
         modifier = Modifier

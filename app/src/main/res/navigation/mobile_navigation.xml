@@ -23,9 +23,9 @@
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.gapps.player_center.ui.TeamPlayersFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_team_players" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:name="com.gapps.player_center.ui.TeamPlayersFragment"-->
+<!--        android:label="@string/title_settings"-->
+<!--        tools:layout="@layout/fragment_team_players" />-->
 </navigation>

@@ -41,8 +41,8 @@ val androidModule = module {
             .build()
 
         Retrofit.Builder()
-//            .baseUrl("https://football-manager-api.p.rapidapi.com/")
-            .baseUrl("https://gabriellambert.github.io/")
+            .baseUrl("https://football-manager-api.p.rapidapi.com/")
+//            .baseUrl("https://gabriellambert.github.io/")
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
