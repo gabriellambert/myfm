@@ -1,7 +1,5 @@
 package com.gapps.myfm.search.compose
 
-import android.content.Context
-import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -41,23 +39,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.gapps.myfm.search.SearchViewModel
+import com.gapps.myfm.search.navigation.PlayerDetails
 import com.gapps.myfm.search.theme.BackgroundGray
 import com.gapps.myfm.search.theme.LightGray
 import com.gapps.myfm.search.theme.MyFmSearchTheme
 import com.gapps.myfm.search.theme.PrimaryYellow
 import com.gapps.myfm.search.theme.Typography
 import com.gapps.myfm.search_data.model.PlayerResponse
-import com.gapps.player_center.PlayerActivity
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(navController: NavHostController) {
     MyFmSearchTheme {
         Scaffold(
             modifier = Modifier
@@ -69,7 +66,7 @@ fun SearchScreen() {
                     modifier = Modifier.padding(innerPadding),
                     color = BackgroundGray
                 ) {
-                    SearchFieldComponent()
+                    SearchFieldComponent(navController)
                 }
             }
         )
@@ -77,18 +74,18 @@ fun SearchScreen() {
 }
 
 @Composable
-fun SearchFieldComponent() {
+fun SearchFieldComponent(navController: NavHostController) {
     Column(
         modifier = Modifier
             .padding(32.dp)
             .fillMaxSize()
     ) {
-        SearchTabsComponent()
+        SearchTabsComponent(navController)
     }
 }
 
 @Composable
-fun SearchTabsComponent() {
+fun SearchTabsComponent(navController: NavHostController) {
     var selectedTab by remember { mutableIntStateOf(0) }
     val tabs = listOf("Jogadores", "Times")
 
@@ -126,14 +123,14 @@ fun SearchTabsComponent() {
         }
 
         when (selectedTab) {
-            0 -> SearchPlayersTab()
+            0 -> SearchPlayersTab(navController)
 //            1 -> TabContent2()
         }
     }
 }
 
 @Composable
-fun SearchPlayersTab() {
+fun SearchPlayersTab(navController: NavHostController) {
     var searchText by remember { mutableStateOf("") }
 
     val focusManager = LocalFocusManager.current
@@ -176,19 +173,22 @@ fun SearchPlayersTab() {
     } else {
         LazyColumn(modifier = Modifier.padding(top = 16.dp, bottom = 48.dp)) {
             items(searchResult) { player ->
-                SearchPlayerItem(player)
+                SearchPlayerItem(player, navController)
             }
         }
     }
 }
 
 @Composable
-fun SearchPlayerItem(player: PlayerResponse) {
-    val context = LocalContext.current
+fun SearchPlayerItem(player: PlayerResponse, navController: NavHostController) {
+    val viewModel = getViewModel<SearchViewModel>()
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onItemClicked(context) }
+            .clickable {
+                viewModel.updatePlayerFounded(player)
+                navController.navigate(PlayerDetails.route)
+            }
     ) {
         Row(
             modifier = Modifier
@@ -203,7 +203,7 @@ fun SearchPlayerItem(player: PlayerResponse) {
                     style = Typography.bodySmall
                 )
                 Text(
-                    text = "${player.age}",
+                    text = "${player.age} / ${player.club}",
                     style = Typography.labelSmall
                 )
             }
@@ -217,17 +217,4 @@ fun SearchPlayerItem(player: PlayerResponse) {
             color = LightGray
         )
     }
-}
-
-fun onItemClicked(context: Context) {
-    val intent = Intent(context, PlayerActivity::class.java).apply {
-        putExtra("PLAYER_ID", 32132L)
-    }
-    context.startActivity(intent)
-}
-
-@Preview
-@Composable
-fun SearchScreenPreview() {
-    SearchScreen()
 }

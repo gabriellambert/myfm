@@ -7,12 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.material3.Surface
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import com.gapps.myfm.search.compose.SearchScreen
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {
-    private val viewModel: SearchViewModel by viewModel()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,7 +16,7 @@ class SearchFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 Surface {
-                    SearchScreen()
+                    SearchScreenModuleNav()
                 }
             }
         }
