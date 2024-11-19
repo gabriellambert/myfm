@@ -3,6 +3,7 @@ package com.gapps.myfm.search.compose
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,14 +22,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.gapps.myfm.search.SearchViewModel
 import com.gapps.myfm.search.theme.BackgroundGray
 import com.gapps.myfm.search.theme.Gray27
@@ -36,11 +39,17 @@ import com.gapps.myfm.search.theme.LightGray
 import com.gapps.myfm.search.theme.MyFmSearchTheme
 import com.gapps.myfm.search.theme.PrimaryYellow
 import com.gapps.myfm.search.theme.Typography
+import com.gapps.myfm.search_data.model.AttributeResponse
+import com.gapps.myfm.search_data.model.GoalkeepingAttributeResponse
+import com.gapps.myfm.search_data.model.HiddenAttributeResponse
+import com.gapps.myfm.search_data.model.MentalAttributeResponse
+import com.gapps.myfm.search_data.model.PhysicalAttributeResponse
 import com.gapps.myfm.search_data.model.PlayerResponse
+import com.gapps.myfm.search_data.model.TechnicalAttributeResponse
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun PlayerDetailsScreen(navController: NavHostController) {
+fun PlayerDetailsScreen() {
     val viewModel = getViewModel<SearchViewModel>()
     val player by viewModel.playerSelected.collectAsState()
     MyFmSearchTheme {
@@ -73,6 +82,21 @@ fun PlayerTabsComponent(player: PlayerResponse?) {
     val tabs = listOf("informações", "atributos")
 
     Column {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 32.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = player?.name ?: "",
+                style = Typography.titleMedium
+            )
+            Text(
+                text = player?.nationalities?.get(0) ?: "",
+                style = Typography.labelMedium,
+                textAlign = TextAlign.End,
+                modifier = Modifier.weight(1f)
+            )
+        }
         TabRow(
             selectedTabIndex = selectedTab,
             modifier = Modifier.fillMaxWidth(),
@@ -223,34 +247,34 @@ fun PlayerAttributesTab(player: PlayerResponse?) {
     }
 }
 
-//@Preview
-//@Composable
-//fun PlayerScreenPreview() {
-//    val player = PlayerResponse(
-//        playerId = "",
-//        name = "David De Gea",
-//        age = "32",
-//        currentAbility = "144",
-//        potentialAbility = "178",
-//        minPotentialAbility = "178",
-//        maxPotentialAbility = "178",
-//        club = "",
-//        nationalities = listOf("ESP", "ARG"),
-//        positions = listOf("GK"),
-//        askingPrice = "0",
-//        contractLength = "-",
-//        personality = "Resolute",
-//        searchString = "David De Gea",
-//        reputation = 0,
-//        attributes = AttributeResponse(
-//            technicals = TechnicalAttributeResponse(
-//                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-//            ),
-//            mentals = MentalAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-//            physicals = PhysicalAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0),
-//            goalkeeping = GoalkeepingAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-//            hidden = HiddenAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-//        ),
-//    )
-//    PlayerDetailsScreen()
-//}
+@Preview
+@Composable
+fun PlayerScreenPreview() {
+    val player = PlayerResponse(
+        playerId = "",
+        name = "David De Gea",
+        age = "32",
+        currentAbility = "144",
+        potentialAbility = "178",
+        minPotentialAbility = "178",
+        maxPotentialAbility = "178",
+        club = "",
+        nationalities = listOf("ESP", "ARG"),
+        positions = listOf("GK"),
+        askingPrice = "0",
+        contractLength = "-",
+        personality = "Resolute",
+        searchString = "David De Gea",
+        reputation = 0,
+        attributes = AttributeResponse(
+            technicals = TechnicalAttributeResponse(
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ),
+            mentals = MentalAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            physicals = PhysicalAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0),
+            goalkeeping = GoalkeepingAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            hidden = HiddenAttributeResponse(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+        ),
+    )
+    PlayerTabsComponent(player)
+}

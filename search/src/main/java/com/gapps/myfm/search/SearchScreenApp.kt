@@ -28,7 +28,7 @@ fun SearchScreenModuleNavHost(
             SearchScreen(navController)
         }
         composable(route = PlayerDetails.route) {
-            PlayerDetailsScreen(navController)
+            PlayerDetailsScreen()
         }
     }
 }
