@@ -135,14 +135,28 @@ fun PlayerTabsComponent(player: PlayerResponse?) {
         }
 
         when (selectedTab) {
-            0 -> PlayerAttributesTab(player)
-//            1 -> TabContent2()
+            0 -> PlayerInfosTab(player)
+            1 -> PlayerAttributesTabTemporarily()
         }
     }
 }
 
 @Composable
-fun PlayerAttributesTab(player: PlayerResponse?) {
+fun PlayerAttributesTabTemporarily() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(32.dp)
+    ) {
+        Text(
+            text = "Em breve você poderá consultar os atributos do jogador aqui",
+            style = Typography.bodyMedium
+        )
+    }
+}
+
+@Composable
+fun PlayerInfosTab(player: PlayerResponse?) {
     Column(
         modifier = Modifier.padding(top = 36.dp, start = 8.dp, end = 8.dp)
     ) {
