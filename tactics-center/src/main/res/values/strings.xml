@@ -1,3 +1,5 @@
 <resources>
     <string name="btn_create_tactic_text">Criar tática</string>
+    <string name="tactic_central_title">Central Tática</string>
+    <string name="tactic_central_description">Você pode começar selecionando os jogadores do seu time e arrastando eles para suas posições no gramado</string>
 </resources>
