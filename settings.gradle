@@ -17,3 +17,6 @@ rootProject.name = "MyFM"
 include ':app'
 include ':player-center'
 include ':player-center-data'
+include ':tactics-center'
+include ':search'
+include ':search-data'

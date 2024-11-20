@@ -1,14 +1,14 @@
 package com.gapps.player_center
 
 import androidx.lifecycle.ViewModel
-import com.gapps.player_center.mappers.PlayerMapper
-import com.gapps.player_center.model.Player
-import com.gapps.player_center_data.repository.PlayerRepository
+import com.gapps.player_center_data.repository.domain.usecase.PlayerUseCase
+import com.gapps.player_center_data.repository.model.PlayerVO
 
-class PlayerViewModel(private val repository: PlayerRepository) : ViewModel() {
+class PlayerViewModel(
+    private val playerUseCase: PlayerUseCase
+) : ViewModel() {
 
-    fun getPlayerById(id: Long): Player {
-        val playerData = repository.playerById(id)
-        return PlayerMapper.mapSinglePlayer(playerData)
+    fun getPlayerById(id: Long): PlayerVO {
+        return playerUseCase.playerById(id)
     }
 }

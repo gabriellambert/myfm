@@ -3,21 +3,21 @@ package com.gapps.myfm.ui
 import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.ViewModel
-import com.gapps.player_center.mappers.PlayerMapper
-import com.gapps.player_center.model.Player
-import com.gapps.player_center_data.repository.PlayerRepository
-import com.gapps.player_center_data.repository.model.GoalkeeperAttributesData
-import com.gapps.player_center_data.repository.model.MentalAttributesData
-import com.gapps.player_center_data.repository.model.PhysicalAttributesData
-import com.gapps.player_center_data.repository.model.PlayerData
-import com.gapps.player_center_data.repository.model.TechnicalAttributesData
+import com.gapps.player_center_data.repository.domain.usecase.PlayerUseCase
+import com.gapps.player_center_data.repository.model.GoalkeeperAttributesVO
+import com.gapps.player_center_data.repository.model.MentalAttributesVO
+import com.gapps.player_center_data.repository.model.PhysicalAttributesVO
+import com.gapps.player_center_data.repository.model.PlayerVO
+import com.gapps.player_center_data.repository.model.TechnicalAttributesVO
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
 
-class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
+class MainViewModel(
+    private val playerUseCase: PlayerUseCase
+) : ViewModel() {
 
-    private val players = mutableListOf<PlayerData>()
+    private val players = mutableListOf<PlayerVO>()
 
     @Throws(IOException::class)
     fun readTextFromUri(uri: Uri, applicationContext: Context) {
@@ -50,7 +50,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
             val values = rows[i].split("|").filter { it.isNotBlank() }.map { it.trim() }
             val playerMap = headers.zip(values).toMap()
 
-            val player = PlayerData(
+            val player = PlayerVO(
                 name = playerMap["Nome"] ?: "",
                 age = playerMap["Idade"]?.toIntOrNull() ?: 0,
                 height = playerMap["Altura"] ?: "",
@@ -58,7 +58,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                 positions = playerMap["Posição"] ?: "",
                 secondaryPositions = playerMap["Posição Sec."] ?: "",
                 nationality = playerMap["Nac"] ?: "",
-                technicalAttibutes = TechnicalAttributesData(
+                technicalAttibutes = TechnicalAttributesVO(
                     corners = playerMap["Cnt"]?.toIntOrNull() ?: 0,
                     crossing = playerMap["Cruz"]?.toIntOrNull() ?: 0,
                     dribbling = playerMap["Fnt"]?.toIntOrNull() ?: 0,
@@ -74,7 +74,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     tackling = playerMap["Des"]?.toIntOrNull() ?: 0,
                     technique = playerMap["Téc"]?.toIntOrNull() ?: 0
                 ),
-                goalkeeperAttibutes = GoalkeeperAttributesData(
+                goalkeeperAttibutes = GoalkeeperAttributesVO(
                     aerialReach = playerMap["Aer"]?.toIntOrNull() ?: 0,
                     commandOfArea = playerMap["Cmd"]?.toIntOrNull() ?: 0,
                     communication = playerMap["Com"]?.toIntOrNull() ?: 0,
@@ -89,7 +89,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     rushingOut = playerMap["TSB"]?.toIntOrNull() ?: 0,
                     throwing = playerMap["Lan"]?.toIntOrNull() ?: 0
                 ),
-                mentalAttibutes = MentalAttributesData(
+                mentalAttibutes = MentalAttributesVO(
                     aggression = playerMap["Agr"]?.toIntOrNull() ?: 0,
                     anticipation = playerMap["Ant"]?.toIntOrNull() ?: 0,
                     bravery = playerMap["Bra"]?.toIntOrNull() ?: 0,
@@ -105,7 +105,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
                     vision = playerMap["Vis"]?.toIntOrNull() ?: 0,
                     workRate = playerMap["In Tr"]?.toIntOrNull() ?: 0
                 ),
-                physicalAttibutes = PhysicalAttributesData(
+                physicalAttibutes = PhysicalAttributesVO(
                     acceleration = playerMap["Acl"]?.toIntOrNull() ?: 0,
                     agility = playerMap["Agi"]?.toIntOrNull() ?: 0,
                     balance = playerMap["Eql"]?.toIntOrNull() ?: 0,
@@ -123,7 +123,7 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
         savePlayers()
     }
 
-    private fun renameDuplicateImpAttribute(headers: MutableList<String>):List<String> {
+    private fun renameDuplicateImpAttribute(headers: MutableList<String>): List<String> {
         //encontra o primeiro "Imp" e altera para "Impr" para que os atributos não fiquem duplicados"
         var found = false
         headers.forEachIndexed { index, header ->
@@ -138,19 +138,18 @@ class MainViewModel(private val repository: PlayerRepository) : ViewModel() {
 
     private fun savePlayers() {
         players.forEach {
-            repository.save(it)
+            playerUseCase.save(it)
         }
     }
 
     fun deletePlayers() {
         //ajustar para remover todos os players
         players.forEach {
-            repository.delete(it)
+            playerUseCase.delete(it)
         }
     }
 
-    fun getPlayerList(): List<Player> {
-        val players = repository.getAll()
-        return PlayerMapper.mapToPlayerModel(players)
+    fun getPlayerList(): List<PlayerVO> {
+        return playerUseCase.getAll()
     }
 }

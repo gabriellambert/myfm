@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.player_center.R
 import com.example.player_center.databinding.ActivityPlayerBinding
-import com.gapps.player_center.model.Player
 import com.gapps.player_center.tabs.PlayerTabAdapter
 import com.gapps.player_center.tabs.PlayerTabType
+import com.gapps.player_center_data.repository.model.PlayerVO
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,7 +18,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlayerBinding
     private lateinit var playerTabAdapter: PlayerTabAdapter
-    private lateinit var player: Player
+    private lateinit var player: PlayerVO
 
     private val viewModel: PlayerViewModel by viewModel()
 
@@ -40,20 +40,6 @@ class PlayerActivity : AppCompatActivity() {
 
         setContent(player)
         setPlayerTabs()
-
-
-//        val navView: BottomNavigationView = binding.navView
-//
-//        val navController = findNavController(R.id.nav_host_fragment_activity_player)
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
     }
 
     @Deprecated("Deprecated in Java")
@@ -62,7 +48,7 @@ class PlayerActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
-    private fun setContent(player: Player) {
+    private fun setContent(player: PlayerVO) {
         binding.playerName.text = player.name
         binding.playerHeightWeight.text = getString(
             R.string.player_height_weight,
