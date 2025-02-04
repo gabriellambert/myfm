@@ -25,14 +25,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/tactic_central_title" />
+            android:text="@string/tactic_central_title"
+            android:textSize="22sp" />
 
         <TextView
             style="@style/EmptyState.Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/tactic_central_description" />
+            android:text="@string/tactic_central_description"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_test"
