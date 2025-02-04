@@ -5,17 +5,45 @@
     android:id="@+id/tactics_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:layout_marginBottom="?attr/actionBarSize"
+    android:padding="16dp"
     tools:context="com.example.tactics_center.ui.TacticsFragment">
 
-    <Button
-        android:id="@+id/button_test"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/empyt_state_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_create_tactic_text"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_32"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/EmptyState.Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/tactic_central_title"
+            android:textSize="22sp" />
+
+        <TextView
+            style="@style/EmptyState.Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/tactic_central_description"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button_test"
+            style="@style/EmptyState.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="@string/btn_create_tactic_text" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

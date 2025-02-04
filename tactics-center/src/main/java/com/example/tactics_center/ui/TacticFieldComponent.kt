@@ -198,6 +198,8 @@ fun PlayerButton(
                 val focusManager = LocalFocusManager.current
 
                 OutlinedTextField(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    singleLine = true,
                     value = text,
                     onValueChange = { text = it },
                     label = { Text("Crie um nome") },
@@ -220,6 +222,7 @@ fun PlayerButton(
                     items(players) { player ->
                         Text(
                             text = player.name,
+                            color = Color.White,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(8.dp)

@@ -50,14 +50,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/empty_state_header" />
+            android:text="@string/empty_state_header"
+            android:textSize="22sp" />
 
         <TextView
             style="@style/EmptyState.Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/empty_state_description" />
+            android:text="@string/empty_state_description"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/upload_button"
